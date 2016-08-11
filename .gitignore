@@ -1,0 +1,27 @@
+# Python
+*.pyc
+venv
+
+# Eclipse
+.project
+.pydevproject
+
+# PyCharm
+.idea
+
+# Rope
+.ropeproject
+
+# Vim
+*.swp
+
+#Temp Files
+*~
+.swp
+temp
+**/htpasswd.users
+**/*_deploy
+**/*_deploy.json
+
+# SqlLite
+*.sqlite3
