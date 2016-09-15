@@ -4,7 +4,7 @@ from grpc.beta import implementations
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 
-from config.protobuf.generated import users_pb2
+from protobuf.generated import users_pb2
 
 
 class AuthUser(object):
@@ -42,4 +42,3 @@ class UserAuthentication(TokenAuthentication):
             return user, None
         else:
             raise AuthenticationFailed(_('Invalid token.'))
-

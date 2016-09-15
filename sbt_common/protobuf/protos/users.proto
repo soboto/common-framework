@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package soboto.users;
+
+message UserIdentifier {
+    string username = 1;
+    string name = 2;
+    string user_id = 3;
+}
+
+// RPC request & response messages
+message ValidateAuthenticationTokenRequest {
+    string token = 1;
+}
+
+message ValidateAuthenticationTokenResponse {
+    bool valid = 1;
+    UserIdentifier auth_user = 2;
+}
+
+// The service definition.
+service UsersService {
+  rpc ValidateAuthenticationToken (ValidateAuthenticationTokenRequest)
+    returns (ValidateAuthenticationTokenResponse) {}
+}
+
