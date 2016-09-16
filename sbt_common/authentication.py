@@ -3,8 +3,10 @@ from django.utils.translation import gettext as _
 from grpc.beta import implementations
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.permissions import IsAuthenticated
 
 from protobuf.generated import users_pb2
+from sbt_common.settings import api_settings
 
 
 class AuthUser(object):
@@ -27,7 +29,7 @@ class AuthUser(object):
         return self
 
 
-class UserAuthentication(TokenAuthentication):
+class ServiceTokenAuthentication(TokenAuthentication):
 
     def authenticate_credentials(self, key):
 
@@ -42,3 +44,15 @@ class UserAuthentication(TokenAuthentication):
             return user, None
         else:
             raise AuthenticationFailed(_('Invalid token.'))
+
+
+class UserIsAuthenticated(IsAuthenticated):
+    """
+    Allows access only to authenticated users.
+    """
+
+    def has_permission(self, request, view):
+        if api_settings.REQUIRE_AUTH is False:
+            return True
+
+        return super(self.__class__, self).has_permission(request, view)
