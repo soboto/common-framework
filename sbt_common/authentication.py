@@ -4,7 +4,6 @@ from grpc.beta import implementations
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
-import consul
 
 from protobuf.generated import users_pb2
 from sbt_common.settings import api_settings
