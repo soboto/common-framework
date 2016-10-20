@@ -1,4 +1,4 @@
-from authentication import UserIsAuthenticated
+from sbt_common.authentication import UserIsAuthenticated
 
 
 class CustomAuthenticationViewMixin(object):
