@@ -10,8 +10,14 @@ from rest_framework.fields import CharField, DateTimeField
 
 class LanguageField(CharField):
 
+    def get_language_code(self):
+        request = self.parent._context.get('request', None)
+        assert request is not None, 'request have to be initializated on parent serializer context'
+
+        return getattr(request, 'content_language')
+
     def to_internal_value(self, value):
-        lang_code = cache.get('content_language')
+        lang_code = self.get_language_code()
 
         if self.parent.instance:
             current_value = getattr(self.parent.instance, self.source)
@@ -25,7 +31,7 @@ class LanguageField(CharField):
         }
 
     def to_representation(self, value):
-        lang_code = cache.get('content_language')
+        lang_code = self.get_language_code()
 
         if lang_code in value:
             return value[lang_code]

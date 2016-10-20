@@ -4,6 +4,7 @@ from grpc.beta import implementations
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
+import consul
 
 from protobuf.generated import users_pb2
 from sbt_common.settings import api_settings
@@ -33,7 +34,7 @@ class ServiceTokenAuthentication(TokenAuthentication):
 
     def authenticate_credentials(self, key):
 
-        channel = implementations.insecure_channel('sbtbackoffice_sbt-users-50054', 50054)
+        channel = implementations.insecure_channel('sbtbackoffice_users-50050', 50050)
         stub = users_pb2.beta_create_UsersService_stub(channel)
         response = stub.ValidateAuthenticationToken(users_pb2.ValidateAuthenticationTokenRequest(token=key), 1)
 
