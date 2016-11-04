@@ -12,7 +12,8 @@ class LanguageField(CharField):
 
     def get_language_code(self):
         request = self.parent._context.get('request', None)
-        assert request is not None, 'request have to be initializated on parent serializer context'
+        assert request is not None, 'request have to be initializated on parent serializer ' \
+                                    '(' + self.parent.__class__.__name__ + ') context'
 
         return getattr(request, 'content_language')
 
