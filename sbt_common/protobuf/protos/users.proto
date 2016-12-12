@@ -2,10 +2,19 @@ syntax = "proto3";
 
 package soboto.users;
 
-message UserIdentifier {
-    string username = 1;
-    string name = 2;
-    string user_id = 3;
+message UserEntity {
+    string id = 1;
+}
+
+message UserAuth {
+    string id = 1;
+    string username = 2;
+    string name = 3;
+    string email = 4;
+    string first_name = 5;
+    string last_name = 6;
+    string type = 7;
+    repeated UserEntity entity = 8;
 }
 
 // RPC request & response messages
@@ -15,7 +24,7 @@ message ValidateAuthenticationTokenRequest {
 
 message ValidateAuthenticationTokenResponse {
     bool valid = 1;
-    UserIdentifier auth_user = 2;
+    UserAuth user = 2;
 }
 
 // The service definition.

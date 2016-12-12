@@ -2,7 +2,6 @@
 import calendar
 import datetime
 
-from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.utils.timezone import utc
 from rest_framework.fields import CharField, DateTimeField

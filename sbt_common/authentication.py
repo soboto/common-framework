@@ -7,43 +7,27 @@ from rest_framework.permissions import IsAuthenticated
 
 from protobuf.generated import users_pb2
 from sbt_common.settings import api_settings
-
-
-class AuthUser(object):
-    username = None
-    user_id = None
-    name = None
-
-    def __init__(self, username, user_id, name, *args, **kwargs):
-        self.username = username
-        self.user_id = user_id
-        self.name = name
-
-    def __unicode__(self):
-        return self.username
-
-    def __call__(self, *args, **kwargs):
-        return self
-
-    def __getattr__(self, name):
-        return self
+from sbt_common.utils import import_class
 
 
 class ServiceTokenAuthentication(TokenAuthentication):
 
     def authenticate_credentials(self, key):
-
         channel = implementations.insecure_channel('sbtbackoffice_users-50050', 50050)
         stub = users_pb2.beta_create_UsersService_stub(channel)
         response = stub.ValidateAuthenticationToken(users_pb2.ValidateAuthenticationTokenRequest(token=key), 1)
 
         if response.valid:
-            user_info = response.auth_user
-            user = AuthUser(user_info.username, user_info.user_id, user_info.name)
+            user_info = response.user
+            auth_model_interface = self.get_auth_model_interface_class()
+            user = auth_model_interface().get_model(user_info)
 
             return user, None
         else:
             raise AuthenticationFailed(_('Invalid token.'))
+
+    def get_auth_model_interface_class(self):
+        return import_class(api_settings.AUTH_MODEL_INTERFACE)
 
 
 class UserIsAuthenticated(IsAuthenticated):

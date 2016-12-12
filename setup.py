@@ -10,13 +10,15 @@ setup(
     version='1.0.0',
     license='Apache License, Version 2.0',
 
-    install_requires=[],
+    install_requires=[
+        'Django>=1.8',
+    ],
 
     description='',
     long_description=open('README.md').read(),
 
-    author='Dennis Bunskoek',
-    author_email='dbunskoek@leukeleu.nl',
+    author='Nuno Silva',
+    author_email='nmsilva@ubiwhere.pt',
 
     url='https://github.com/soboto/common-framework',
     download_url='',
