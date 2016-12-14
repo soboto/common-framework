@@ -1,3 +1,4 @@
 Django==1.9.4
 grpcio==1.0.2
-protobuf-to-dict==0.1.0
+
+https://github.com/soboto/protobuf-to-dict.git
