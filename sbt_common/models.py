@@ -37,3 +37,26 @@ class AuthUser(object):
 
     def __getattr__(self, name):
         return self
+
+    def _get_groups(self):
+        return self._groups
+    groups = property(_get_groups)
+
+    def _get_user_permissions(self):
+        return self._user_permissions
+    user_permissions = property(_get_user_permissions)
+
+    def get_group_permissions(self, obj=None):
+        return set()
+
+    def has_perms(self, perm_list, obj=None):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def is_authenticated(self):
+        return True
+
+    def get_username(self):
+        return self.username
