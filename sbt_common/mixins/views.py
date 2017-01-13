@@ -9,5 +9,7 @@ class CustomAuthenticationViewMixin(object):
     def get_permissions(self):
         if self.action in self.auth_actions:
             self.permission_classes += (UserIsAuthenticated, )
+        else:
+            self.permission_classes = ()
 
         return super(CustomAuthenticationViewMixin, self).get_permissions()
