@@ -4,6 +4,8 @@ from grpc.framework.interfaces.face import utilities as face_utilities
 
 import users_pb2 as users__pb2
 import users_pb2 as users__pb2
+import users_pb2 as users__pb2
+import users_pb2 as users__pb2
 
 
 class UsersServiceStub(object):
@@ -21,6 +23,11 @@ class UsersServiceStub(object):
         request_serializer=users__pb2.ValidateAuthenticationTokenRequest.SerializeToString,
         response_deserializer=users__pb2.ValidateAuthenticationTokenResponse.FromString,
         )
+    self.GetUserPermissions = channel.unary_unary(
+        '/soboto.users.UsersService/GetUserPermissions',
+        request_serializer=users__pb2.GetUserPermissionsRequest.SerializeToString,
+        response_deserializer=users__pb2.GetUserPermissionsResponse.FromString,
+        )
 
 
 class UsersServiceServicer(object):
@@ -32,6 +39,11 @@ class UsersServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def GetUserPermissions(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_UsersServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -39,6 +51,11 @@ def add_UsersServiceServicer_to_server(servicer, server):
           servicer.ValidateAuthenticationToken,
           request_deserializer=users__pb2.ValidateAuthenticationTokenRequest.FromString,
           response_serializer=users__pb2.ValidateAuthenticationTokenResponse.SerializeToString,
+      ),
+      'GetUserPermissions': grpc.unary_unary_rpc_method_handler(
+          servicer.GetUserPermissions,
+          request_deserializer=users__pb2.GetUserPermissionsRequest.FromString,
+          response_serializer=users__pb2.GetUserPermissionsResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

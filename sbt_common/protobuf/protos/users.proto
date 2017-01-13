@@ -2,6 +2,12 @@ syntax = "proto3";
 
 package soboto.users;
 
+message Permission {
+    string id = 1;
+    string name = 2;
+    string codename = 3;
+}
+
 message UserEntity {
     string id = 1;
 }
@@ -14,22 +20,36 @@ message UserAuth {
     string first_name = 5;
     string last_name = 6;
     string type = 7;
-    repeated UserEntity entity = 8;
+    bool is_superuser = 8;
+    bool is_active = 9;
+    bool is_staff = 10;
+    repeated UserEntity entity = 11;
 }
 
 // RPC request & response messages
+// Authentication
 message ValidateAuthenticationTokenRequest {
     string token = 1;
 }
-
 message ValidateAuthenticationTokenResponse {
     bool valid = 1;
     UserAuth user = 2;
 }
 
+// Get User Permissions
+message GetUserPermissionsRequest {
+    string user_id = 1;
+}
+message GetUserPermissionsResponse {
+    repeated Permission permissions = 1;
+}
+
 // The service definition.
 service UsersService {
-  rpc ValidateAuthenticationToken (ValidateAuthenticationTokenRequest)
-    returns (ValidateAuthenticationTokenResponse) {}
+    rpc ValidateAuthenticationToken (ValidateAuthenticationTokenRequest)
+        returns (ValidateAuthenticationTokenResponse) {}
+
+    rpc GetUserPermissions (GetUserPermissionsRequest)
+    returns (GetUserPermissionsResponse) {}
 }
 

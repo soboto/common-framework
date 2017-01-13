@@ -37,6 +37,6 @@ protoc.main(
     '-Iprotos',
     '--python_out=./generated',
     '--grpc_python_out=./generated',
-    'protos/files.proto',
+    'protos/users.proto',
     )
 )

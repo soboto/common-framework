@@ -8,7 +8,9 @@ USER_SETTINGS = getattr(settings, 'SOBOTO_COMMON', None)
 DEFAULTS = {
     'REQUIRE_AUTH': True,
     'SERVICE_NAME': None,
-    'AUTH_MODEL_INTERFACE': 'sbt_common.models.DefaultAuthModelInterface'
+    'AUTH_MODEL_INTERFACE': 'sbt_common.models.DefaultAuthModelInterface',
+
+    'SERVICE_USERS_URL': 'sbtbackoffice_users-50050'
 }
 
 api_settings = APISettings(USER_SETTINGS, DEFAULTS)

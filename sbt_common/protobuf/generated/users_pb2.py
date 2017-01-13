@@ -19,11 +19,56 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='users.proto',
   package='soboto.users',
   syntax='proto3',
-  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x18\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\"\xa4\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12(\n\x06\x65ntity\x18\x08 \x03(\x0b\x32\x18.soboto.users.UserEntity\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth2\x95\x01\n\x0cUsersService\x12\x84\x01\n\x1bValidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"\x18\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x03(\x0b\x32\x18.soboto.users.UserEntity\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission2\x80\x02\n\x0cUsersService\x12\x84\x01\n\x1bValidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12GetUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
+
+
+_PERMISSION = _descriptor.Descriptor(
+  name='Permission',
+  full_name='soboto.users.Permission',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='soboto.users.Permission.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='soboto.users.Permission.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='codename', full_name='soboto.users.Permission.codename', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=29,
+  serialized_end=85,
+)
 
 
 _USERENTITY = _descriptor.Descriptor(
@@ -52,8 +97,8 @@ _USERENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=29,
-  serialized_end=53,
+  serialized_start=87,
+  serialized_end=111,
 )
 
 
@@ -114,8 +159,29 @@ _USERAUTH = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='entity', full_name='soboto.users.UserAuth.entity', index=7,
-      number=8, type=11, cpp_type=10, label=3,
+      name='is_superuser', full_name='soboto.users.UserAuth.is_superuser', index=7,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='is_active', full_name='soboto.users.UserAuth.is_active', index=8,
+      number=9, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='is_staff', full_name='soboto.users.UserAuth.is_staff', index=9,
+      number=10, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='entity', full_name='soboto.users.UserAuth.entity', index=10,
+      number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -132,8 +198,8 @@ _USERAUTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=220,
+  serialized_start=114,
+  serialized_end=337,
 )
 
 
@@ -163,8 +229,8 @@ _VALIDATEAUTHENTICATIONTOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=273,
+  serialized_start=339,
+  serialized_end=390,
 )
 
 
@@ -201,16 +267,89 @@ _VALIDATEAUTHENTICATIONTOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=275,
-  serialized_end=365,
+  serialized_start=392,
+  serialized_end=482,
+)
+
+
+_GETUSERPERMISSIONSREQUEST = _descriptor.Descriptor(
+  name='GetUserPermissionsRequest',
+  full_name='soboto.users.GetUserPermissionsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user_id', full_name='soboto.users.GetUserPermissionsRequest.user_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=484,
+  serialized_end=528,
+)
+
+
+_GETUSERPERMISSIONSRESPONSE = _descriptor.Descriptor(
+  name='GetUserPermissionsResponse',
+  full_name='soboto.users.GetUserPermissionsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='permissions', full_name='soboto.users.GetUserPermissionsResponse.permissions', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=530,
+  serialized_end=605,
 )
 
 _USERAUTH.fields_by_name['entity'].message_type = _USERENTITY
 _VALIDATEAUTHENTICATIONTOKENRESPONSE.fields_by_name['user'].message_type = _USERAUTH
+_GETUSERPERMISSIONSRESPONSE.fields_by_name['permissions'].message_type = _PERMISSION
+DESCRIPTOR.message_types_by_name['Permission'] = _PERMISSION
 DESCRIPTOR.message_types_by_name['UserEntity'] = _USERENTITY
 DESCRIPTOR.message_types_by_name['UserAuth'] = _USERAUTH
 DESCRIPTOR.message_types_by_name['ValidateAuthenticationTokenRequest'] = _VALIDATEAUTHENTICATIONTOKENREQUEST
 DESCRIPTOR.message_types_by_name['ValidateAuthenticationTokenResponse'] = _VALIDATEAUTHENTICATIONTOKENRESPONSE
+DESCRIPTOR.message_types_by_name['GetUserPermissionsRequest'] = _GETUSERPERMISSIONSREQUEST
+DESCRIPTOR.message_types_by_name['GetUserPermissionsResponse'] = _GETUSERPERMISSIONSRESPONSE
+
+Permission = _reflection.GeneratedProtocolMessageType('Permission', (_message.Message,), dict(
+  DESCRIPTOR = _PERMISSION,
+  __module__ = 'users_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.users.Permission)
+  ))
+_sym_db.RegisterMessage(Permission)
 
 UserEntity = _reflection.GeneratedProtocolMessageType('UserEntity', (_message.Message,), dict(
   DESCRIPTOR = _USERENTITY,
@@ -240,6 +379,20 @@ ValidateAuthenticationTokenResponse = _reflection.GeneratedProtocolMessageType('
   ))
 _sym_db.RegisterMessage(ValidateAuthenticationTokenResponse)
 
+GetUserPermissionsRequest = _reflection.GeneratedProtocolMessageType('GetUserPermissionsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETUSERPERMISSIONSREQUEST,
+  __module__ = 'users_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.users.GetUserPermissionsRequest)
+  ))
+_sym_db.RegisterMessage(GetUserPermissionsRequest)
+
+GetUserPermissionsResponse = _reflection.GeneratedProtocolMessageType('GetUserPermissionsResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETUSERPERMISSIONSRESPONSE,
+  __module__ = 'users_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.users.GetUserPermissionsResponse)
+  ))
+_sym_db.RegisterMessage(GetUserPermissionsResponse)
+
 
 try:
   # THESE ELEMENTS WILL BE DEPRECATED.
@@ -266,6 +419,11 @@ try:
           request_serializer=ValidateAuthenticationTokenRequest.SerializeToString,
           response_deserializer=ValidateAuthenticationTokenResponse.FromString,
           )
+      self.GetUserPermissions = channel.unary_unary(
+          '/soboto.users.UsersService/GetUserPermissions',
+          request_serializer=GetUserPermissionsRequest.SerializeToString,
+          response_deserializer=GetUserPermissionsResponse.FromString,
+          )
 
 
   class UsersServiceServicer(object):
@@ -277,6 +435,11 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def GetUserPermissions(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_UsersServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -284,6 +447,11 @@ try:
             servicer.ValidateAuthenticationToken,
             request_deserializer=ValidateAuthenticationTokenRequest.FromString,
             response_serializer=ValidateAuthenticationTokenResponse.SerializeToString,
+        ),
+        'GetUserPermissions': grpc.unary_unary_rpc_method_handler(
+            servicer.GetUserPermissions,
+            request_deserializer=GetUserPermissionsRequest.FromString,
+            response_serializer=GetUserPermissionsResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -301,6 +469,8 @@ try:
     """
     def ValidateAuthenticationToken(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def GetUserPermissions(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaUsersServiceStub(object):
@@ -314,6 +484,9 @@ try:
     def ValidateAuthenticationToken(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
     ValidateAuthenticationToken.future = None
+    def GetUserPermissions(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    GetUserPermissions.future = None
 
 
   def beta_create_UsersService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -323,12 +496,15 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
+      ('soboto.users.UsersService', 'GetUserPermissions'): GetUserPermissionsRequest.FromString,
       ('soboto.users.UsersService', 'ValidateAuthenticationToken'): ValidateAuthenticationTokenRequest.FromString,
     }
     response_serializers = {
+      ('soboto.users.UsersService', 'GetUserPermissions'): GetUserPermissionsResponse.SerializeToString,
       ('soboto.users.UsersService', 'ValidateAuthenticationToken'): ValidateAuthenticationTokenResponse.SerializeToString,
     }
     method_implementations = {
+      ('soboto.users.UsersService', 'GetUserPermissions'): face_utilities.unary_unary_inline(servicer.GetUserPermissions),
       ('soboto.users.UsersService', 'ValidateAuthenticationToken'): face_utilities.unary_unary_inline(servicer.ValidateAuthenticationToken),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
@@ -342,12 +518,15 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
+      ('soboto.users.UsersService', 'GetUserPermissions'): GetUserPermissionsRequest.SerializeToString,
       ('soboto.users.UsersService', 'ValidateAuthenticationToken'): ValidateAuthenticationTokenRequest.SerializeToString,
     }
     response_deserializers = {
+      ('soboto.users.UsersService', 'GetUserPermissions'): GetUserPermissionsResponse.FromString,
       ('soboto.users.UsersService', 'ValidateAuthenticationToken'): ValidateAuthenticationTokenResponse.FromString,
     }
     cardinalities = {
+      'GetUserPermissions': cardinality.Cardinality.UNARY_UNARY,
       'ValidateAuthenticationToken': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)

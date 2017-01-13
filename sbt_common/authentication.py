@@ -13,7 +13,7 @@ from sbt_common.utils import import_class
 class ServiceTokenAuthentication(TokenAuthentication):
 
     def authenticate_credentials(self, key):
-        channel = implementations.insecure_channel('sbtbackoffice_users-50050', 50050)
+        channel = implementations.insecure_channel(api_settings.SERVICE_USERS_URL, 50050)
         stub = users_pb2.beta_create_UsersService_stub(channel)
         response = stub.ValidateAuthenticationToken(users_pb2.ValidateAuthenticationTokenRequest(token=key), 1)
 
