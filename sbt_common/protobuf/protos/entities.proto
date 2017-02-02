@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package soboto.files;
+package soboto.entities;
 
 // =======================================
 // Protobuf Models

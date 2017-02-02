@@ -9,6 +9,7 @@ DEFAULTS = {
     'REQUIRE_AUTH': True,
     'SERVICE_NAME': None,
     'AUTH_MODEL_INTERFACE': 'sbt_common.models.DefaultAuthModelInterface',
+    'DEFAULT_GRPC_PORT': 50050,
 
     'SERVICE_USERS_URL': 'sbtbackoffice_users-50050'
 }

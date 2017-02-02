@@ -23,7 +23,10 @@ class ServiceModelBackend(ModelBackend):
         Returns a set of permission strings the user `user_obj` has from their
         `user_permissions`.
         """
-        channel = implementations.insecure_channel(api_settings.SERVICE_USERS_URL, 50050)
+        channel = implementations.insecure_channel(
+            api_settings.SERVICE_USERS_URL,
+            api_settings.DEFAULT_GRPC_PORT
+        )
         stub = users_pb2.beta_create_UsersService_stub(channel)
         response = stub.GetUserPermissions(users_pb2.GetUserPermissionsRequest(user_id=user_obj.id), 1)
 

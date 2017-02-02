@@ -2,6 +2,18 @@ syntax = "proto3";
 
 package soboto.users;
 
+// =======================================
+// Protobuf Models
+// =======================================
+
+message Phone {
+    string value = 2;
+}
+
+message Email {
+    string value = 2;
+}
+
 message Permission {
     string id = 1;
     string name = 2;
@@ -10,6 +22,7 @@ message Permission {
 
 message UserEntity {
     string id = 1;
+    string function = 2;
 }
 
 message UserAuth {
@@ -26,8 +39,41 @@ message UserAuth {
     repeated UserEntity entity = 11;
 }
 
+message BOUser {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string phone = 6;
+    int32 birth_date = 7;
+    repeated Phone alternative_phones = 8;
+    repeated Email alternative_emails = 9;
+    repeated UserEntity entities = 10;
+}
+
+message Customer {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string phone = 6;
+    int32 birth_date = 7;
+    string name = 8;
+    string gender = 9;
+    string address = 10;
+    string city = 11;
+    string postal_zip = 12;
+    int32 age = 13;
+}
+
+// =======================================
 // RPC request & response messages
-// Authentication
+// =======================================
+
+// =======================================
+// User Authentication
 message ValidateAuthenticationTokenRequest {
     string token = 1;
 }
@@ -36,7 +82,8 @@ message ValidateAuthenticationTokenResponse {
     UserAuth user = 2;
 }
 
-// Get User Permissions
+// =======================================
+// User Permissions
 message GetUserPermissionsRequest {
     string user_id = 1;
 }
@@ -44,12 +91,37 @@ message GetUserPermissionsResponse {
     repeated Permission permissions = 1;
 }
 
+// =======================================
+// USER INFO
+// -> BO User
+message BOUserInfoRequest {
+    string id = 1;
+}
+message BOUserInfoResponse {
+    BOUser user = 1;
+}
+// -> Customer User
+message CustomerInfoRequest {
+    string id = 1;
+}
+message CustomerInfoResponse {
+    Customer user = 1;
+}
+
+// =======================================
 // The service definition.
+// =======================================
 service UsersService {
     rpc ValidateAuthenticationToken (ValidateAuthenticationTokenRequest)
         returns (ValidateAuthenticationTokenResponse) {}
 
     rpc GetUserPermissions (GetUserPermissionsRequest)
     returns (GetUserPermissionsResponse) {}
+
+    rpc GetBOUserInfo (BOUserInfoRequest)
+    returns (BOUserInfoResponse) {}
+
+    rpc GetCustomerInfo (CustomerInfoRequest)
+    returns (CustomerInfoResponse) {}
 }
 
