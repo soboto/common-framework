@@ -73,6 +73,6 @@ message BookingInfoResponse {
 // =======================================
 
 service BookingsService {
-  rpc BookingInfo (BookingInfoRequest)
-    returns (BookingInfoResponse) {}
+    rpc getBookingInfo (BookingInfoRequest)
+        returns (BookingInfoResponse) {}
 }

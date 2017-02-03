@@ -6,10 +6,16 @@ import users_pb2 as users__pb2
 import users_pb2 as users__pb2
 import users_pb2 as users__pb2
 import users_pb2 as users__pb2
+import users_pb2 as users__pb2
+import users_pb2 as users__pb2
+import users_pb2 as users__pb2
+import users_pb2 as users__pb2
 
 
 class UsersServiceStub(object):
-  """The service definition.
+  """=======================================
+  The service definition.
+  =======================================
   """
 
   def __init__(self, channel):
@@ -18,28 +24,50 @@ class UsersServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.ValidateAuthenticationToken = channel.unary_unary(
-        '/soboto.users.UsersService/ValidateAuthenticationToken',
+    self.validateAuthenticationToken = channel.unary_unary(
+        '/soboto.users.UsersService/validateAuthenticationToken',
         request_serializer=users__pb2.ValidateAuthenticationTokenRequest.SerializeToString,
         response_deserializer=users__pb2.ValidateAuthenticationTokenResponse.FromString,
         )
-    self.GetUserPermissions = channel.unary_unary(
-        '/soboto.users.UsersService/GetUserPermissions',
+    self.getUserPermissions = channel.unary_unary(
+        '/soboto.users.UsersService/getUserPermissions',
         request_serializer=users__pb2.GetUserPermissionsRequest.SerializeToString,
         response_deserializer=users__pb2.GetUserPermissionsResponse.FromString,
+        )
+    self.getBOUserInfo = channel.unary_unary(
+        '/soboto.users.UsersService/getBOUserInfo',
+        request_serializer=users__pb2.BOUserInfoRequest.SerializeToString,
+        response_deserializer=users__pb2.BOUserInfoResponse.FromString,
+        )
+    self.getCustomerInfo = channel.unary_unary(
+        '/soboto.users.UsersService/getCustomerInfo',
+        request_serializer=users__pb2.CustomerInfoRequest.SerializeToString,
+        response_deserializer=users__pb2.CustomerInfoResponse.FromString,
         )
 
 
 class UsersServiceServicer(object):
-  """The service definition.
+  """=======================================
+  The service definition.
+  =======================================
   """
 
-  def ValidateAuthenticationToken(self, request, context):
+  def validateAuthenticationToken(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def GetUserPermissions(self, request, context):
+  def getUserPermissions(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def getBOUserInfo(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def getCustomerInfo(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -47,15 +75,25 @@ class UsersServiceServicer(object):
 
 def add_UsersServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'ValidateAuthenticationToken': grpc.unary_unary_rpc_method_handler(
-          servicer.ValidateAuthenticationToken,
+      'validateAuthenticationToken': grpc.unary_unary_rpc_method_handler(
+          servicer.validateAuthenticationToken,
           request_deserializer=users__pb2.ValidateAuthenticationTokenRequest.FromString,
           response_serializer=users__pb2.ValidateAuthenticationTokenResponse.SerializeToString,
       ),
-      'GetUserPermissions': grpc.unary_unary_rpc_method_handler(
-          servicer.GetUserPermissions,
+      'getUserPermissions': grpc.unary_unary_rpc_method_handler(
+          servicer.getUserPermissions,
           request_deserializer=users__pb2.GetUserPermissionsRequest.FromString,
           response_serializer=users__pb2.GetUserPermissionsResponse.SerializeToString,
+      ),
+      'getBOUserInfo': grpc.unary_unary_rpc_method_handler(
+          servicer.getBOUserInfo,
+          request_deserializer=users__pb2.BOUserInfoRequest.FromString,
+          response_serializer=users__pb2.BOUserInfoResponse.SerializeToString,
+      ),
+      'getCustomerInfo': grpc.unary_unary_rpc_method_handler(
+          servicer.getCustomerInfo,
+          request_deserializer=users__pb2.CustomerInfoRequest.FromString,
+          response_serializer=users__pb2.CustomerInfoResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

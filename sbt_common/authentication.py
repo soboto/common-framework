@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import gettext as _
-from grpc.beta import implementations
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 
-from protobuf.generated import users_pb2
+from protobuf import ProtoService
 from sbt_common.settings import api_settings
 from sbt_common.utils import import_class
 
@@ -13,9 +12,15 @@ from sbt_common.utils import import_class
 class ServiceTokenAuthentication(TokenAuthentication):
 
     def authenticate_credentials(self, key):
-        channel = implementations.insecure_channel(api_settings.SERVICE_USERS_URL, 50050)
-        stub = users_pb2.beta_create_UsersService_stub(channel)
-        response = stub.ValidateAuthenticationToken(users_pb2.ValidateAuthenticationTokenRequest(token=key), 1)
+        users_service = ProtoService(
+            api_settings.SERVICE_USERS_URL,
+            'users_pb2.beta_create_UsersService_stub'
+        )
+        response = users_service.execute(
+            'validateAuthenticationToken',
+            'users_pb2.ValidateAuthenticationTokenRequest',
+            {'token': key}
+        )
 
         if response.valid:
             user_info = response.user

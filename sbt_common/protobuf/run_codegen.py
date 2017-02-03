@@ -31,12 +31,20 @@
 
 from grpc.tools import protoc
 
-protoc.main(
-    (
-    '',
-    '-Iprotos',
-    '--python_out=./generated',
-    '--grpc_python_out=./generated',
-    'protos/bookings.proto',
+files = [
+    'users',
+    'settings',
+    'files',
+    'entities',
+    'bookings'
+]
+for file in files:
+    protoc.main(
+        (
+            '',
+            '-Iprotos',
+            '--python_out=./generated',
+            '--grpc_python_out=./generated',
+            'protos/{}.proto'.format(file),
+        )
     )
-)

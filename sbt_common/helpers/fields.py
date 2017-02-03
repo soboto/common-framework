@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-import calendar
-import datetime
-
 from django.core.exceptions import ValidationError
-from django.utils.timezone import utc
 from rest_framework.fields import CharField, DateTimeField
+from sbt_common.utils import epoch_to_datetime, datetime_to_epoch
 
 
 class LanguageField(CharField):
@@ -42,21 +39,10 @@ class LanguageField(CharField):
 class UnixEpochDateTimeField(DateTimeField):
 
     def to_internal_value(self, value):
-        return self.epoch_to_datetime(value)
-
-    def to_representation(self, value):
-        return self.datetime_to_epoch(value)
-
-    @staticmethod
-    def datetime_to_epoch(value):
         try:
-            return int(calendar.timegm(value.utctimetuple()))
-        except (AttributeError, TypeError):
-            return None
-
-    @staticmethod
-    def epoch_to_datetime(value):
-        try:
-            return datetime.datetime.utcfromtimestamp(int(value)).replace(tzinfo=utc)
+            return epoch_to_datetime(value)
         except (ValueError, TypeError):
             raise ValidationError('%s is not a valid value' % value)
+
+    def to_representation(self, value):
+        return datetime_to_epoch(value)

@@ -1,6 +1,5 @@
 from django.contrib.auth.backends import ModelBackend
-from grpc.beta import implementations
-from sbt_common.protobuf.generated import users_pb2
+from sbt_common.protobuf import ProtoService
 from sbt_common.settings import api_settings
 
 
@@ -23,12 +22,15 @@ class ServiceModelBackend(ModelBackend):
         Returns a set of permission strings the user `user_obj` has from their
         `user_permissions`.
         """
-        channel = implementations.insecure_channel(
+        users_service = ProtoService(
             api_settings.SERVICE_USERS_URL,
-            api_settings.DEFAULT_GRPC_PORT
+            'users_pb2.beta_create_UsersService_stub'
         )
-        stub = users_pb2.beta_create_UsersService_stub(channel)
-        response = stub.GetUserPermissions(users_pb2.GetUserPermissionsRequest(user_id=user_obj.id), 1)
+        response = users_service.execute(
+            'getUserPermissions',
+            'users_pb2.GetUserPermissionsRequest',
+            {'user_id': user_obj.id}
+        )
 
         all_permissions = []
         for permission in response.permissions:

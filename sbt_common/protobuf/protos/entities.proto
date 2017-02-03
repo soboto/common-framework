@@ -6,37 +6,46 @@ package soboto.entities;
 // Protobuf Models
 // =======================================
 
-message Media {
+message Phone {
+    string value = 1;
+}
+
+message Email {
+    string value = 1;
+}
+
+message Entity {
     string id = 1;
-    int32 created_at = 2;
-    string file_type = 3;
-    string file = 4;
-    string thumb = 5;
-    string file_url = 6;
-    bool vr = 7;
+    string alias = 2;
+    string name = 3;
+    string email = 4;
+    string address = 5;
+    string city = 6;
+    string post_code = 7;
+    string country_code = 8;
+    string timezone = 9;
+    string phone = 10;
+    string description = 11;
+    string website = 12;
+    repeated Phone alternative_phones = 13;
+    repeated Email alternative_emails = 14;
 }
 
 // =======================================
 // RPC request & response messages
 // =======================================
 
-message FetchMediaRequest {
-    repeated string id = 1;
-    int32 limit = 2;
-    int32 offset = 3;
+message EntityInfoRequest {
+    string id = 1;
 }
-message FetchMediaResponse {
-    repeated Media result = 1;
-    int32 total = 2;
-    int32 limit = 3;
-    int32 offset = 4;
+message EntityInfoResponse {
+    Entity entity = 1;
 }
 
 // =======================================
 // The service definition.
 // =======================================
 
-service FilesService {
-  rpc FetchMedia (FetchMediaRequest)
-    returns (FetchMediaResponse) {}
+service EntitiesService {
+  rpc getEntityInfo (EntityInfoRequest) returns (EntityInfoResponse) {}
 }

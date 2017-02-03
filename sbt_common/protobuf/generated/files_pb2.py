@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='files.proto',
   package='soboto.files',
   syntax='proto3',
-  serialized_pb=_b('\n\x0b\x66iles.proto\x12\x0csoboto.files\"u\n\x05Media\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x11\n\tfile_type\x18\x03 \x01(\t\x12\x0c\n\x04\x66ile\x18\x04 \x01(\t\x12\r\n\x05thumb\x18\x05 \x01(\t\x12\x10\n\x08\x66ile_url\x18\x06 \x01(\t\x12\n\n\x02vr\x18\x07 \x01(\x08\">\n\x11\x46\x65tchMediaRequest\x12\n\n\x02id\x18\x01 \x03(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06offset\x18\x03 \x01(\x05\"g\n\x12\x46\x65tchMediaResponse\x12#\n\x06result\x18\x01 \x03(\x0b\x32\x13.soboto.files.Media\x12\r\n\x05total\x18\x02 \x01(\x05\x12\r\n\x05limit\x18\x03 \x01(\x05\x12\x0e\n\x06offset\x18\x04 \x01(\x05\x32\x61\n\x0c\x46ilesService\x12Q\n\nFetchMedia\x12\x1f.soboto.files.FetchMediaRequest\x1a .soboto.files.FetchMediaResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0b\x66iles.proto\x12\x0csoboto.files\"u\n\x05Media\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x11\n\tfile_type\x18\x03 \x01(\t\x12\x0c\n\x04\x66ile\x18\x04 \x01(\t\x12\r\n\x05thumb\x18\x05 \x01(\t\x12\x10\n\x08\x66ile_url\x18\x06 \x01(\t\x12\n\n\x02vr\x18\x07 \x01(\x08\">\n\x11\x46\x65tchMediaRequest\x12\n\n\x02id\x18\x01 \x03(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06offset\x18\x03 \x01(\x05\"g\n\x12\x46\x65tchMediaResponse\x12#\n\x06result\x18\x01 \x03(\x0b\x32\x13.soboto.files.Media\x12\r\n\x05total\x18\x02 \x01(\x05\x12\r\n\x05limit\x18\x03 \x01(\x05\x12\x0e\n\x06offset\x18\x04 \x01(\x05\x32\x61\n\x0c\x46ilesService\x12Q\n\nfetchMedia\x12\x1f.soboto.files.FetchMediaRequest\x1a .soboto.files.FetchMediaResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -233,7 +233,10 @@ try:
 
 
   class FilesServiceStub(object):
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
 
     def __init__(self, channel):
@@ -242,18 +245,21 @@ try:
       Args:
         channel: A grpc.Channel.
       """
-      self.FetchMedia = channel.unary_unary(
-          '/soboto.files.FilesService/FetchMedia',
+      self.fetchMedia = channel.unary_unary(
+          '/soboto.files.FilesService/fetchMedia',
           request_serializer=FetchMediaRequest.SerializeToString,
           response_deserializer=FetchMediaResponse.FromString,
           )
 
 
   class FilesServiceServicer(object):
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
 
-    def FetchMedia(self, request, context):
+    def fetchMedia(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
@@ -261,8 +267,8 @@ try:
 
   def add_FilesServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'FetchMedia': grpc.unary_unary_rpc_method_handler(
-            servicer.FetchMedia,
+        'fetchMedia': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchMedia,
             request_deserializer=FetchMediaRequest.FromString,
             response_serializer=FetchMediaResponse.SerializeToString,
         ),
@@ -278,9 +284,12 @@ try:
     It is recommended to use the GA API (classes and functions in this
     file not marked beta) for all further purposes. This class was generated
     only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
-    def FetchMedia(self, request, context):
+    def fetchMedia(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
@@ -290,11 +299,14 @@ try:
     It is recommended to use the GA API (classes and functions in this
     file not marked beta) for all further purposes. This class was generated
     only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
-    def FetchMedia(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def fetchMedia(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
-    FetchMedia.future = None
+    fetchMedia.future = None
 
 
   def beta_create_FilesService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -304,13 +316,13 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('soboto.files.FilesService', 'FetchMedia'): FetchMediaRequest.FromString,
+      ('soboto.files.FilesService', 'fetchMedia'): FetchMediaRequest.FromString,
     }
     response_serializers = {
-      ('soboto.files.FilesService', 'FetchMedia'): FetchMediaResponse.SerializeToString,
+      ('soboto.files.FilesService', 'fetchMedia'): FetchMediaResponse.SerializeToString,
     }
     method_implementations = {
-      ('soboto.files.FilesService', 'FetchMedia'): face_utilities.unary_unary_inline(servicer.FetchMedia),
+      ('soboto.files.FilesService', 'fetchMedia'): face_utilities.unary_unary_inline(servicer.fetchMedia),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -323,13 +335,13 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('soboto.files.FilesService', 'FetchMedia'): FetchMediaRequest.SerializeToString,
+      ('soboto.files.FilesService', 'fetchMedia'): FetchMediaRequest.SerializeToString,
     }
     response_deserializers = {
-      ('soboto.files.FilesService', 'FetchMedia'): FetchMediaResponse.FromString,
+      ('soboto.files.FilesService', 'fetchMedia'): FetchMediaResponse.FromString,
     }
     cardinalities = {
-      'FetchMedia': cardinality.Cardinality.UNARY_UNARY,
+      'fetchMedia': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'soboto.files.FilesService', cardinalities, options=stub_options)

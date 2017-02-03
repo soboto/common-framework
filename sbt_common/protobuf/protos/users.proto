@@ -7,11 +7,11 @@ package soboto.users;
 // =======================================
 
 message Phone {
-    string value = 2;
+    string value = 1;
 }
 
 message Email {
-    string value = 2;
+    string value = 1;
 }
 
 message Permission {
@@ -46,7 +46,7 @@ message BOUser {
     string first_name = 4;
     string last_name = 5;
     string phone = 6;
-    int32 birth_date = 7;
+    string birth_date = 7;
     repeated Phone alternative_phones = 8;
     repeated Email alternative_emails = 9;
     repeated UserEntity entities = 10;
@@ -59,7 +59,7 @@ message Customer {
     string first_name = 4;
     string last_name = 5;
     string phone = 6;
-    int32 birth_date = 7;
+    string birth_date = 7;
     string name = 8;
     string gender = 9;
     string address = 10;
@@ -112,16 +112,16 @@ message CustomerInfoResponse {
 // The service definition.
 // =======================================
 service UsersService {
-    rpc ValidateAuthenticationToken (ValidateAuthenticationTokenRequest)
+    rpc validateAuthenticationToken (ValidateAuthenticationTokenRequest)
         returns (ValidateAuthenticationTokenResponse) {}
 
-    rpc GetUserPermissions (GetUserPermissionsRequest)
-    returns (GetUserPermissionsResponse) {}
+    rpc getUserPermissions (GetUserPermissionsRequest)
+        returns (GetUserPermissionsResponse) {}
 
-    rpc GetBOUserInfo (BOUserInfoRequest)
-    returns (BOUserInfoResponse) {}
+    rpc getBOUserInfo (BOUserInfoRequest)
+        returns (BOUserInfoResponse) {}
 
-    rpc GetCustomerInfo (CustomerInfoRequest)
-    returns (CustomerInfoResponse) {}
+    rpc getCustomerInfo (CustomerInfoRequest)
+        returns (CustomerInfoResponse) {}
 }
 

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='bookings.proto',
   package='soboto.bookings',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x62ookings.proto\x12\x0fsoboto.bookings\"\x93\x01\n\x0fParticipantInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\x12\n\nis_contact\x18\x04 \x01(\x08\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x1b\n\x13participant_type_id\x18\x07 \x01(\t\"P\n\x13ParticipantsPerType\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\x12\x1b\n\x13participant_type_id\x18\x03 \x01(\t\"\xd3\x02\n\x0bItemBooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_amount\x18\x04 \x01(\x02\x12\x0e\n\x06\x65xtras\x18\x05 \x01(\x02\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x13\n\x0b\x65mployee_id\x18\x07 \x01(\t\x12\x0f\n\x07slot_id\x18\x08 \x01(\t\x12\x13\n\x0bsupplier_id\x18\t \x01(\t\x12\x13\n\x0breseller_id\x18\n \x01(\t\x12\x18\n\x10\x64iscount_code_id\x18\x0b \x01(\t\x12\x43\n\x15participants_per_type\x18\x0c \x03(\x0b\x32$.soboto.bookings.ParticipantsPerType\x12\x36\n\x0cparticipants\x18\r \x03(\x0b\x32 .soboto.bookings.ParticipantInfo\"\xdb\x02\n\x07\x42ooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x12\n\nupdated_at\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\x12\x14\n\x0ctotal_amount\x18\x05 \x01(\x02\x12\x16\n\x0etotal_currency\x18\x06 \x01(\x02\x12\x12\n\ntotal_paid\x18\x07 \x01(\x02\x12\x11\n\ttotal_due\x18\x08 \x01(\x02\x12\x16\n\x0e\x64\x61te_confirmed\x18\t \x01(\x05\x12\x11\n\tdate_paid\x18\n \x01(\x05\x12\x0f\n\x07summary\x18\x0b \x01(\t\x12\x16\n\x0epayment_method\x18\x0c \x01(\t\x12\x13\n\x0b\x61gree_terms\x18\r \x01(\x08\x12\x13\n\x0b\x63ustomer_id\x18\x0e \x01(\t\x12\x0e\n\x06status\x18\x0f \x01(\t\x12+\n\x05items\x18\x10 \x03(\x0b\x32\x1c.soboto.bookings.ItemBooking\" \n\x12\x42ookingInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x13\x42ookingInfoResponse\x12)\n\x07\x62ooking\x18\x01 \x01(\x0b\x32\x18.soboto.bookings.Booking2m\n\x0f\x42ookingsService\x12Z\n\x0b\x42ookingInfo\x12#.soboto.bookings.BookingInfoRequest\x1a$.soboto.bookings.BookingInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x62ookings.proto\x12\x0fsoboto.bookings\"\x93\x01\n\x0fParticipantInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\x12\n\nis_contact\x18\x04 \x01(\x08\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x1b\n\x13participant_type_id\x18\x07 \x01(\t\"P\n\x13ParticipantsPerType\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\x12\x1b\n\x13participant_type_id\x18\x03 \x01(\t\"\xd3\x02\n\x0bItemBooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_amount\x18\x04 \x01(\x02\x12\x0e\n\x06\x65xtras\x18\x05 \x01(\x02\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x13\n\x0b\x65mployee_id\x18\x07 \x01(\t\x12\x0f\n\x07slot_id\x18\x08 \x01(\t\x12\x13\n\x0bsupplier_id\x18\t \x01(\t\x12\x13\n\x0breseller_id\x18\n \x01(\t\x12\x18\n\x10\x64iscount_code_id\x18\x0b \x01(\t\x12\x43\n\x15participants_per_type\x18\x0c \x03(\x0b\x32$.soboto.bookings.ParticipantsPerType\x12\x36\n\x0cparticipants\x18\r \x03(\x0b\x32 .soboto.bookings.ParticipantInfo\"\xdb\x02\n\x07\x42ooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x12\n\nupdated_at\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\x12\x14\n\x0ctotal_amount\x18\x05 \x01(\x02\x12\x16\n\x0etotal_currency\x18\x06 \x01(\x02\x12\x12\n\ntotal_paid\x18\x07 \x01(\x02\x12\x11\n\ttotal_due\x18\x08 \x01(\x02\x12\x16\n\x0e\x64\x61te_confirmed\x18\t \x01(\x05\x12\x11\n\tdate_paid\x18\n \x01(\x05\x12\x0f\n\x07summary\x18\x0b \x01(\t\x12\x16\n\x0epayment_method\x18\x0c \x01(\t\x12\x13\n\x0b\x61gree_terms\x18\r \x01(\x08\x12\x13\n\x0b\x63ustomer_id\x18\x0e \x01(\t\x12\x0e\n\x06status\x18\x0f \x01(\t\x12+\n\x05items\x18\x10 \x03(\x0b\x32\x1c.soboto.bookings.ItemBooking\" \n\x12\x42ookingInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x13\x42ookingInfoResponse\x12)\n\x07\x62ooking\x18\x01 \x01(\x0b\x32\x18.soboto.bookings.Booking2p\n\x0f\x42ookingsService\x12]\n\x0egetBookingInfo\x12#.soboto.bookings.BookingInfoRequest\x1a$.soboto.bookings.BookingInfoResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -521,7 +521,10 @@ try:
 
 
   class BookingsServiceStub(object):
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
 
     def __init__(self, channel):
@@ -530,18 +533,21 @@ try:
       Args:
         channel: A grpc.Channel.
       """
-      self.BookingInfo = channel.unary_unary(
-          '/soboto.bookings.BookingsService/BookingInfo',
+      self.getBookingInfo = channel.unary_unary(
+          '/soboto.bookings.BookingsService/getBookingInfo',
           request_serializer=BookingInfoRequest.SerializeToString,
           response_deserializer=BookingInfoResponse.FromString,
           )
 
 
   class BookingsServiceServicer(object):
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
 
-    def BookingInfo(self, request, context):
+    def getBookingInfo(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
@@ -549,8 +555,8 @@ try:
 
   def add_BookingsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'BookingInfo': grpc.unary_unary_rpc_method_handler(
-            servicer.BookingInfo,
+        'getBookingInfo': grpc.unary_unary_rpc_method_handler(
+            servicer.getBookingInfo,
             request_deserializer=BookingInfoRequest.FromString,
             response_serializer=BookingInfoResponse.SerializeToString,
         ),
@@ -566,9 +572,12 @@ try:
     It is recommended to use the GA API (classes and functions in this
     file not marked beta) for all further purposes. This class was generated
     only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
-    def BookingInfo(self, request, context):
+    def getBookingInfo(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
@@ -578,11 +587,14 @@ try:
     It is recommended to use the GA API (classes and functions in this
     file not marked beta) for all further purposes. This class was generated
     only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """The service definition
+    """=======================================
+    The service definition.
+    =======================================
+
     """
-    def BookingInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def getBookingInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
-    BookingInfo.future = None
+    getBookingInfo.future = None
 
 
   def beta_create_BookingsService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -592,13 +604,13 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('soboto.bookings.BookingsService', 'BookingInfo'): BookingInfoRequest.FromString,
+      ('soboto.bookings.BookingsService', 'getBookingInfo'): BookingInfoRequest.FromString,
     }
     response_serializers = {
-      ('soboto.bookings.BookingsService', 'BookingInfo'): BookingInfoResponse.SerializeToString,
+      ('soboto.bookings.BookingsService', 'getBookingInfo'): BookingInfoResponse.SerializeToString,
     }
     method_implementations = {
-      ('soboto.bookings.BookingsService', 'BookingInfo'): face_utilities.unary_unary_inline(servicer.BookingInfo),
+      ('soboto.bookings.BookingsService', 'getBookingInfo'): face_utilities.unary_unary_inline(servicer.getBookingInfo),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -611,13 +623,13 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('soboto.bookings.BookingsService', 'BookingInfo'): BookingInfoRequest.SerializeToString,
+      ('soboto.bookings.BookingsService', 'getBookingInfo'): BookingInfoRequest.SerializeToString,
     }
     response_deserializers = {
-      ('soboto.bookings.BookingsService', 'BookingInfo'): BookingInfoResponse.FromString,
+      ('soboto.bookings.BookingsService', 'getBookingInfo'): BookingInfoResponse.FromString,
     }
     cardinalities = {
-      'BookingInfo': cardinality.Cardinality.UNARY_UNARY,
+      'getBookingInfo': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'soboto.bookings.BookingsService', cardinalities, options=stub_options)

@@ -7,7 +7,10 @@ import files_pb2 as files__pb2
 
 
 class FilesServiceStub(object):
-  """The service definition
+  """=======================================
+  The service definition.
+  =======================================
+
   """
 
   def __init__(self, channel):
@@ -16,18 +19,21 @@ class FilesServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.FetchMedia = channel.unary_unary(
-        '/soboto.files.FilesService/FetchMedia',
+    self.fetchMedia = channel.unary_unary(
+        '/soboto.files.FilesService/fetchMedia',
         request_serializer=files__pb2.FetchMediaRequest.SerializeToString,
         response_deserializer=files__pb2.FetchMediaResponse.FromString,
         )
 
 
 class FilesServiceServicer(object):
-  """The service definition
+  """=======================================
+  The service definition.
+  =======================================
+
   """
 
-  def FetchMedia(self, request, context):
+  def fetchMedia(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -35,8 +41,8 @@ class FilesServiceServicer(object):
 
 def add_FilesServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'FetchMedia': grpc.unary_unary_rpc_method_handler(
-          servicer.FetchMedia,
+      'fetchMedia': grpc.unary_unary_rpc_method_handler(
+          servicer.fetchMedia,
           request_deserializer=files__pb2.FetchMediaRequest.FromString,
           response_serializer=files__pb2.FetchMediaResponse.SerializeToString,
       ),

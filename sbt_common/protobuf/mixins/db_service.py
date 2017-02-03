@@ -1,7 +1,10 @@
-from sbt_common.helpers.fields import UnixEpochDateTimeField
 from decimal import Decimal
-from datetime import datetime
+from datetime import datetime, date
 from uuid import UUID
+from rest_framework.settings import api_settings
+from rest_framework import ISO_8601
+from google.protobuf.descriptor import FieldDescriptor
+from sbt_common.utils import datetime_to_epoch
 
 
 class DJangoDBServiceMixin(object):
@@ -14,11 +17,21 @@ class DJangoDBServiceMixin(object):
             if not hasattr(pb_model, attr):
                 continue
 
+            field = pb_model.DESCRIPTOR.fields_by_name[attr]
+            if field.type == FieldDescriptor.TYPE_MESSAGE:
+                continue
+
             value = getattr(db_model, attr)
             if type(value) == Decimal:
                 value = float(value)
             elif type(value) == datetime:
-                value = UnixEpochDateTimeField.datetime_to_epoch(value)
+                value = datetime_to_epoch(value)
+            elif type(value) == date:
+                output_format = getattr(self, 'format', api_settings.DATE_FORMAT)
+                if output_format.lower() == ISO_8601:
+                    value = value.isoformat()
+                else:
+                    value = value.strftime(output_format)
             elif type(value) == UUID:
                 value = str(value)
 

@@ -37,6 +37,6 @@ message FetchMediaResponse {
 // =======================================
 
 service FilesService {
-  rpc FetchMedia (FetchMediaRequest)
-    returns (FetchMediaResponse) {}
+    rpc fetchMedia (FetchMediaRequest)
+        returns (FetchMediaResponse) {}
 }
