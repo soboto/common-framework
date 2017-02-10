@@ -34,6 +34,8 @@ class DJangoDBServiceMixin(object):
                     value = value.strftime(output_format)
             elif type(value) == UUID:
                 value = str(value)
+            elif type(value) == dict:
+                continue
 
             setattr(pb_model, attr, value)
 
