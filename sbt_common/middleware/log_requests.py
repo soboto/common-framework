@@ -8,20 +8,19 @@ from django.utils.timezone import now
 import logging
 
 # Get an instance of a logger
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('sbt_common.log_requests')
 
 
-class RequestLogViewMixin(object):
-    log_data = None
+class LogRequestsMiddleware(object):
+    _log_data = None
 
-    """Mixin to log requests"""
-    def initial(self, request, *args, **kwargs):
+    def process_request(self, request, *args, **kwargs):
         """Set current time on request"""
         # get data dict
         try:
-            data_dict = request.data.dict()
+            data_dict = request.body.dict()
         except AttributeError:  # if already a dict, can't dictify
-            data_dict = request.data
+            data_dict = request.body
 
         # get IP
         ipaddr = request.META.get("HTTP_X_FORWARDED_FOR", None)
@@ -31,32 +30,26 @@ class RequestLogViewMixin(object):
         else:
             ipaddr = request.META.get("REMOTE_ADDR", "")
 
-        # save to log
-        self.log_data = {
+        self._log_data = {
             'requested_at': now(),
             'path': request.path,
             'remote_addr': ipaddr,
             'host': request.get_host(),
             'method': request.method,
-            'query_params': request.query_params,
-            'data': data_dict,
+            'query_params': request.META.get('QUERY_STRING', ''),
+            'request_data': data_dict,
         }
-
-        # regular intitial, including auth check
-        super(RequestLogViewMixin, self).initial(request, *args, **kwargs)
 
         # add user to log after auth
         # TODO: add user to log after auth
 
-    def finalize_response(self, request, response, *args, **kwargs):
-        # regular finalize response
-        response = super(RequestLogViewMixin, self).finalize_response(request, response, *args, **kwargs)
+    def process_response(self, request, response, *args, **kwargs):
 
-        if not self.log_data:
+        if not self._log_data:
             return response
 
         # compute response time
-        response_timedelta = now() - self.log_data['requested_at']
+        response_timedelta = now() - self._log_data.pop('requested_at')
         response_ms = int(response_timedelta.total_seconds() * 1000)
 
         # get response dict
@@ -66,15 +59,11 @@ class RequestLogViewMixin(object):
             response_data = '<<NOT JSON>>'
 
         # save log
-        self.log_data['response'] = response_data
-        self.log_data['content_type'] = response['content-type'] if 'content-type' in response else None
-        self.log_data['status_code'] = response.status_code
-        self.log_data['response_ms'] = response_ms
+        self._log_data['content_type'] = response['content-type'] if 'content-type' in response else None
+        self._log_data['status_code'] = response.status_code
+        self._log_data['response_ms'] = response_ms
 
-        # save log_data in some way
-        if not hasattr(request, 'enable_log_request'):
-            logger.debug(self.log_data)
+        logger.debug(response_data, extra=self._log_data)
 
         # return
         return response
-
