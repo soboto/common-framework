@@ -22,6 +22,11 @@ class LogRequestsMiddleware(object):
         except AttributeError:  # if already a dict, can't dictify
             data_dict = request.body
 
+        if 'password' in data_dict:
+            data = json.loads(data_dict)
+            data['password'] = '*****'
+            data_dict = json.dumps(data)
+
         # get IP
         ipaddr = request.META.get("HTTP_X_FORWARDED_FOR", None)
         if ipaddr:
