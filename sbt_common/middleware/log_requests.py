@@ -13,9 +13,16 @@ logger = logging.getLogger('sbt_common.log_requests')
 
 class LogRequestsMiddleware(object):
     _log_data = None
+    IGNORE_METHODS = {
+        'OPTIONS',
+    }
 
     def process_request(self, request, *args, **kwargs):
         """Set current time on request"""
+
+        if request.method in self.IGNORE_METHODS:
+            return
+
         # get data dict
         try:
             data_dict = request.body.dict()
