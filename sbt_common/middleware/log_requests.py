@@ -54,8 +54,10 @@ class LogRequestsMiddleware(object):
             return response
 
         # compute response time
-        response_timedelta = now() - self._log_data.pop('requested_at')
-        response_ms = int(response_timedelta.total_seconds() * 1000)
+        response_ms = 0
+        if 'requested_at' in self._log_data:
+            response_timedelta = now() - self._log_data.pop('requested_at')
+            response_ms = int(response_timedelta.total_seconds() * 1000)
 
         # get response dict
         try:
