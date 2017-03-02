@@ -23,16 +23,13 @@ class LogRequestsMiddleware(object):
         if request.method in self.IGNORE_METHODS:
             return
 
-        # get data dict
-        try:
-            data_dict = request.body.dict()
-        except AttributeError:  # if already a dict, can't dictify
-            data_dict = request.body
+        # get request data
+        request_data = request.body
 
-        if 'password' in data_dict:
-            data = json.loads(data_dict)
+        if '"password"' in request_data:
+            data = json.loads(request_data)
             data['password'] = '*****'
-            data_dict = json.dumps(data)
+            request_data = json.dumps(data)
 
         # get IP
         ipaddr = request.META.get("HTTP_X_FORWARDED_FOR", None)
@@ -49,7 +46,7 @@ class LogRequestsMiddleware(object):
             'host': request.get_host(),
             'method': request.method,
             'query_params': request.META.get('QUERY_STRING', ''),
-            'request_data': data_dict,
+            'request_data': request_data,
         }
 
         # add user to log after auth
@@ -70,14 +67,15 @@ class LogRequestsMiddleware(object):
         try:
             response_data = json.loads(response.rendered_content)
         except:  # if already a dict, can't dictify
-            response_data = '<<NOT JSON>>'
+            response_data = None
 
         # save log
         self._log_data['content_type'] = response['content-type'] if 'content-type' in response else None
         self._log_data['status_code'] = response.status_code
         self._log_data['response_ms'] = response_ms
+        self._log_data['response_data'] = response_data
 
-        logger.debug(response_data, extra=self._log_data)
+        logger.debug(self._log_data)
 
         # return
         return response
