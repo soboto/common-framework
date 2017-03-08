@@ -3,6 +3,8 @@ from django.core.exceptions import ImproperlyConfigured
 import calendar
 import datetime
 from django.utils.timezone import utc
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_text
 
 
 def import_class(path):
@@ -27,3 +29,18 @@ def datetime_to_epoch(value):
 
 def epoch_to_datetime(value):
     return datetime.datetime.utcfromtimestamp(int(value)).replace(tzinfo=utc)
+
+
+def encode_uid(pk):
+    return urlsafe_base64_encode(force_bytes(pk)).decode()
+
+
+def decode_uid(pk):
+    return force_text(urlsafe_base64_decode(pk))
+
+
+class ActionViewMixin(object):
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return self._action(serializer)
