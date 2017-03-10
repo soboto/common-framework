@@ -81,7 +81,7 @@ class LogRequestsMiddleware(object):
         # save log
         self._log_data['content-type'] = response['content-type'] if 'content-type' in response else None
         self._log_data['status-code'] = response.status_code
-        self._log_data['response-time'] = response_ms
+        self._log_data['response-time'] = str(response_ms) + 'ms'
         self._log_data['response'] = response_data
 
         logger.debug(self._log_data)
