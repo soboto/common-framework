@@ -13,12 +13,31 @@ logger = logging.getLogger('sbt_common.log_requests')
 
 class LogRequestsMiddleware(object):
     _log_data = None
+    _requested_at = None
     IGNORE_METHODS = {
         'OPTIONS',
     }
 
+    def _get_headers(self, request):
+
+        HEADERS = {
+            'HTTP_USER_AGENT': 'User-Agent',
+            'HTTP_CONTENT_LANGUAGE': 'Content-Language',
+            'HTTP_ACCEPT_LANGUAGE': 'Accept-Language',
+            'HTTP_AUTHORIZATION': 'Authorization',
+            'HTTP_ADAPTER_IDENTIFIER': 'Adapter-Identifier',
+        }
+
+        headers = {}
+        for field, key in HEADERS.iteritems():
+            if field in request.META:
+                headers[key] = request.META[field]
+
+        return headers
+
     def process_request(self, request, *args, **kwargs):
         """Set current time on request"""
+        self._requested_at = now()
 
         if request.method in self.IGNORE_METHODS:
             return
@@ -26,27 +45,17 @@ class LogRequestsMiddleware(object):
         # get request data
         request_data = request.body
 
-        if '"password"' in request_data:
+        if '"password"' in request_data and 'auth' in request.path:
             data = json.loads(request_data)
             data['password'] = '*****'
             request_data = json.dumps(data)
 
-        # get IP
-        ipaddr = request.META.get("HTTP_X_FORWARDED_FOR", None)
-        if ipaddr:
-            # X_FORWARDED_FOR returns client1, proxy1, proxy2,...
-            ipaddr = ipaddr.split(", ")[0]
-        else:
-            ipaddr = request.META.get("REMOTE_ADDR", "")
-
         self._log_data = {
-            'requested_at': now(),
-            'path': request.path,
-            'remote_addr': ipaddr,
-            'host': request.get_host(),
-            'method': request.method,
-            'query_params': request.META.get('QUERY_STRING', ''),
-            'request_data': request_data,
+            'address': request.get_host() + request.path,
+            'http-method': request.method,
+            'headers': self._get_headers(request),
+            'query-string': request.META.get('QUERY_STRING', ''),
+            'payload': request_data,
         }
 
         # add user to log after auth
@@ -59,8 +68,8 @@ class LogRequestsMiddleware(object):
 
         # compute response time
         response_ms = 0
-        if 'requested_at' in self._log_data:
-            response_timedelta = now() - self._log_data.pop('requested_at')
+        if self._requested_at:
+            response_timedelta = now() - self._requested_at
             response_ms = int(response_timedelta.total_seconds() * 1000)
 
         # get response dict
@@ -70,10 +79,10 @@ class LogRequestsMiddleware(object):
             response_data = None
 
         # save log
-        self._log_data['content_type'] = response['content-type'] if 'content-type' in response else None
-        self._log_data['status_code'] = response.status_code
-        self._log_data['response_ms'] = response_ms
-        self._log_data['response_data'] = response_data
+        self._log_data['content-type'] = response['content-type'] if 'content-type' in response else None
+        self._log_data['status-code'] = response.status_code
+        self._log_data['response-time'] = response_ms
+        self._log_data['response'] = response_data
 
         logger.debug(self._log_data)
 
