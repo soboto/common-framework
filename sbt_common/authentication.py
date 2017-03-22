@@ -3,15 +3,27 @@ from django.utils.translation import gettext as _
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import get_authorization_header
 
-from protobuf import ProtoService
-from sbt_common.settings import api_settings
-from sbt_common.utils import import_class
+from .protobuf import ProtoService
+from .settings import api_settings
+from .utils import import_class
+from .models import Anonymous
 
 
 class ServiceTokenAuthentication(TokenAuthentication):
 
+    def authenticate(self, request):
+        auth = get_authorization_header(request).split()
+        if not auth:
+            return self.authenticate_credentials(None)
+
+        return super(ServiceTokenAuthentication, self).authenticate(request)
+
     def authenticate_credentials(self, key):
+        if not key:
+            return Anonymous(), None
+
         users_service = ProtoService(
             api_settings.SERVICE_USERS_URL,
             'users_pb2.beta_create_UsersService_stub'

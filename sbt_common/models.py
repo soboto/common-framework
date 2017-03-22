@@ -2,7 +2,7 @@
 from protobuf_to_dict import protobuf_to_dict
 from django.contrib.auth.models import _user_has_perm, _user_get_all_permissions
 
-from .constants import BO_USER_TYPE, CUSTOMER_USER_TYPE
+from .constants import BO_USER_TYPE, CUSTOMER_USER_TYPE, ANONYMOUS_USER_TYPE
 
 
 class AuthUser(object):
@@ -79,6 +79,14 @@ class BOUser(AuthUser):
 
 class Customer(AuthUser):
     type = CUSTOMER_USER_TYPE
+
+
+class Anonymous(AuthUser):
+    type = ANONYMOUS_USER_TYPE
+    is_active = True
+
+    def is_anonymous(self):
+        return True
 
 
 class UserModelFactory(object):
