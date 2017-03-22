@@ -6,8 +6,6 @@ from django.utils.timezone import now
 
 # import the logging library
 import logging
-
-# Get an instance of a logger
 logger = logging.getLogger('sbt_common.log_requests')
 
 

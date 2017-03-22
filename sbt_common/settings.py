@@ -8,7 +8,7 @@ USER_SETTINGS = getattr(settings, 'SOBOTO_COMMON', None)
 DEFAULTS = {
     'REQUIRE_AUTH': True,
     'SERVICE_NAME': None,
-    'AUTH_MODEL_INTERFACE': 'sbt_common.models.DefaultAuthModelInterface',
+    'AUTH_MODEL_FACTORY': 'sbt_common.models.UserModelFactory',
     'DEFAULT_GRPC_PORT': 50050,
 
     'SERVICE_USERS_URL': 'sbtbackoffice_users-50050'

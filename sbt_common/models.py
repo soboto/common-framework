@@ -2,14 +2,7 @@
 from protobuf_to_dict import protobuf_to_dict
 from django.contrib.auth.models import _user_has_perm, _user_get_all_permissions
 
-
-class DefaultAuthModelInterface(object):
-
-    def get_model(self, user_info):
-        user_info = protobuf_to_dict(user_info)
-        user = AuthUser(**user_info)
-
-        return user
+from .constants import BO_USER_TYPE, CUSTOMER_USER_TYPE
 
 
 class AuthUser(object):
@@ -23,17 +16,11 @@ class AuthUser(object):
     is_active = False
     is_superuser = False
     is_staff = False
-    entity = []
     _perm_cache = set()
 
     def __init__(self, *args, **kwargs):
         for param in kwargs:
             setattr(self, param, kwargs.get(param))
-
-        self.parse_entities()
-
-    def parse_entities(self):
-        self.entity = [e['id'] for e in self.entity]
 
     def __unicode__(self):
         return self.username
@@ -75,3 +62,41 @@ class AuthUser(object):
 
     def get_username(self):
         return self.username
+
+
+class BOUser(AuthUser):
+    entity = []
+    type = BO_USER_TYPE
+
+    def __init__(self, *args, **kwargs):
+        super(BOUser, self).__init__(*args, **kwargs)
+
+        self.parse_entities()
+
+    def parse_entities(self):
+        self.entity = [e['id'] for e in self.entity]
+
+
+class Customer(AuthUser):
+    type = CUSTOMER_USER_TYPE
+
+
+class UserModelFactory(object):
+    _types = {
+        BO_USER_TYPE: BOUser,
+        CUSTOMER_USER_TYPE: Customer
+    }
+    user_info = None
+    user_type = None
+
+    def __init__(self, user_info, *args, **kwargs):
+        super(UserModelFactory, self).__init__(*args, **kwargs)
+        self.user_info = protobuf_to_dict(user_info)
+        self.user_type = self.user_info.get('type')
+
+    def get_user(self):
+        if self.user_type not in self._types:
+            raise Exception('Unrecognised user type')
+
+        user_model = self._types[self.user_type]
+        return user_model(**self.user_info)

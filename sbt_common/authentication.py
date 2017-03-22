@@ -24,15 +24,15 @@ class ServiceTokenAuthentication(TokenAuthentication):
 
         if response.valid:
             user_info = response.user
-            auth_model_interface = self.get_auth_model_interface_class()
-            user = auth_model_interface().get_model(user_info)
+            user_factory = self.get_user_factory()
+            user = user_factory(user_info).get_user()
 
             return user, None
         else:
             raise AuthenticationFailed(_('Invalid token.'))
 
-    def get_auth_model_interface_class(self):
-        return import_class(api_settings.AUTH_MODEL_INTERFACE)
+    def get_user_factory(self):
+        return import_class(api_settings.AUTH_MODEL_FACTORY)
 
 
 class UserIsAuthenticated(IsAuthenticated):
