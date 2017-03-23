@@ -5,14 +5,16 @@ from rest_framework.permissions import DjangoModelPermissions
 class ServiceModelPermissions(DjangoModelPermissions):
 
     perms_map = {
-        'GET': ['%(model_name)s.view'],
-        'OPTIONS': [],
-        'HEAD': [],
-        'POST': ['%(model_name)s.add'],
-        'PUT': ['%(model_name)s.edit'],
-        'PATCH': ['%(model_name)s.edit'],
-        'DELETE': ['%(model_name)s.remove'],
+        'metadata': [],
+        'retrieve': ['%(model_name)s.view'],
+        'list': ['%(model_name)s.view'],
+        'create': ['%(model_name)s.add'],
+        'update': ['%(model_name)s.edit'],
+        'partial_update': ['%(model_name)s.edit'],
+        'destroy': ['%(model_name)s.remove'],
     }
+
+    authenticated_users_only = False
 
     def get_required_permissions(self, method, model_cls):
         """
@@ -20,10 +22,15 @@ class ServiceModelPermissions(DjangoModelPermissions):
         codes that the user is required to have.
         """
         model_name = getattr(self._view, 'model_permissions', model_cls._meta.model_name)
+        action = self._view.action
         kwargs = {
-            'model_name': model_name
+            'model_name': model_name,
+            'action': action
         }
-        return [perm % kwargs for perm in self.perms_map[method]]
+        if action in self.perms_map.keys():
+            return [perm % kwargs for perm in self.perms_map[action]]
+        else:
+            return ['%(model_name)s.%(action)s' % kwargs]
 
     def has_permission(self, request, view):
         self._view = view
