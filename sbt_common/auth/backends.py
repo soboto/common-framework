@@ -26,7 +26,7 @@ class ServiceModelBackend(ModelBackend):
         """
         user_id = None
         if type(user_obj) is not Anonymous:
-            user_id = user_obj.id
+            user_id = str(user_obj.id)
 
         users_service = ProtoService(
             api_settings.SERVICE_USERS_URL,

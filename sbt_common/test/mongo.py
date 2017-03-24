@@ -29,7 +29,7 @@ class MongoTestCase(test.SimpleTestCase):
         connection.drop_database(get_db())
         disconnect()
 
-        #super(MongoTestCase, self)._post_teardown()
+        # super(MongoTestCase, self)._post_teardown()
 
 
 class MongoDestroyRESTAPITestCaseMixin(object):

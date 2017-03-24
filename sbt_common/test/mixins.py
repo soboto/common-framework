@@ -61,5 +61,3 @@ class GenericRESTAPITestCaseMixin(object):
                     continue
 
             self.assertEqual(attribute, results.get(key, value))
-
-
