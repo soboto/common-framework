@@ -1,8 +1,12 @@
 from rest_framework.reverse import reverse
 from rest_framework import status
-from sbt_common.test.authentication import fake_authentication
+from django.core.exceptions import ObjectDoesNotExist
+import factory
 from django.utils.six import text_type
 from rest_framework.test import APITestCase
+from rest_assured.testcases import ReadRESTAPITestCaseMixin, BaseRESTAPITestCase
+
+from sbt_common.test.authentication import fake_authentication
 
 
 class CoreRESTAPITestCase(APITestCase):
@@ -15,6 +19,7 @@ class CoreRESTAPITestCase(APITestCase):
     #: Suffix for detail endpoint view names. Defaults to ``'-detail'``.
     DETAIL_SUFFIX = '-detail'
     #: The user instance created if the ``user_factory`` is set and used. Defaults to ``None``.
+    lookup_field = 'pk'
     user = None
     user_type = None
 
@@ -67,14 +72,14 @@ class CoreRESTAPITestCase(APITestCase):
 
         :returns: The url of destroy endpoint.
         """
-        return reverse(self._get_destroy_name(), args=(self.object_id,))
+        return reverse(self._get_destroy_name(), args=(object_id,))
 
     def get_update_url(self, object_id):
         """Return the update endpoint url.
 
         :returns: The url of update endpoint.
         """
-        return reverse(self._get_update_name(), args=(self.object_id,))
+        return reverse(self._get_update_name(), args=(object_id,))
 
     def _get_create_name(self):
         if hasattr(self, 'create_name'):
@@ -122,3 +127,104 @@ class ListAPITestCaseMixin(object):
         self.assertTrue(len(results) >= 1)
 
         return response
+
+
+class CreateAPITestCaseMixin(object):
+    pagination_results_field = None
+    response_lookup_field = 'id'
+
+    def get_create_data(self):
+        return factory.build(dict, FACTORY_CLASS=self.factory_class)
+
+    def get_create_response(self, data=None, **kwargs):
+
+        if data is None:
+            data = self.get_create_data()
+
+        return self.client.post(self.get_create_url(), data or {}, **{'format': 'json'})
+
+    def get_lookup_from_response(self, data):
+        return data.get(self.response_lookup_field)
+
+    def _create(self, **kwargs):
+        response = self.get_create_response(**kwargs)
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED, getattr(response, 'data', response))
+
+        # another sanity check:
+        # getting the instance from database simply to see that it's found and does not raise any exception
+        created = self.factory_class._meta.model.objects.get(
+            **{self.lookup_field: self.get_lookup_from_response(response.data)})
+
+        return response, created
+
+
+class DestroyAPITestCaseMixin(object):
+
+    def get_destroy_response(self, object_id, **kwargs):
+        return self.client.delete(self.get_destroy_url(object_id), **kwargs)
+
+    def _destroy(self, object_id=None, **kwargs):
+        if object_id is None:
+            obj = self.create_object()
+            object_id = obj.id
+
+        response = self.get_destroy_response(object_id)
+
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT, response.data)
+        # Another sanity check:
+        # see that the instance is removed from the database.
+        self.assertRaises(ObjectDoesNotExist,
+                          self.factory_class._meta.model.objects.get, **{self.lookup_field: object_id})
+
+        return response
+
+
+class UpdateAPITestCaseMixin(object):
+    use_patch = True
+    update_data = None
+
+    def get_update_data(self):
+        return self.update_data
+
+    def get_update_response(self, object_id, **kwargs):
+
+        data = self.get_update_data()
+        self.__data = data
+
+        args = [self.get_update_url(object_id), data]
+        kwargs = {'format': 'json'}
+
+        return self.client.patch(*args, **kwargs) if self.use_patch else self.client.put(*args, **kwargs)
+
+    def _update(self, object_id=None, **kwargs):
+        if object_id is None:
+            obj = self.create_object()
+            object_id = obj.id
+
+        response = self.get_update_response(object_id, **kwargs)
+        self.assertEqual(response.status_code, status.HTTP_200_OK, response.data)
+
+        # getting a fresh copy of the object from DB
+        updated = self.factory_class._meta.model.objects.get(**{self.lookup_field: object_id})
+        # Sanity check:
+        # check that the copy in the database was updated as expected.
+        self._update_check_db(updated)
+
+        return response, updated
+
+    def _update_check_db(self, obj):
+        data = self.__data
+
+        '''
+        for key, value in six.iteritems(data):
+
+
+        self.assertTrue(False, True) '''
+
+
+class CRUDAPITestCaseMixin(CreateAPITestCaseMixin,
+                           ListAPITestCaseMixin,
+                           UpdateAPITestCaseMixin,
+                           DestroyAPITestCaseMixin):
+    pass
