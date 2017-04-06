@@ -1,12 +1,16 @@
 from rest_framework.reverse import reverse
 from rest_framework import status
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils import six
 import factory
+from uuid import UUID
 from django.utils.six import text_type
 from rest_framework.test import APITestCase
 from rest_assured.testcases import ReadRESTAPITestCaseMixin, BaseRESTAPITestCase
+from datetime import datetime
 
 from sbt_common.test.authentication import fake_authentication
+from sbt_common.utils import datetime_to_epoch
 
 
 class CoreRESTAPITestCase(APITestCase):
@@ -213,14 +217,36 @@ class UpdateAPITestCaseMixin(object):
 
         return response, updated
 
+    def _update_check_object(self, obj, data):
+        for key, value in six.iteritems(data):
+            attribute = getattr(obj, key)
+
+            self._update_check_object_field(attribute, value, key)
+
+    def _update_check_object_field(self, attribute, value, key):
+        if isinstance(attribute, datetime):
+            attribute = datetime_to_epoch(attribute)
+
+        elif isinstance(attribute, UUID):
+            attribute = str(attribute)
+
+        elif isinstance(attribute, unicode):
+            value = unicode(value)
+
+        self.assertEqual(attribute, value, key)
+
     def _update_check_db(self, obj):
         data = self.__data
 
-        '''
         for key, value in six.iteritems(data):
+            attribute = getattr(obj, key)
 
+            if hasattr(self, 'update_check_db_%s' % key):
+                validation = getattr(self, 'update_check_db_%s' % key)
+                validation(attribute, value)
+                continue
 
-        self.assertTrue(False, True) '''
+            self._update_check_object_field(attribute, value, key)
 
 
 class CRUDAPITestCaseMixin(CreateAPITestCaseMixin,
