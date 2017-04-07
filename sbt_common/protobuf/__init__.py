@@ -14,7 +14,7 @@ def start_proto_server(proto_server_class, service_class):
     try:
         import django
         django.setup()
-    except:
+    except Exception:
         pass
 
     service = import_class(service_class)
