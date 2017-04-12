@@ -21,8 +21,8 @@ class EntitiesServiceStub(object):
     """
     self.getEntityInfo = channel.unary_unary(
         '/soboto.entities.EntitiesService/getEntityInfo',
-        request_serializer=entities__pb2.EntityInfoRequest.SerializeToString,
-        response_deserializer=entities__pb2.EntityInfoResponse.FromString,
+        request_serializer=entities__pb2.GetEntityInfoRequest.SerializeToString,
+        response_deserializer=entities__pb2.GetEntityInfoResponse.FromString,
         )
 
 
@@ -43,8 +43,8 @@ def add_EntitiesServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'getEntityInfo': grpc.unary_unary_rpc_method_handler(
           servicer.getEntityInfo,
-          request_deserializer=entities__pb2.EntityInfoRequest.FromString,
-          response_serializer=entities__pb2.EntityInfoResponse.SerializeToString,
+          request_deserializer=entities__pb2.GetEntityInfoRequest.FromString,
+          response_serializer=entities__pb2.GetEntityInfoResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

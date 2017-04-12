@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='users.proto',
   package='soboto.users',
   syntax='proto3',
-  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"*\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x03(\x0b\x32\x18.soboto.users.UserEntity\"\x8d\x02\n\x06\x42OUser\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12/\n\x12\x61lternative_phones\x18\x08 \x03(\x0b\x32\x13.soboto.users.Phone\x12/\n\x12\x61lternative_emails\x18\t \x03(\x0b\x32\x13.soboto.users.Email\x12*\n\x08\x65ntities\x18\n \x03(\x0b\x32\x18.soboto.users.UserEntity\"\xdf\x01\n\x08\x43ustomer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x0e\n\x06gender\x18\t \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\n \x01(\t\x12\x0c\n\x04\x63ity\x18\x0b \x01(\t\x12\x12\n\npostal_zip\x18\x0c \x01(\t\x12\x0b\n\x03\x61ge\x18\r \x01(\x05\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission\"\x1f\n\x11\x42OUserInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"8\n\x12\x42OUserInfoResponse\x12\"\n\x04user\x18\x01 \x01(\x0b\x32\x14.soboto.users.BOUser\"!\n\x13\x43ustomerInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"<\n\x14\x43ustomerInfoResponse\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x16.soboto.users.Customer2\xb2\x03\n\x0cUsersService\x12\x84\x01\n\x1bvalidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12getUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x12T\n\rgetBOUserInfo\x12\x1f.soboto.users.BOUserInfoRequest\x1a .soboto.users.BOUserInfoResponse\"\x00\x12Z\n\x0fgetCustomerInfo\x12!.soboto.users.CustomerInfoRequest\x1a\".soboto.users.CustomerInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"*\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x03(\x0b\x32\x18.soboto.users.UserEntity\"\x8d\x02\n\x06\x42OUser\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12/\n\x12\x61lternative_phones\x18\x08 \x03(\x0b\x32\x13.soboto.users.Phone\x12/\n\x12\x61lternative_emails\x18\t \x03(\x0b\x32\x13.soboto.users.Email\x12*\n\x08\x65ntities\x18\n \x03(\x0b\x32\x18.soboto.users.UserEntity\"\xdf\x01\n\x08\x43ustomer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x0e\n\x06gender\x18\t \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\n \x01(\t\x12\x0c\n\x04\x63ity\x18\x0b \x01(\t\x12\x12\n\npostal_zip\x18\x0c \x01(\t\x12\x0b\n\x03\x61ge\x18\r \x01(\x05\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission\"\"\n\x14GetBOUserInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x15GetBOUserInfoResponse\x12\"\n\x04user\x18\x01 \x01(\x0b\x32\x14.soboto.users.BOUser\"$\n\x16GetCustomerInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"?\n\x17GetCustomerInfoResponse\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x16.soboto.users.Customer2\xbe\x03\n\x0cUsersService\x12\x84\x01\n\x1bvalidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12getUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x12Z\n\rgetBOUserInfo\x12\".soboto.users.GetBOUserInfoRequest\x1a#.soboto.users.GetBOUserInfoResponse\"\x00\x12`\n\x0fgetCustomerInfo\x12$.soboto.users.GetCustomerInfoRequest\x1a%.soboto.users.GetCustomerInfoResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -612,15 +612,15 @@ _GETUSERPERMISSIONSRESPONSE = _descriptor.Descriptor(
 )
 
 
-_BOUSERINFOREQUEST = _descriptor.Descriptor(
-  name='BOUserInfoRequest',
-  full_name='soboto.users.BOUserInfoRequest',
+_GETBOUSERINFOREQUEST = _descriptor.Descriptor(
+  name='GetBOUserInfoRequest',
+  full_name='soboto.users.GetBOUserInfoRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='soboto.users.BOUserInfoRequest.id', index=0,
+      name='id', full_name='soboto.users.GetBOUserInfoRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -639,19 +639,19 @@ _BOUSERINFOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1171,
-  serialized_end=1202,
+  serialized_end=1205,
 )
 
 
-_BOUSERINFORESPONSE = _descriptor.Descriptor(
-  name='BOUserInfoResponse',
-  full_name='soboto.users.BOUserInfoResponse',
+_GETBOUSERINFORESPONSE = _descriptor.Descriptor(
+  name='GetBOUserInfoResponse',
+  full_name='soboto.users.GetBOUserInfoResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='user', full_name='soboto.users.BOUserInfoResponse.user', index=0,
+      name='user', full_name='soboto.users.GetBOUserInfoResponse.user', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -669,20 +669,20 @@ _BOUSERINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1204,
-  serialized_end=1260,
+  serialized_start=1207,
+  serialized_end=1266,
 )
 
 
-_CUSTOMERINFOREQUEST = _descriptor.Descriptor(
-  name='CustomerInfoRequest',
-  full_name='soboto.users.CustomerInfoRequest',
+_GETCUSTOMERINFOREQUEST = _descriptor.Descriptor(
+  name='GetCustomerInfoRequest',
+  full_name='soboto.users.GetCustomerInfoRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='soboto.users.CustomerInfoRequest.id', index=0,
+      name='id', full_name='soboto.users.GetCustomerInfoRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -700,20 +700,20 @@ _CUSTOMERINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1262,
-  serialized_end=1295,
+  serialized_start=1268,
+  serialized_end=1304,
 )
 
 
-_CUSTOMERINFORESPONSE = _descriptor.Descriptor(
-  name='CustomerInfoResponse',
-  full_name='soboto.users.CustomerInfoResponse',
+_GETCUSTOMERINFORESPONSE = _descriptor.Descriptor(
+  name='GetCustomerInfoResponse',
+  full_name='soboto.users.GetCustomerInfoResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='user', full_name='soboto.users.CustomerInfoResponse.user', index=0,
+      name='user', full_name='soboto.users.GetCustomerInfoResponse.user', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -731,8 +731,8 @@ _CUSTOMERINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1297,
-  serialized_end=1357,
+  serialized_start=1306,
+  serialized_end=1369,
 )
 
 _USERAUTH.fields_by_name['entity'].message_type = _USERENTITY
@@ -741,8 +741,8 @@ _BOUSER.fields_by_name['alternative_emails'].message_type = _EMAIL
 _BOUSER.fields_by_name['entities'].message_type = _USERENTITY
 _VALIDATEAUTHENTICATIONTOKENRESPONSE.fields_by_name['user'].message_type = _USERAUTH
 _GETUSERPERMISSIONSRESPONSE.fields_by_name['permissions'].message_type = _PERMISSION
-_BOUSERINFORESPONSE.fields_by_name['user'].message_type = _BOUSER
-_CUSTOMERINFORESPONSE.fields_by_name['user'].message_type = _CUSTOMER
+_GETBOUSERINFORESPONSE.fields_by_name['user'].message_type = _BOUSER
+_GETCUSTOMERINFORESPONSE.fields_by_name['user'].message_type = _CUSTOMER
 DESCRIPTOR.message_types_by_name['Phone'] = _PHONE
 DESCRIPTOR.message_types_by_name['Email'] = _EMAIL
 DESCRIPTOR.message_types_by_name['Permission'] = _PERMISSION
@@ -754,10 +754,10 @@ DESCRIPTOR.message_types_by_name['ValidateAuthenticationTokenRequest'] = _VALIDA
 DESCRIPTOR.message_types_by_name['ValidateAuthenticationTokenResponse'] = _VALIDATEAUTHENTICATIONTOKENRESPONSE
 DESCRIPTOR.message_types_by_name['GetUserPermissionsRequest'] = _GETUSERPERMISSIONSREQUEST
 DESCRIPTOR.message_types_by_name['GetUserPermissionsResponse'] = _GETUSERPERMISSIONSRESPONSE
-DESCRIPTOR.message_types_by_name['BOUserInfoRequest'] = _BOUSERINFOREQUEST
-DESCRIPTOR.message_types_by_name['BOUserInfoResponse'] = _BOUSERINFORESPONSE
-DESCRIPTOR.message_types_by_name['CustomerInfoRequest'] = _CUSTOMERINFOREQUEST
-DESCRIPTOR.message_types_by_name['CustomerInfoResponse'] = _CUSTOMERINFORESPONSE
+DESCRIPTOR.message_types_by_name['GetBOUserInfoRequest'] = _GETBOUSERINFOREQUEST
+DESCRIPTOR.message_types_by_name['GetBOUserInfoResponse'] = _GETBOUSERINFORESPONSE
+DESCRIPTOR.message_types_by_name['GetCustomerInfoRequest'] = _GETCUSTOMERINFOREQUEST
+DESCRIPTOR.message_types_by_name['GetCustomerInfoResponse'] = _GETCUSTOMERINFORESPONSE
 
 Phone = _reflection.GeneratedProtocolMessageType('Phone', (_message.Message,), dict(
   DESCRIPTOR = _PHONE,
@@ -836,33 +836,33 @@ GetUserPermissionsResponse = _reflection.GeneratedProtocolMessageType('GetUserPe
   ))
 _sym_db.RegisterMessage(GetUserPermissionsResponse)
 
-BOUserInfoRequest = _reflection.GeneratedProtocolMessageType('BOUserInfoRequest', (_message.Message,), dict(
-  DESCRIPTOR = _BOUSERINFOREQUEST,
+GetBOUserInfoRequest = _reflection.GeneratedProtocolMessageType('GetBOUserInfoRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETBOUSERINFOREQUEST,
   __module__ = 'users_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.users.BOUserInfoRequest)
+  # @@protoc_insertion_point(class_scope:soboto.users.GetBOUserInfoRequest)
   ))
-_sym_db.RegisterMessage(BOUserInfoRequest)
+_sym_db.RegisterMessage(GetBOUserInfoRequest)
 
-BOUserInfoResponse = _reflection.GeneratedProtocolMessageType('BOUserInfoResponse', (_message.Message,), dict(
-  DESCRIPTOR = _BOUSERINFORESPONSE,
+GetBOUserInfoResponse = _reflection.GeneratedProtocolMessageType('GetBOUserInfoResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETBOUSERINFORESPONSE,
   __module__ = 'users_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.users.BOUserInfoResponse)
+  # @@protoc_insertion_point(class_scope:soboto.users.GetBOUserInfoResponse)
   ))
-_sym_db.RegisterMessage(BOUserInfoResponse)
+_sym_db.RegisterMessage(GetBOUserInfoResponse)
 
-CustomerInfoRequest = _reflection.GeneratedProtocolMessageType('CustomerInfoRequest', (_message.Message,), dict(
-  DESCRIPTOR = _CUSTOMERINFOREQUEST,
+GetCustomerInfoRequest = _reflection.GeneratedProtocolMessageType('GetCustomerInfoRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETCUSTOMERINFOREQUEST,
   __module__ = 'users_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.users.CustomerInfoRequest)
+  # @@protoc_insertion_point(class_scope:soboto.users.GetCustomerInfoRequest)
   ))
-_sym_db.RegisterMessage(CustomerInfoRequest)
+_sym_db.RegisterMessage(GetCustomerInfoRequest)
 
-CustomerInfoResponse = _reflection.GeneratedProtocolMessageType('CustomerInfoResponse', (_message.Message,), dict(
-  DESCRIPTOR = _CUSTOMERINFORESPONSE,
+GetCustomerInfoResponse = _reflection.GeneratedProtocolMessageType('GetCustomerInfoResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETCUSTOMERINFORESPONSE,
   __module__ = 'users_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.users.CustomerInfoResponse)
+  # @@protoc_insertion_point(class_scope:soboto.users.GetCustomerInfoResponse)
   ))
-_sym_db.RegisterMessage(CustomerInfoResponse)
+_sym_db.RegisterMessage(GetCustomerInfoResponse)
 
 
 try:
@@ -899,13 +899,13 @@ try:
           )
       self.getBOUserInfo = channel.unary_unary(
           '/soboto.users.UsersService/getBOUserInfo',
-          request_serializer=BOUserInfoRequest.SerializeToString,
-          response_deserializer=BOUserInfoResponse.FromString,
+          request_serializer=GetBOUserInfoRequest.SerializeToString,
+          response_deserializer=GetBOUserInfoResponse.FromString,
           )
       self.getCustomerInfo = channel.unary_unary(
           '/soboto.users.UsersService/getCustomerInfo',
-          request_serializer=CustomerInfoRequest.SerializeToString,
-          response_deserializer=CustomerInfoResponse.FromString,
+          request_serializer=GetCustomerInfoRequest.SerializeToString,
+          response_deserializer=GetCustomerInfoResponse.FromString,
           )
 
 
@@ -950,13 +950,13 @@ try:
         ),
         'getBOUserInfo': grpc.unary_unary_rpc_method_handler(
             servicer.getBOUserInfo,
-            request_deserializer=BOUserInfoRequest.FromString,
-            response_serializer=BOUserInfoResponse.SerializeToString,
+            request_deserializer=GetBOUserInfoRequest.FromString,
+            response_serializer=GetBOUserInfoResponse.SerializeToString,
         ),
         'getCustomerInfo': grpc.unary_unary_rpc_method_handler(
             servicer.getCustomerInfo,
-            request_deserializer=CustomerInfoRequest.FromString,
-            response_serializer=CustomerInfoResponse.SerializeToString,
+            request_deserializer=GetCustomerInfoRequest.FromString,
+            response_serializer=GetCustomerInfoResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1015,14 +1015,14 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('soboto.users.UsersService', 'getBOUserInfo'): BOUserInfoRequest.FromString,
-      ('soboto.users.UsersService', 'getCustomerInfo'): CustomerInfoRequest.FromString,
+      ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoRequest.FromString,
+      ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoRequest.FromString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsRequest.FromString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenRequest.FromString,
     }
     response_serializers = {
-      ('soboto.users.UsersService', 'getBOUserInfo'): BOUserInfoResponse.SerializeToString,
-      ('soboto.users.UsersService', 'getCustomerInfo'): CustomerInfoResponse.SerializeToString,
+      ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoResponse.SerializeToString,
+      ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoResponse.SerializeToString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsResponse.SerializeToString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenResponse.SerializeToString,
     }
@@ -1043,14 +1043,14 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('soboto.users.UsersService', 'getBOUserInfo'): BOUserInfoRequest.SerializeToString,
-      ('soboto.users.UsersService', 'getCustomerInfo'): CustomerInfoRequest.SerializeToString,
+      ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoRequest.SerializeToString,
+      ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoRequest.SerializeToString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsRequest.SerializeToString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenRequest.SerializeToString,
     }
     response_deserializers = {
-      ('soboto.users.UsersService', 'getBOUserInfo'): BOUserInfoResponse.FromString,
-      ('soboto.users.UsersService', 'getCustomerInfo'): CustomerInfoResponse.FromString,
+      ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoResponse.FromString,
+      ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoResponse.FromString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsResponse.FromString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenResponse.FromString,
     }

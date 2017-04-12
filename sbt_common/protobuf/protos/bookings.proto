@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package soboto.bookings;
 
+
 // =======================================
 // Protobuf Models
 // =======================================
@@ -57,22 +58,24 @@ message Booking {
     repeated ItemBooking items = 16;
 }
 
+
 // =======================================
 // RPC request & response messages
 // =======================================
 
-message BookingInfoRequest {
+message GetBookingInfoRequest {
     string id = 1;
 }
-message BookingInfoResponse {
+message GetBookingInfoResponse {
     Booking booking = 1;
 }
+
 
 // =======================================
 // The service definition.
 // =======================================
 
 service BookingsService {
-    rpc getBookingInfo (BookingInfoRequest)
-        returns (BookingInfoResponse) {}
+    rpc getBookingInfo (GetBookingInfoRequest)
+        returns (GetBookingInfoResponse) {}
 }

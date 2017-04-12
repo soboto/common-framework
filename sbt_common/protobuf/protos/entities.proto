@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package soboto.entities;
 
+
 // =======================================
 // Protobuf Models
 // =======================================
@@ -31,21 +32,23 @@ message Entity {
     repeated Email alternative_emails = 14;
 }
 
+
 // =======================================
 // RPC request & response messages
 // =======================================
 
-message EntityInfoRequest {
+message GetEntityInfoRequest {
     string id = 1;
 }
-message EntityInfoResponse {
+message GetEntityInfoResponse {
     Entity entity = 1;
 }
+
 
 // =======================================
 // The service definition.
 // =======================================
 
 service EntitiesService {
-  rpc getEntityInfo (EntityInfoRequest) returns (EntityInfoResponse) {}
+  rpc getEntityInfo (GetEntityInfoRequest) returns (GetEntityInfoResponse) {}
 }

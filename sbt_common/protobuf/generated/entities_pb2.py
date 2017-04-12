@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='entities.proto',
   package='soboto.entities',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x65ntities.proto\x12\x0fsoboto.entities\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"\xb7\x02\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x11\n\tpost_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ountry_code\x18\x08 \x01(\t\x12\x10\n\x08timezone\x18\t \x01(\t\x12\r\n\x05phone\x18\n \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x0f\n\x07website\x18\x0c \x01(\t\x12\x32\n\x12\x61lternative_phones\x18\r \x03(\x0b\x32\x16.soboto.entities.Phone\x12\x32\n\x12\x61lternative_emails\x18\x0e \x03(\x0b\x32\x16.soboto.entities.Email\"\x1f\n\x11\x45ntityInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"=\n\x12\x45ntityInfoResponse\x12\'\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\x17.soboto.entities.Entity2m\n\x0f\x45ntitiesService\x12Z\n\rgetEntityInfo\x12\".soboto.entities.EntityInfoRequest\x1a#.soboto.entities.EntityInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x65ntities.proto\x12\x0fsoboto.entities\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"\xb7\x02\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x11\n\tpost_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ountry_code\x18\x08 \x01(\t\x12\x10\n\x08timezone\x18\t \x01(\t\x12\r\n\x05phone\x18\n \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x0f\n\x07website\x18\x0c \x01(\t\x12\x32\n\x12\x61lternative_phones\x18\r \x03(\x0b\x32\x16.soboto.entities.Phone\x12\x32\n\x12\x61lternative_emails\x18\x0e \x03(\x0b\x32\x16.soboto.entities.Email\"\"\n\x14GetEntityInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x15GetEntityInfoResponse\x12\'\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\x17.soboto.entities.Entity2s\n\x0f\x45ntitiesService\x12`\n\rgetEntityInfo\x12%.soboto.entities.GetEntityInfoRequest\x1a&.soboto.entities.GetEntityInfoResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -210,15 +210,15 @@ _ENTITY = _descriptor.Descriptor(
 )
 
 
-_ENTITYINFOREQUEST = _descriptor.Descriptor(
-  name='EntityInfoRequest',
-  full_name='soboto.entities.EntityInfoRequest',
+_GETENTITYINFOREQUEST = _descriptor.Descriptor(
+  name='GetEntityInfoRequest',
+  full_name='soboto.entities.GetEntityInfoRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='soboto.entities.EntityInfoRequest.id', index=0,
+      name='id', full_name='soboto.entities.GetEntityInfoRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -237,19 +237,19 @@ _ENTITYINFOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=397,
-  serialized_end=428,
+  serialized_end=431,
 )
 
 
-_ENTITYINFORESPONSE = _descriptor.Descriptor(
-  name='EntityInfoResponse',
-  full_name='soboto.entities.EntityInfoResponse',
+_GETENTITYINFORESPONSE = _descriptor.Descriptor(
+  name='GetEntityInfoResponse',
+  full_name='soboto.entities.GetEntityInfoResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='entity', full_name='soboto.entities.EntityInfoResponse.entity', index=0,
+      name='entity', full_name='soboto.entities.GetEntityInfoResponse.entity', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -267,18 +267,18 @@ _ENTITYINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=430,
-  serialized_end=491,
+  serialized_start=433,
+  serialized_end=497,
 )
 
 _ENTITY.fields_by_name['alternative_phones'].message_type = _PHONE
 _ENTITY.fields_by_name['alternative_emails'].message_type = _EMAIL
-_ENTITYINFORESPONSE.fields_by_name['entity'].message_type = _ENTITY
+_GETENTITYINFORESPONSE.fields_by_name['entity'].message_type = _ENTITY
 DESCRIPTOR.message_types_by_name['Phone'] = _PHONE
 DESCRIPTOR.message_types_by_name['Email'] = _EMAIL
 DESCRIPTOR.message_types_by_name['Entity'] = _ENTITY
-DESCRIPTOR.message_types_by_name['EntityInfoRequest'] = _ENTITYINFOREQUEST
-DESCRIPTOR.message_types_by_name['EntityInfoResponse'] = _ENTITYINFORESPONSE
+DESCRIPTOR.message_types_by_name['GetEntityInfoRequest'] = _GETENTITYINFOREQUEST
+DESCRIPTOR.message_types_by_name['GetEntityInfoResponse'] = _GETENTITYINFORESPONSE
 
 Phone = _reflection.GeneratedProtocolMessageType('Phone', (_message.Message,), dict(
   DESCRIPTOR = _PHONE,
@@ -301,19 +301,19 @@ Entity = _reflection.GeneratedProtocolMessageType('Entity', (_message.Message,),
   ))
 _sym_db.RegisterMessage(Entity)
 
-EntityInfoRequest = _reflection.GeneratedProtocolMessageType('EntityInfoRequest', (_message.Message,), dict(
-  DESCRIPTOR = _ENTITYINFOREQUEST,
+GetEntityInfoRequest = _reflection.GeneratedProtocolMessageType('GetEntityInfoRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETENTITYINFOREQUEST,
   __module__ = 'entities_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.entities.EntityInfoRequest)
+  # @@protoc_insertion_point(class_scope:soboto.entities.GetEntityInfoRequest)
   ))
-_sym_db.RegisterMessage(EntityInfoRequest)
+_sym_db.RegisterMessage(GetEntityInfoRequest)
 
-EntityInfoResponse = _reflection.GeneratedProtocolMessageType('EntityInfoResponse', (_message.Message,), dict(
-  DESCRIPTOR = _ENTITYINFORESPONSE,
+GetEntityInfoResponse = _reflection.GeneratedProtocolMessageType('GetEntityInfoResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETENTITYINFORESPONSE,
   __module__ = 'entities_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.entities.EntityInfoResponse)
+  # @@protoc_insertion_point(class_scope:soboto.entities.GetEntityInfoResponse)
   ))
-_sym_db.RegisterMessage(EntityInfoResponse)
+_sym_db.RegisterMessage(GetEntityInfoResponse)
 
 
 try:
@@ -341,8 +341,8 @@ try:
       """
       self.getEntityInfo = channel.unary_unary(
           '/soboto.entities.EntitiesService/getEntityInfo',
-          request_serializer=EntityInfoRequest.SerializeToString,
-          response_deserializer=EntityInfoResponse.FromString,
+          request_serializer=GetEntityInfoRequest.SerializeToString,
+          response_deserializer=GetEntityInfoResponse.FromString,
           )
 
 
@@ -363,8 +363,8 @@ try:
     rpc_method_handlers = {
         'getEntityInfo': grpc.unary_unary_rpc_method_handler(
             servicer.getEntityInfo,
-            request_deserializer=EntityInfoRequest.FromString,
-            response_serializer=EntityInfoResponse.SerializeToString,
+            request_deserializer=GetEntityInfoRequest.FromString,
+            response_serializer=GetEntityInfoResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -410,10 +410,10 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('soboto.entities.EntitiesService', 'getEntityInfo'): EntityInfoRequest.FromString,
+      ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoRequest.FromString,
     }
     response_serializers = {
-      ('soboto.entities.EntitiesService', 'getEntityInfo'): EntityInfoResponse.SerializeToString,
+      ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.entities.EntitiesService', 'getEntityInfo'): face_utilities.unary_unary_inline(servicer.getEntityInfo),
@@ -429,10 +429,10 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('soboto.entities.EntitiesService', 'getEntityInfo'): EntityInfoRequest.SerializeToString,
+      ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoRequest.SerializeToString,
     }
     response_deserializers = {
-      ('soboto.entities.EntitiesService', 'getEntityInfo'): EntityInfoResponse.FromString,
+      ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoResponse.FromString,
     }
     cardinalities = {
       'getEntityInfo': cardinality.Cardinality.UNARY_UNARY,

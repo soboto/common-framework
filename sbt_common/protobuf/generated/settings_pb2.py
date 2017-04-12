@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='settings.proto',
   package='soboto.settings',
   syntax='proto3',
-  serialized_pb=_b('\n\x0esettings.proto\x12\x0fsoboto.settings\"@\n\x07Setting\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"#\n\x13SettingsInfoRequest\x12\x0c\n\x04name\x18\x01 \x03(\t\"B\n\x14SettingsInfoResponse\x12*\n\x08settings\x18\x01 \x03(\x0b\x32\x18.soboto.settings.Setting2o\n\x0fSettingsService\x12\\\n\x0bgetSettings\x12$.soboto.settings.SettingsInfoRequest\x1a%.soboto.settings.SettingsInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0esettings.proto\x12\x0fsoboto.settings\"@\n\x07Setting\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"\"\n\x12GetSettingsRequest\x12\x0c\n\x04name\x18\x01 \x03(\t\"A\n\x13GetSettingsResponse\x12*\n\x08settings\x18\x01 \x03(\x0b\x32\x18.soboto.settings.Setting2m\n\x0fSettingsService\x12Z\n\x0bgetSettings\x12#.soboto.settings.GetSettingsRequest\x1a$.soboto.settings.GetSettingsResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -78,15 +78,15 @@ _SETTING = _descriptor.Descriptor(
 )
 
 
-_SETTINGSINFOREQUEST = _descriptor.Descriptor(
-  name='SettingsInfoRequest',
-  full_name='soboto.settings.SettingsInfoRequest',
+_GETSETTINGSREQUEST = _descriptor.Descriptor(
+  name='GetSettingsRequest',
+  full_name='soboto.settings.GetSettingsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='soboto.settings.SettingsInfoRequest.name', index=0,
+      name='name', full_name='soboto.settings.GetSettingsRequest.name', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -105,19 +105,19 @@ _SETTINGSINFOREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=101,
-  serialized_end=136,
+  serialized_end=135,
 )
 
 
-_SETTINGSINFORESPONSE = _descriptor.Descriptor(
-  name='SettingsInfoResponse',
-  full_name='soboto.settings.SettingsInfoResponse',
+_GETSETTINGSRESPONSE = _descriptor.Descriptor(
+  name='GetSettingsResponse',
+  full_name='soboto.settings.GetSettingsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='settings', full_name='soboto.settings.SettingsInfoResponse.settings', index=0,
+      name='settings', full_name='soboto.settings.GetSettingsResponse.settings', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -135,14 +135,14 @@ _SETTINGSINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=138,
-  serialized_end=204,
+  serialized_start=137,
+  serialized_end=202,
 )
 
-_SETTINGSINFORESPONSE.fields_by_name['settings'].message_type = _SETTING
+_GETSETTINGSRESPONSE.fields_by_name['settings'].message_type = _SETTING
 DESCRIPTOR.message_types_by_name['Setting'] = _SETTING
-DESCRIPTOR.message_types_by_name['SettingsInfoRequest'] = _SETTINGSINFOREQUEST
-DESCRIPTOR.message_types_by_name['SettingsInfoResponse'] = _SETTINGSINFORESPONSE
+DESCRIPTOR.message_types_by_name['GetSettingsRequest'] = _GETSETTINGSREQUEST
+DESCRIPTOR.message_types_by_name['GetSettingsResponse'] = _GETSETTINGSRESPONSE
 
 Setting = _reflection.GeneratedProtocolMessageType('Setting', (_message.Message,), dict(
   DESCRIPTOR = _SETTING,
@@ -151,19 +151,19 @@ Setting = _reflection.GeneratedProtocolMessageType('Setting', (_message.Message,
   ))
 _sym_db.RegisterMessage(Setting)
 
-SettingsInfoRequest = _reflection.GeneratedProtocolMessageType('SettingsInfoRequest', (_message.Message,), dict(
-  DESCRIPTOR = _SETTINGSINFOREQUEST,
+GetSettingsRequest = _reflection.GeneratedProtocolMessageType('GetSettingsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETSETTINGSREQUEST,
   __module__ = 'settings_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.settings.SettingsInfoRequest)
+  # @@protoc_insertion_point(class_scope:soboto.settings.GetSettingsRequest)
   ))
-_sym_db.RegisterMessage(SettingsInfoRequest)
+_sym_db.RegisterMessage(GetSettingsRequest)
 
-SettingsInfoResponse = _reflection.GeneratedProtocolMessageType('SettingsInfoResponse', (_message.Message,), dict(
-  DESCRIPTOR = _SETTINGSINFORESPONSE,
+GetSettingsResponse = _reflection.GeneratedProtocolMessageType('GetSettingsResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETSETTINGSRESPONSE,
   __module__ = 'settings_pb2'
-  # @@protoc_insertion_point(class_scope:soboto.settings.SettingsInfoResponse)
+  # @@protoc_insertion_point(class_scope:soboto.settings.GetSettingsResponse)
   ))
-_sym_db.RegisterMessage(SettingsInfoResponse)
+_sym_db.RegisterMessage(GetSettingsResponse)
 
 
 try:
@@ -191,8 +191,8 @@ try:
       """
       self.getSettings = channel.unary_unary(
           '/soboto.settings.SettingsService/getSettings',
-          request_serializer=SettingsInfoRequest.SerializeToString,
-          response_deserializer=SettingsInfoResponse.FromString,
+          request_serializer=GetSettingsRequest.SerializeToString,
+          response_deserializer=GetSettingsResponse.FromString,
           )
 
 
@@ -213,8 +213,8 @@ try:
     rpc_method_handlers = {
         'getSettings': grpc.unary_unary_rpc_method_handler(
             servicer.getSettings,
-            request_deserializer=SettingsInfoRequest.FromString,
-            response_serializer=SettingsInfoResponse.SerializeToString,
+            request_deserializer=GetSettingsRequest.FromString,
+            response_serializer=GetSettingsResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -260,10 +260,10 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('soboto.settings.SettingsService', 'getSettings'): SettingsInfoRequest.FromString,
+      ('soboto.settings.SettingsService', 'getSettings'): GetSettingsRequest.FromString,
     }
     response_serializers = {
-      ('soboto.settings.SettingsService', 'getSettings'): SettingsInfoResponse.SerializeToString,
+      ('soboto.settings.SettingsService', 'getSettings'): GetSettingsResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.settings.SettingsService', 'getSettings'): face_utilities.unary_unary_inline(servicer.getSettings),
@@ -279,10 +279,10 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('soboto.settings.SettingsService', 'getSettings'): SettingsInfoRequest.SerializeToString,
+      ('soboto.settings.SettingsService', 'getSettings'): GetSettingsRequest.SerializeToString,
     }
     response_deserializers = {
-      ('soboto.settings.SettingsService', 'getSettings'): SettingsInfoResponse.FromString,
+      ('soboto.settings.SettingsService', 'getSettings'): GetSettingsResponse.FromString,
     }
     cardinalities = {
       'getSettings': cardinality.Cardinality.UNARY_UNARY,

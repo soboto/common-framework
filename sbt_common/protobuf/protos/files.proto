@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package soboto.files;
 
+
 // =======================================
 // Protobuf Models
 // =======================================
@@ -15,6 +16,7 @@ message Media {
     string file_url = 6;
     bool vr = 7;
 }
+
 
 // =======================================
 // RPC request & response messages
@@ -31,6 +33,7 @@ message FetchMediaResponse {
     int32 limit = 3;
     int32 offset = 4;
 }
+
 
 // =======================================
 // The service definition.

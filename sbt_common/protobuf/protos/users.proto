@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package soboto.users;
 
+
 // =======================================
 // Protobuf Models
 // =======================================
@@ -68,9 +69,11 @@ message Customer {
     int32 age = 13;
 }
 
+
 // =======================================
 // RPC request & response messages
 // =======================================
+
 
 // =======================================
 // User Authentication
@@ -82,6 +85,7 @@ message ValidateAuthenticationTokenResponse {
     UserAuth user = 2;
 }
 
+
 // =======================================
 // User Permissions
 message GetUserPermissionsRequest {
@@ -91,22 +95,24 @@ message GetUserPermissionsResponse {
     repeated Permission permissions = 1;
 }
 
+
 // =======================================
 // USER INFO
 // -> BO User
-message BOUserInfoRequest {
+message GetBOUserInfoRequest {
     string id = 1;
 }
-message BOUserInfoResponse {
+message GetBOUserInfoResponse {
     BOUser user = 1;
 }
 // -> Customer User
-message CustomerInfoRequest {
+message GetCustomerInfoRequest {
     string id = 1;
 }
-message CustomerInfoResponse {
+message GetCustomerInfoResponse {
     Customer user = 1;
 }
+
 
 // =======================================
 // The service definition.
@@ -118,10 +124,10 @@ service UsersService {
     rpc getUserPermissions (GetUserPermissionsRequest)
         returns (GetUserPermissionsResponse) {}
 
-    rpc getBOUserInfo (BOUserInfoRequest)
-        returns (BOUserInfoResponse) {}
+    rpc getBOUserInfo (GetBOUserInfoRequest)
+        returns (GetBOUserInfoResponse) {}
 
-    rpc getCustomerInfo (CustomerInfoRequest)
-        returns (CustomerInfoResponse) {}
+    rpc getCustomerInfo (GetCustomerInfoRequest)
+        returns (GetCustomerInfoResponse) {}
 }
 

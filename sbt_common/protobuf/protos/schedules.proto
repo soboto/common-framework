@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package soboto.schedules;
+
+
+// =======================================
+// Protobuf Models
+// =======================================
+
+message Slot {
+    string id = 1;
+    string start = 2;
+    string end = 3;
+    int32 booked_quantity = 4;
+    int32 initial_quantity = 5;
+    string item_id = 6;
+    string event_id = 7;
+}
+
+
+// =======================================
+// RPC request & response messages
+// =======================================
+
+message CheckSlotAvailabilityRequest {
+    string slot_id = 1;
+}
+message CheckSlotAvailabilityResponse {
+    bool available = 1;
+}
+
+
+// =======================================
+// The service definition.
+// =======================================
+
+service SchedulesService {
+    rpc checkSlotAvailability (CheckSlotAvailabilityRequest)
+        returns (CheckSlotAvailabilityResponse) {}
+}

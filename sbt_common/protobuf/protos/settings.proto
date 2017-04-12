@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package soboto.settings;
 
+
 // =======================================
 // Protobuf Models
 // =======================================
@@ -13,22 +14,24 @@ message Setting {
     string value = 4;
 }
 
+
 // =======================================
 // RPC request & response messages
 // =======================================
 
-message SettingsInfoRequest {
+message GetSettingsRequest {
     repeated string name = 1;
 }
-message SettingsInfoResponse {
+message GetSettingsResponse {
     repeated Setting settings = 1;
 }
+
 
 // =======================================
 // The service definition.
 // =======================================
 
 service SettingsService {
-    rpc getSettings (SettingsInfoRequest)
-        returns (SettingsInfoResponse) {}
+    rpc getSettings (GetSettingsRequest)
+        returns (GetSettingsResponse) {}
 }

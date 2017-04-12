@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package soboto.items;
 
+
 // =======================================
 // Protobuf Models
 // =======================================
@@ -57,6 +58,7 @@ message SlotEventAvailability{
     string status = 3;
 }
 
+
 // =======================================
 // RPC request & response messages
 // =======================================
@@ -75,6 +77,7 @@ message DuplicateItemEventRequest {
 message DuplicateItemEventResponse {
     ItemEvent item_event = 1;
 }
+
 
 // =======================================
 // The service definition.

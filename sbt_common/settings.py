@@ -21,6 +21,42 @@ DEFAULTS = {
             'module': 'items_pb2',
             'stub': 'beta_create_ItemsService_stub',
             'pb_service': 'beta_create_ItemsService_server'
+        },
+        'schedules': {
+            'host': 'sbtbackoffice_schedules-50050',
+            'module': 'schedules_pb2',
+            'stub': 'beta_create_SchedulesService_stub',
+            'pb_service': 'beta_create_SchedulesService_server'
+        },
+        'files': {
+            'host': 'sbtbackoffice_files-50050',
+            'module': 'files_pb2',
+            'stub': 'beta_create_FilesService_stub',
+            'pb_service': 'beta_create_FilesService_server'
+        },
+        'entities': {
+            'host': 'sbtbackoffice_entities-50050',
+            'module': 'entities_pb2',
+            'stub': 'beta_create_EntitiesService_stub',
+            'pb_service': 'beta_create_EntitiesService_server'
+        },
+        'settings': {
+            'host': 'sbtbackoffice_settings-50050',
+            'module': 'settings_pb2',
+            'stub': 'beta_create_SettingsService_stub',
+            'pb_service': 'beta_create_SettingsService_server'
+        },
+        'users': {
+            'host': 'sbtbackoffice_users-50050',
+            'module': 'users_pb2',
+            'stub': 'beta_create_UsersService_stub',
+            'pb_service': 'beta_create_UsersService_server'
+        },
+        'bookings': {
+            'host': 'sbtbackoffice_bookings-50050',
+            'module': 'bookings_pb2',
+            'stub': 'beta_create_BookingsService_stub',
+            'pb_service': 'beta_create_BookingsService_server'
         }
     }
 }

@@ -21,8 +21,8 @@ class BookingsServiceStub(object):
     """
     self.getBookingInfo = channel.unary_unary(
         '/soboto.bookings.BookingsService/getBookingInfo',
-        request_serializer=bookings__pb2.BookingInfoRequest.SerializeToString,
-        response_deserializer=bookings__pb2.BookingInfoResponse.FromString,
+        request_serializer=bookings__pb2.GetBookingInfoRequest.SerializeToString,
+        response_deserializer=bookings__pb2.GetBookingInfoResponse.FromString,
         )
 
 
@@ -43,8 +43,8 @@ def add_BookingsServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'getBookingInfo': grpc.unary_unary_rpc_method_handler(
           servicer.getBookingInfo,
-          request_deserializer=bookings__pb2.BookingInfoRequest.FromString,
-          response_serializer=bookings__pb2.BookingInfoResponse.SerializeToString,
+          request_deserializer=bookings__pb2.GetBookingInfoRequest.FromString,
+          response_serializer=bookings__pb2.GetBookingInfoResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

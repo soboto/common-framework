@@ -36,13 +36,13 @@ class UsersServiceStub(object):
         )
     self.getBOUserInfo = channel.unary_unary(
         '/soboto.users.UsersService/getBOUserInfo',
-        request_serializer=users__pb2.BOUserInfoRequest.SerializeToString,
-        response_deserializer=users__pb2.BOUserInfoResponse.FromString,
+        request_serializer=users__pb2.GetBOUserInfoRequest.SerializeToString,
+        response_deserializer=users__pb2.GetBOUserInfoResponse.FromString,
         )
     self.getCustomerInfo = channel.unary_unary(
         '/soboto.users.UsersService/getCustomerInfo',
-        request_serializer=users__pb2.CustomerInfoRequest.SerializeToString,
-        response_deserializer=users__pb2.CustomerInfoResponse.FromString,
+        request_serializer=users__pb2.GetCustomerInfoRequest.SerializeToString,
+        response_deserializer=users__pb2.GetCustomerInfoResponse.FromString,
         )
 
 
@@ -87,13 +87,13 @@ def add_UsersServiceServicer_to_server(servicer, server):
       ),
       'getBOUserInfo': grpc.unary_unary_rpc_method_handler(
           servicer.getBOUserInfo,
-          request_deserializer=users__pb2.BOUserInfoRequest.FromString,
-          response_serializer=users__pb2.BOUserInfoResponse.SerializeToString,
+          request_deserializer=users__pb2.GetBOUserInfoRequest.FromString,
+          response_serializer=users__pb2.GetBOUserInfoResponse.SerializeToString,
       ),
       'getCustomerInfo': grpc.unary_unary_rpc_method_handler(
           servicer.getCustomerInfo,
-          request_deserializer=users__pb2.CustomerInfoRequest.FromString,
-          response_serializer=users__pb2.CustomerInfoResponse.SerializeToString,
+          request_deserializer=users__pb2.GetCustomerInfoRequest.FromString,
+          response_serializer=users__pb2.GetCustomerInfoResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

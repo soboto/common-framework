@@ -21,8 +21,8 @@ class SettingsServiceStub(object):
     """
     self.getSettings = channel.unary_unary(
         '/soboto.settings.SettingsService/getSettings',
-        request_serializer=settings__pb2.SettingsInfoRequest.SerializeToString,
-        response_deserializer=settings__pb2.SettingsInfoResponse.FromString,
+        request_serializer=settings__pb2.GetSettingsRequest.SerializeToString,
+        response_deserializer=settings__pb2.GetSettingsResponse.FromString,
         )
 
 
@@ -43,8 +43,8 @@ def add_SettingsServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'getSettings': grpc.unary_unary_rpc_method_handler(
           servicer.getSettings,
-          request_deserializer=settings__pb2.SettingsInfoRequest.FromString,
-          response_serializer=settings__pb2.SettingsInfoResponse.SerializeToString,
+          request_deserializer=settings__pb2.GetSettingsRequest.FromString,
+          response_serializer=settings__pb2.GetSettingsResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

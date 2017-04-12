@@ -37,7 +37,8 @@ files = [
     'files',
     'entities',
     'bookings',
-    'items'
+    'items',
+    'schedules'
 ]
 for file in files:
     protoc.main(
