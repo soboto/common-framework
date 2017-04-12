@@ -1,4 +1,5 @@
 from sbt_common.authentication import UserIsAuthenticated
+from sbt_common.auth.permissions import ServiceModelPermissions
 
 
 class CustomAuthenticationViewMixin(object):
@@ -13,3 +14,8 @@ class CustomAuthenticationViewMixin(object):
             self.permission_classes = ()
 
         return super(CustomAuthenticationViewMixin, self).get_permissions()
+
+
+class PermissionsViewMixin(object):
+    model_permissions = None
+    permission_classes = (UserIsAuthenticated, ServiceModelPermissions,)
