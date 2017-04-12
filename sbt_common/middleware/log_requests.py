@@ -73,7 +73,7 @@ class LogRequestsMiddleware(object):
         # get response dict
         try:
             response_data = json.loads(response.rendered_content)
-        except:  # if already a dict, can't dictify
+        except Exception:  # if already a dict, can't dictify
             response_data = None
 
         # save log

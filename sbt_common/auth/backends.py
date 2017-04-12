@@ -1,7 +1,6 @@
 from django.contrib.auth.backends import ModelBackend
 
-from ..protobuf import ProtoService
-from ..settings import api_settings
+from ..messaging.service import Service
 from ..models import Anonymous
 
 
@@ -28,15 +27,8 @@ class ServiceModelBackend(ModelBackend):
         if type(user_obj) is not Anonymous:
             user_id = str(user_obj.id)
 
-        users_service = ProtoService(
-            api_settings.SERVICE_USERS_URL,
-            'users_pb2.beta_create_UsersService_stub'
-        )
-        response = users_service.execute(
-            'getUserPermissions',
-            'users_pb2.GetUserPermissionsRequest',
-            {'user_id': user_id}
-        )
+        users_service = Service('users')
+        response = users_service.getUserPermissions({'user_id': user_id})
 
         all_permissions = []
         for permission in response.permissions:
