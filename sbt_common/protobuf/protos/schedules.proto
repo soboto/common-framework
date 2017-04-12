@@ -29,12 +29,18 @@ message CheckSlotAvailabilityResponse {
     bool available = 1;
 }
 
+message IncrementSlotAvailabilityRequest {
+    string slot_id = 1;
+}
+message IncrementSlotAvailabilityResponse {}
+
 
 // =======================================
 // The service definition.
 // =======================================
 
 service SchedulesService {
-    rpc checkSlotAvailability (CheckSlotAvailabilityRequest)
-        returns (CheckSlotAvailabilityResponse) {}
+    rpc checkSlotAvailability (CheckSlotAvailabilityRequest) returns (CheckSlotAvailabilityResponse) {}
+
+    rpc incrementSlotAvailability (IncrementSlotAvailabilityRequest) returns (IncrementSlotAvailabilityResponse) {}
 }

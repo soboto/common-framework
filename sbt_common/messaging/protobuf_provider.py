@@ -56,7 +56,11 @@ class ProtobufProvider(BaseProvider):
         request = self.get_message_request_class(message)
         service_call = getattr(self._protobuf_service, message)
 
-        return service_call(request(**attrs), api_settings.DEFAULT_GRPC_TIMEOUT)
+        params = {}
+        if len(args) > 0:
+            params = args[0]
+
+        return service_call(request(**params), api_settings.DEFAULT_GRPC_TIMEOUT)
 
 
 def create_protobuf_service(service_name, local_service_class):

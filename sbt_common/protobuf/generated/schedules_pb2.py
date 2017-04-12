@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='schedules.proto',
   package='soboto.schedules',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fschedules.proto\x12\x10soboto.schedules\"\x84\x01\n\x04Slot\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\t\x12\x0b\n\x03\x65nd\x18\x03 \x01(\t\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x18\n\x10initial_quantity\x18\x05 \x01(\x05\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x07 \x01(\t\"/\n\x1c\x43heckSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"2\n\x1d\x43heckSlotAvailabilityResponse\x12\x11\n\tavailable\x18\x01 \x01(\x08\x32\x8e\x01\n\x10SchedulesService\x12z\n\x15\x63heckSlotAvailability\x12..soboto.schedules.CheckSlotAvailabilityRequest\x1a/.soboto.schedules.CheckSlotAvailabilityResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0fschedules.proto\x12\x10soboto.schedules\"\x84\x01\n\x04Slot\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\t\x12\x0b\n\x03\x65nd\x18\x03 \x01(\t\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x18\n\x10initial_quantity\x18\x05 \x01(\x05\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x07 \x01(\t\"/\n\x1c\x43heckSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"2\n\x1d\x43heckSlotAvailabilityResponse\x12\x11\n\tavailable\x18\x01 \x01(\x08\"3\n IncrementSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"#\n!IncrementSlotAvailabilityResponse2\x97\x02\n\x10SchedulesService\x12z\n\x15\x63heckSlotAvailability\x12..soboto.schedules.CheckSlotAvailabilityRequest\x1a/.soboto.schedules.CheckSlotAvailabilityResponse\"\x00\x12\x86\x01\n\x19incrementSlotAvailability\x12\x32.soboto.schedules.IncrementSlotAvailabilityRequest\x1a\x33.soboto.schedules.IncrementSlotAvailabilityResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -160,9 +160,66 @@ _CHECKSLOTAVAILABILITYRESPONSE = _descriptor.Descriptor(
   serialized_end=271,
 )
 
+
+_INCREMENTSLOTAVAILABILITYREQUEST = _descriptor.Descriptor(
+  name='IncrementSlotAvailabilityRequest',
+  full_name='soboto.schedules.IncrementSlotAvailabilityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='slot_id', full_name='soboto.schedules.IncrementSlotAvailabilityRequest.slot_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=273,
+  serialized_end=324,
+)
+
+
+_INCREMENTSLOTAVAILABILITYRESPONSE = _descriptor.Descriptor(
+  name='IncrementSlotAvailabilityResponse',
+  full_name='soboto.schedules.IncrementSlotAvailabilityResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=326,
+  serialized_end=361,
+)
+
 DESCRIPTOR.message_types_by_name['Slot'] = _SLOT
 DESCRIPTOR.message_types_by_name['CheckSlotAvailabilityRequest'] = _CHECKSLOTAVAILABILITYREQUEST
 DESCRIPTOR.message_types_by_name['CheckSlotAvailabilityResponse'] = _CHECKSLOTAVAILABILITYRESPONSE
+DESCRIPTOR.message_types_by_name['IncrementSlotAvailabilityRequest'] = _INCREMENTSLOTAVAILABILITYREQUEST
+DESCRIPTOR.message_types_by_name['IncrementSlotAvailabilityResponse'] = _INCREMENTSLOTAVAILABILITYRESPONSE
 
 Slot = _reflection.GeneratedProtocolMessageType('Slot', (_message.Message,), dict(
   DESCRIPTOR = _SLOT,
@@ -184,6 +241,20 @@ CheckSlotAvailabilityResponse = _reflection.GeneratedProtocolMessageType('CheckS
   # @@protoc_insertion_point(class_scope:soboto.schedules.CheckSlotAvailabilityResponse)
   ))
 _sym_db.RegisterMessage(CheckSlotAvailabilityResponse)
+
+IncrementSlotAvailabilityRequest = _reflection.GeneratedProtocolMessageType('IncrementSlotAvailabilityRequest', (_message.Message,), dict(
+  DESCRIPTOR = _INCREMENTSLOTAVAILABILITYREQUEST,
+  __module__ = 'schedules_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.schedules.IncrementSlotAvailabilityRequest)
+  ))
+_sym_db.RegisterMessage(IncrementSlotAvailabilityRequest)
+
+IncrementSlotAvailabilityResponse = _reflection.GeneratedProtocolMessageType('IncrementSlotAvailabilityResponse', (_message.Message,), dict(
+  DESCRIPTOR = _INCREMENTSLOTAVAILABILITYRESPONSE,
+  __module__ = 'schedules_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.schedules.IncrementSlotAvailabilityResponse)
+  ))
+_sym_db.RegisterMessage(IncrementSlotAvailabilityResponse)
 
 
 try:
@@ -214,6 +285,11 @@ try:
           request_serializer=CheckSlotAvailabilityRequest.SerializeToString,
           response_deserializer=CheckSlotAvailabilityResponse.FromString,
           )
+      self.incrementSlotAvailability = channel.unary_unary(
+          '/soboto.schedules.SchedulesService/incrementSlotAvailability',
+          request_serializer=IncrementSlotAvailabilityRequest.SerializeToString,
+          response_deserializer=IncrementSlotAvailabilityResponse.FromString,
+          )
 
 
   class SchedulesServiceServicer(object):
@@ -228,6 +304,11 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def incrementSlotAvailability(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_SchedulesServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -235,6 +316,11 @@ try:
             servicer.checkSlotAvailability,
             request_deserializer=CheckSlotAvailabilityRequest.FromString,
             response_serializer=CheckSlotAvailabilityResponse.SerializeToString,
+        ),
+        'incrementSlotAvailability': grpc.unary_unary_rpc_method_handler(
+            servicer.incrementSlotAvailability,
+            request_deserializer=IncrementSlotAvailabilityRequest.FromString,
+            response_serializer=IncrementSlotAvailabilityResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -255,6 +341,8 @@ try:
     """
     def checkSlotAvailability(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def incrementSlotAvailability(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaSchedulesServiceStub(object):
@@ -271,6 +359,9 @@ try:
     def checkSlotAvailability(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
     checkSlotAvailability.future = None
+    def incrementSlotAvailability(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    incrementSlotAvailability.future = None
 
 
   def beta_create_SchedulesService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -281,12 +372,15 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityRequest.FromString,
+      ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityRequest.FromString,
     }
     response_serializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityResponse.SerializeToString,
+      ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): face_utilities.unary_unary_inline(servicer.checkSlotAvailability),
+      ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): face_utilities.unary_unary_inline(servicer.incrementSlotAvailability),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -300,12 +394,15 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityRequest.SerializeToString,
+      ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityRequest.SerializeToString,
     }
     response_deserializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityResponse.FromString,
+      ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityResponse.FromString,
     }
     cardinalities = {
       'checkSlotAvailability': cardinality.Cardinality.UNARY_UNARY,
+      'incrementSlotAvailability': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'soboto.schedules.SchedulesService', cardinalities, options=stub_options)

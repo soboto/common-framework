@@ -4,6 +4,8 @@ from grpc.framework.interfaces.face import utilities as face_utilities
 
 import schedules_pb2 as schedules__pb2
 import schedules_pb2 as schedules__pb2
+import schedules_pb2 as schedules__pb2
+import schedules_pb2 as schedules__pb2
 
 
 class SchedulesServiceStub(object):
@@ -24,6 +26,11 @@ class SchedulesServiceStub(object):
         request_serializer=schedules__pb2.CheckSlotAvailabilityRequest.SerializeToString,
         response_deserializer=schedules__pb2.CheckSlotAvailabilityResponse.FromString,
         )
+    self.incrementSlotAvailability = channel.unary_unary(
+        '/soboto.schedules.SchedulesService/incrementSlotAvailability',
+        request_serializer=schedules__pb2.IncrementSlotAvailabilityRequest.SerializeToString,
+        response_deserializer=schedules__pb2.IncrementSlotAvailabilityResponse.FromString,
+        )
 
 
 class SchedulesServiceServicer(object):
@@ -38,6 +45,11 @@ class SchedulesServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def incrementSlotAvailability(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_SchedulesServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -45,6 +57,11 @@ def add_SchedulesServiceServicer_to_server(servicer, server):
           servicer.checkSlotAvailability,
           request_deserializer=schedules__pb2.CheckSlotAvailabilityRequest.FromString,
           response_serializer=schedules__pb2.CheckSlotAvailabilityResponse.SerializeToString,
+      ),
+      'incrementSlotAvailability': grpc.unary_unary_rpc_method_handler(
+          servicer.incrementSlotAvailability,
+          request_deserializer=schedules__pb2.IncrementSlotAvailabilityRequest.FromString,
+          response_serializer=schedules__pb2.IncrementSlotAvailabilityResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

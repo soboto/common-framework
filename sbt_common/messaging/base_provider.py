@@ -1,3 +1,4 @@
+from functools import partial
 
 
 class BaseProvider(object):
@@ -22,4 +23,4 @@ class BaseProvider(object):
 
     def bind_service_events(self, events=[], **args):
         for event in events:
-            setattr(self._service, event, lambda x: self.execute_message(event, **x))
+            setattr(self._service, event, partial(self.execute_message, event))
