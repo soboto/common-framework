@@ -6,7 +6,6 @@ import factory
 from uuid import UUID
 from django.utils.six import text_type
 from rest_framework.test import APITestCase
-from rest_assured.testcases import ReadRESTAPITestCaseMixin, BaseRESTAPITestCase
 from datetime import datetime
 
 from sbt_common.test.authentication import fake_authentication
@@ -43,7 +42,9 @@ class CoreRESTAPITestCase(APITestCase):
 
     def setUp(self):
         self.user = fake_authentication.authenticate_user(self.user_type)
-        fake_authentication.set_user_entity(self.entity_id)
+
+        if hasattr(self, 'entity_id'):
+            fake_authentication.set_user_entity(self.entity_id)
 
     def tearDown(self):
         print 'tearDown'
