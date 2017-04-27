@@ -22,7 +22,8 @@ class ServiceModelPermissions(DjangoModelPermissions):
         codes that the user is required to have.
         """
         model_name = getattr(self._view, 'model_permissions', model_cls._meta.model_name)
-        action = self._view.action
+
+        action = getattr(self._view, 'action', self._view.get_action())
         kwargs = {
             'model_name': model_name,
             'action': action

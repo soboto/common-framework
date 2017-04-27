@@ -19,3 +19,12 @@ class CustomAuthenticationViewMixin(object):
 class PermissionsViewMixin(object):
     model_permissions = None
     permission_classes = (UserIsAuthenticated, ServiceModelPermissions,)
+    actions_mapping = {
+        'get': 'retrieve',
+        'put': 'update',
+        'patch': 'partial_update',
+        'delete': 'destroy'
+    }
+
+    def get_action(self):
+        return self.actions_mapping.get(self.request.method.lower())
