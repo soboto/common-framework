@@ -27,6 +27,11 @@ class ServiceModelPermissions(DjangoModelPermissions):
             'model_name': model_name,
             'action': action
         }
+
+        ignore_perm_actions = getattr(self._view, 'ignore_perm_actions', [])
+        if action in ignore_perm_actions:
+            return []
+
         if action in self.perms_map.keys():
             return [perm % kwargs for perm in self.perms_map[action]]
         else:
