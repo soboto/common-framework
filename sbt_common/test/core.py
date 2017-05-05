@@ -49,20 +49,26 @@ class CoreRESTAPITestCase(APITestCase):
     def tearDown(self):
         print 'tearDown'
 
+    def get_url_args(self, object_id=None):
+        if object_id is not None:
+            return [object_id]
+
+        return []
+
     def get_list_url(self):
         """Return the list endpoint url.
 
         :returns: The url of list endpoint.
         """
 
-        return reverse(self.base_name + self.LIST_SUFFIX)
+        return reverse(self.base_name + self.LIST_SUFFIX, args=self.get_url_args())
 
     def get_detail_url(self, object_id):
         """Return the detail endpoint url.
 
         :returns: The url of detail endpoint.
         """
-        return reverse(self.base_name + self.DETAIL_SUFFIX, args=[text_type(object_id)])
+        return reverse(self.base_name + self.DETAIL_SUFFIX, args=self.get_url_args(object_id))
 
     def get_create_url(self):
         """Return the create endpoint url.
@@ -70,21 +76,21 @@ class CoreRESTAPITestCase(APITestCase):
         :returns: The url of create endpoint.
         """
 
-        return reverse(self._get_create_name())
+        return reverse(self._get_create_name(), args=self.get_url_args())
 
     def get_destroy_url(self, object_id):
         """Return the destroy endpoint url.
 
         :returns: The url of destroy endpoint.
         """
-        return reverse(self._get_destroy_name(), args=(object_id,))
+        return reverse(self._get_destroy_name(), args=self.get_url_args(object_id))
 
     def get_update_url(self, object_id):
         """Return the update endpoint url.
 
         :returns: The url of update endpoint.
         """
-        return reverse(self._get_update_name(), args=(object_id,))
+        return reverse(self._get_update_name(), args=self.get_url_args(object_id))
 
     def _get_create_name(self):
         if hasattr(self, 'create_name'):
