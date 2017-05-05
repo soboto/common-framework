@@ -44,6 +44,12 @@ message GetEntityInfoResponse {
     Entity entity = 1;
 }
 
+message GetResellerPartnersRequest {
+    string reseller_id = 1;
+}
+message GetResellerPartnersResponse {
+    repeated string suppliers = 1;
+}
 
 // =======================================
 // The service definition.
@@ -51,4 +57,5 @@ message GetEntityInfoResponse {
 
 service EntitiesService {
   rpc getEntityInfo (GetEntityInfoRequest) returns (GetEntityInfoResponse) {}
+  rpc getResellerPartners (GetResellerPartnersRequest) returns (GetResellerPartnersResponse) {}
 }

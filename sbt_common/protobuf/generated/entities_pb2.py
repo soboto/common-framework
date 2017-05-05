@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='entities.proto',
   package='soboto.entities',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x65ntities.proto\x12\x0fsoboto.entities\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"\xb7\x02\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x11\n\tpost_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ountry_code\x18\x08 \x01(\t\x12\x10\n\x08timezone\x18\t \x01(\t\x12\r\n\x05phone\x18\n \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x0f\n\x07website\x18\x0c \x01(\t\x12\x32\n\x12\x61lternative_phones\x18\r \x03(\x0b\x32\x16.soboto.entities.Phone\x12\x32\n\x12\x61lternative_emails\x18\x0e \x03(\x0b\x32\x16.soboto.entities.Email\"\"\n\x14GetEntityInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x15GetEntityInfoResponse\x12\'\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\x17.soboto.entities.Entity2s\n\x0f\x45ntitiesService\x12`\n\rgetEntityInfo\x12%.soboto.entities.GetEntityInfoRequest\x1a&.soboto.entities.GetEntityInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x65ntities.proto\x12\x0fsoboto.entities\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"\xb7\x02\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x11\n\tpost_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ountry_code\x18\x08 \x01(\t\x12\x10\n\x08timezone\x18\t \x01(\t\x12\r\n\x05phone\x18\n \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x0f\n\x07website\x18\x0c \x01(\t\x12\x32\n\x12\x61lternative_phones\x18\r \x03(\x0b\x32\x16.soboto.entities.Phone\x12\x32\n\x12\x61lternative_emails\x18\x0e \x03(\x0b\x32\x16.soboto.entities.Email\"\"\n\x14GetEntityInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x15GetEntityInfoResponse\x12\'\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\x17.soboto.entities.Entity\"1\n\x1aGetResellerPartnersRequest\x12\x13\n\x0breseller_id\x18\x01 \x01(\t\"0\n\x1bGetResellerPartnersResponse\x12\x11\n\tsuppliers\x18\x01 \x03(\t2\xe7\x01\n\x0f\x45ntitiesService\x12`\n\rgetEntityInfo\x12%.soboto.entities.GetEntityInfoRequest\x1a&.soboto.entities.GetEntityInfoResponse\"\x00\x12r\n\x13getResellerPartners\x12+.soboto.entities.GetResellerPartnersRequest\x1a,.soboto.entities.GetResellerPartnersResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -271,6 +271,68 @@ _GETENTITYINFORESPONSE = _descriptor.Descriptor(
   serialized_end=497,
 )
 
+
+_GETRESELLERPARTNERSREQUEST = _descriptor.Descriptor(
+  name='GetResellerPartnersRequest',
+  full_name='soboto.entities.GetResellerPartnersRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='reseller_id', full_name='soboto.entities.GetResellerPartnersRequest.reseller_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=499,
+  serialized_end=548,
+)
+
+
+_GETRESELLERPARTNERSRESPONSE = _descriptor.Descriptor(
+  name='GetResellerPartnersResponse',
+  full_name='soboto.entities.GetResellerPartnersResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='suppliers', full_name='soboto.entities.GetResellerPartnersResponse.suppliers', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=550,
+  serialized_end=598,
+)
+
 _ENTITY.fields_by_name['alternative_phones'].message_type = _PHONE
 _ENTITY.fields_by_name['alternative_emails'].message_type = _EMAIL
 _GETENTITYINFORESPONSE.fields_by_name['entity'].message_type = _ENTITY
@@ -279,6 +341,8 @@ DESCRIPTOR.message_types_by_name['Email'] = _EMAIL
 DESCRIPTOR.message_types_by_name['Entity'] = _ENTITY
 DESCRIPTOR.message_types_by_name['GetEntityInfoRequest'] = _GETENTITYINFOREQUEST
 DESCRIPTOR.message_types_by_name['GetEntityInfoResponse'] = _GETENTITYINFORESPONSE
+DESCRIPTOR.message_types_by_name['GetResellerPartnersRequest'] = _GETRESELLERPARTNERSREQUEST
+DESCRIPTOR.message_types_by_name['GetResellerPartnersResponse'] = _GETRESELLERPARTNERSRESPONSE
 
 Phone = _reflection.GeneratedProtocolMessageType('Phone', (_message.Message,), dict(
   DESCRIPTOR = _PHONE,
@@ -315,6 +379,20 @@ GetEntityInfoResponse = _reflection.GeneratedProtocolMessageType('GetEntityInfoR
   ))
 _sym_db.RegisterMessage(GetEntityInfoResponse)
 
+GetResellerPartnersRequest = _reflection.GeneratedProtocolMessageType('GetResellerPartnersRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETRESELLERPARTNERSREQUEST,
+  __module__ = 'entities_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.entities.GetResellerPartnersRequest)
+  ))
+_sym_db.RegisterMessage(GetResellerPartnersRequest)
+
+GetResellerPartnersResponse = _reflection.GeneratedProtocolMessageType('GetResellerPartnersResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETRESELLERPARTNERSRESPONSE,
+  __module__ = 'entities_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.entities.GetResellerPartnersResponse)
+  ))
+_sym_db.RegisterMessage(GetResellerPartnersResponse)
+
 
 try:
   # THESE ELEMENTS WILL BE DEPRECATED.
@@ -344,6 +422,11 @@ try:
           request_serializer=GetEntityInfoRequest.SerializeToString,
           response_deserializer=GetEntityInfoResponse.FromString,
           )
+      self.getResellerPartners = channel.unary_unary(
+          '/soboto.entities.EntitiesService/getResellerPartners',
+          request_serializer=GetResellerPartnersRequest.SerializeToString,
+          response_deserializer=GetResellerPartnersResponse.FromString,
+          )
 
 
   class EntitiesServiceServicer(object):
@@ -358,6 +441,11 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def getResellerPartners(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_EntitiesServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -365,6 +453,11 @@ try:
             servicer.getEntityInfo,
             request_deserializer=GetEntityInfoRequest.FromString,
             response_serializer=GetEntityInfoResponse.SerializeToString,
+        ),
+        'getResellerPartners': grpc.unary_unary_rpc_method_handler(
+            servicer.getResellerPartners,
+            request_deserializer=GetResellerPartnersRequest.FromString,
+            response_serializer=GetResellerPartnersResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -385,6 +478,8 @@ try:
     """
     def getEntityInfo(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def getResellerPartners(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaEntitiesServiceStub(object):
@@ -401,6 +496,9 @@ try:
     def getEntityInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
     getEntityInfo.future = None
+    def getResellerPartners(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    getResellerPartners.future = None
 
 
   def beta_create_EntitiesService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -411,12 +509,15 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoRequest.FromString,
+      ('soboto.entities.EntitiesService', 'getResellerPartners'): GetResellerPartnersRequest.FromString,
     }
     response_serializers = {
       ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoResponse.SerializeToString,
+      ('soboto.entities.EntitiesService', 'getResellerPartners'): GetResellerPartnersResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.entities.EntitiesService', 'getEntityInfo'): face_utilities.unary_unary_inline(servicer.getEntityInfo),
+      ('soboto.entities.EntitiesService', 'getResellerPartners'): face_utilities.unary_unary_inline(servicer.getResellerPartners),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -430,12 +531,15 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoRequest.SerializeToString,
+      ('soboto.entities.EntitiesService', 'getResellerPartners'): GetResellerPartnersRequest.SerializeToString,
     }
     response_deserializers = {
       ('soboto.entities.EntitiesService', 'getEntityInfo'): GetEntityInfoResponse.FromString,
+      ('soboto.entities.EntitiesService', 'getResellerPartners'): GetResellerPartnersResponse.FromString,
     }
     cardinalities = {
       'getEntityInfo': cardinality.Cardinality.UNARY_UNARY,
+      'getResellerPartners': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'soboto.entities.EntitiesService', cardinalities, options=stub_options)
