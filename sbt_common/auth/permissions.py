@@ -23,7 +23,8 @@ class ServiceModelPermissions(DjangoModelPermissions):
         """
         model_name = getattr(self._view, 'model_permissions', model_cls._meta.model_name)
 
-        action = getattr(self._view, 'action', self._view.get_action())
+        action = getattr(self._view, 'action', None)
+        action = action if action is not None else self._view.get_action()
         kwargs = {
             'model_name': model_name,
             'action': action

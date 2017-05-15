@@ -10,6 +10,8 @@ import users_pb2 as users__pb2
 import users_pb2 as users__pb2
 import users_pb2 as users__pb2
 import users_pb2 as users__pb2
+import users_pb2 as users__pb2
+import users_pb2 as users__pb2
 
 
 class UsersServiceStub(object):
@@ -44,6 +46,11 @@ class UsersServiceStub(object):
         request_serializer=users__pb2.GetCustomerInfoRequest.SerializeToString,
         response_deserializer=users__pb2.GetCustomerInfoResponse.FromString,
         )
+    self.setEntityOwner = channel.unary_unary(
+        '/soboto.users.UsersService/setEntityOwner',
+        request_serializer=users__pb2.SetEntityOwnerRequest.SerializeToString,
+        response_deserializer=users__pb2.SetEntityOwnerResponse.FromString,
+        )
 
 
 class UsersServiceServicer(object):
@@ -72,6 +79,11 @@ class UsersServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def setEntityOwner(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_UsersServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -94,6 +106,11 @@ def add_UsersServiceServicer_to_server(servicer, server):
           servicer.getCustomerInfo,
           request_deserializer=users__pb2.GetCustomerInfoRequest.FromString,
           response_serializer=users__pb2.GetCustomerInfoResponse.SerializeToString,
+      ),
+      'setEntityOwner': grpc.unary_unary_rpc_method_handler(
+          servicer.setEntityOwner,
+          request_deserializer=users__pb2.SetEntityOwnerRequest.FromString,
+          response_serializer=users__pb2.SetEntityOwnerResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

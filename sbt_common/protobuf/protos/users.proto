@@ -112,6 +112,14 @@ message GetCustomerInfoRequest {
 message GetCustomerInfoResponse {
     Customer user = 1;
 }
+// -> Set Entity Owner
+message SetEntityOwnerRequest {
+    string user_id = 1;
+    string entity_id = 2;
+}
+message SetEntityOwnerResponse {
+    bool success = 1;
+}
 
 
 // =======================================
@@ -129,5 +137,8 @@ service UsersService {
 
     rpc getCustomerInfo (GetCustomerInfoRequest)
         returns (GetCustomerInfoResponse) {}
+
+    rpc setEntityOwner (SetEntityOwnerRequest)
+        returns (SetEntityOwnerResponse) {}
 }
 

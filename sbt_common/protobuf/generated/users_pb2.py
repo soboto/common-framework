@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='users.proto',
   package='soboto.users',
   syntax='proto3',
-  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"*\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x03(\x0b\x32\x18.soboto.users.UserEntity\"\x8d\x02\n\x06\x42OUser\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12/\n\x12\x61lternative_phones\x18\x08 \x03(\x0b\x32\x13.soboto.users.Phone\x12/\n\x12\x61lternative_emails\x18\t \x03(\x0b\x32\x13.soboto.users.Email\x12*\n\x08\x65ntities\x18\n \x03(\x0b\x32\x18.soboto.users.UserEntity\"\xdf\x01\n\x08\x43ustomer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x0e\n\x06gender\x18\t \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\n \x01(\t\x12\x0c\n\x04\x63ity\x18\x0b \x01(\t\x12\x12\n\npostal_zip\x18\x0c \x01(\t\x12\x0b\n\x03\x61ge\x18\r \x01(\x05\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission\"\"\n\x14GetBOUserInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x15GetBOUserInfoResponse\x12\"\n\x04user\x18\x01 \x01(\x0b\x32\x14.soboto.users.BOUser\"$\n\x16GetCustomerInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"?\n\x17GetCustomerInfoResponse\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x16.soboto.users.Customer2\xbe\x03\n\x0cUsersService\x12\x84\x01\n\x1bvalidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12getUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x12Z\n\rgetBOUserInfo\x12\".soboto.users.GetBOUserInfoRequest\x1a#.soboto.users.GetBOUserInfoResponse\"\x00\x12`\n\x0fgetCustomerInfo\x12$.soboto.users.GetCustomerInfoRequest\x1a%.soboto.users.GetCustomerInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"*\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x03(\x0b\x32\x18.soboto.users.UserEntity\"\x8d\x02\n\x06\x42OUser\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12/\n\x12\x61lternative_phones\x18\x08 \x03(\x0b\x32\x13.soboto.users.Phone\x12/\n\x12\x61lternative_emails\x18\t \x03(\x0b\x32\x13.soboto.users.Email\x12*\n\x08\x65ntities\x18\n \x03(\x0b\x32\x18.soboto.users.UserEntity\"\xdf\x01\n\x08\x43ustomer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x0e\n\x06gender\x18\t \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\n \x01(\t\x12\x0c\n\x04\x63ity\x18\x0b \x01(\t\x12\x12\n\npostal_zip\x18\x0c \x01(\t\x12\x0b\n\x03\x61ge\x18\r \x01(\x05\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission\"\"\n\x14GetBOUserInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x15GetBOUserInfoResponse\x12\"\n\x04user\x18\x01 \x01(\x0b\x32\x14.soboto.users.BOUser\"$\n\x16GetCustomerInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"?\n\x17GetCustomerInfoResponse\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x16.soboto.users.Customer\";\n\x15SetEntityOwnerRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x11\n\tentity_id\x18\x02 \x01(\t\")\n\x16SetEntityOwnerResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\x9d\x04\n\x0cUsersService\x12\x84\x01\n\x1bvalidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12getUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x12Z\n\rgetBOUserInfo\x12\".soboto.users.GetBOUserInfoRequest\x1a#.soboto.users.GetBOUserInfoResponse\"\x00\x12`\n\x0fgetCustomerInfo\x12$.soboto.users.GetCustomerInfoRequest\x1a%.soboto.users.GetCustomerInfoResponse\"\x00\x12]\n\x0esetEntityOwner\x12#.soboto.users.SetEntityOwnerRequest\x1a$.soboto.users.SetEntityOwnerResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -735,6 +735,75 @@ _GETCUSTOMERINFORESPONSE = _descriptor.Descriptor(
   serialized_end=1369,
 )
 
+
+_SETENTITYOWNERREQUEST = _descriptor.Descriptor(
+  name='SetEntityOwnerRequest',
+  full_name='soboto.users.SetEntityOwnerRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user_id', full_name='soboto.users.SetEntityOwnerRequest.user_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='entity_id', full_name='soboto.users.SetEntityOwnerRequest.entity_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1371,
+  serialized_end=1430,
+)
+
+
+_SETENTITYOWNERRESPONSE = _descriptor.Descriptor(
+  name='SetEntityOwnerResponse',
+  full_name='soboto.users.SetEntityOwnerResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='success', full_name='soboto.users.SetEntityOwnerResponse.success', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1432,
+  serialized_end=1473,
+)
+
 _USERAUTH.fields_by_name['entity'].message_type = _USERENTITY
 _BOUSER.fields_by_name['alternative_phones'].message_type = _PHONE
 _BOUSER.fields_by_name['alternative_emails'].message_type = _EMAIL
@@ -758,6 +827,8 @@ DESCRIPTOR.message_types_by_name['GetBOUserInfoRequest'] = _GETBOUSERINFOREQUEST
 DESCRIPTOR.message_types_by_name['GetBOUserInfoResponse'] = _GETBOUSERINFORESPONSE
 DESCRIPTOR.message_types_by_name['GetCustomerInfoRequest'] = _GETCUSTOMERINFOREQUEST
 DESCRIPTOR.message_types_by_name['GetCustomerInfoResponse'] = _GETCUSTOMERINFORESPONSE
+DESCRIPTOR.message_types_by_name['SetEntityOwnerRequest'] = _SETENTITYOWNERREQUEST
+DESCRIPTOR.message_types_by_name['SetEntityOwnerResponse'] = _SETENTITYOWNERRESPONSE
 
 Phone = _reflection.GeneratedProtocolMessageType('Phone', (_message.Message,), dict(
   DESCRIPTOR = _PHONE,
@@ -864,6 +935,20 @@ GetCustomerInfoResponse = _reflection.GeneratedProtocolMessageType('GetCustomerI
   ))
 _sym_db.RegisterMessage(GetCustomerInfoResponse)
 
+SetEntityOwnerRequest = _reflection.GeneratedProtocolMessageType('SetEntityOwnerRequest', (_message.Message,), dict(
+  DESCRIPTOR = _SETENTITYOWNERREQUEST,
+  __module__ = 'users_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.users.SetEntityOwnerRequest)
+  ))
+_sym_db.RegisterMessage(SetEntityOwnerRequest)
+
+SetEntityOwnerResponse = _reflection.GeneratedProtocolMessageType('SetEntityOwnerResponse', (_message.Message,), dict(
+  DESCRIPTOR = _SETENTITYOWNERRESPONSE,
+  __module__ = 'users_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.users.SetEntityOwnerResponse)
+  ))
+_sym_db.RegisterMessage(SetEntityOwnerResponse)
+
 
 try:
   # THESE ELEMENTS WILL BE DEPRECATED.
@@ -907,6 +992,11 @@ try:
           request_serializer=GetCustomerInfoRequest.SerializeToString,
           response_deserializer=GetCustomerInfoResponse.FromString,
           )
+      self.setEntityOwner = channel.unary_unary(
+          '/soboto.users.UsersService/setEntityOwner',
+          request_serializer=SetEntityOwnerRequest.SerializeToString,
+          response_deserializer=SetEntityOwnerResponse.FromString,
+          )
 
 
   class UsersServiceServicer(object):
@@ -935,6 +1025,11 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def setEntityOwner(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_UsersServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -957,6 +1052,11 @@ try:
             servicer.getCustomerInfo,
             request_deserializer=GetCustomerInfoRequest.FromString,
             response_serializer=GetCustomerInfoResponse.SerializeToString,
+        ),
+        'setEntityOwner': grpc.unary_unary_rpc_method_handler(
+            servicer.setEntityOwner,
+            request_deserializer=SetEntityOwnerRequest.FromString,
+            response_serializer=SetEntityOwnerResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -982,6 +1082,8 @@ try:
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def getCustomerInfo(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def setEntityOwner(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaUsersServiceStub(object):
@@ -1006,6 +1108,9 @@ try:
     def getCustomerInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
     getCustomerInfo.future = None
+    def setEntityOwner(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    setEntityOwner.future = None
 
 
   def beta_create_UsersService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -1018,18 +1123,21 @@ try:
       ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoRequest.FromString,
       ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoRequest.FromString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsRequest.FromString,
+      ('soboto.users.UsersService', 'setEntityOwner'): SetEntityOwnerRequest.FromString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenRequest.FromString,
     }
     response_serializers = {
       ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoResponse.SerializeToString,
       ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoResponse.SerializeToString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsResponse.SerializeToString,
+      ('soboto.users.UsersService', 'setEntityOwner'): SetEntityOwnerResponse.SerializeToString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.users.UsersService', 'getBOUserInfo'): face_utilities.unary_unary_inline(servicer.getBOUserInfo),
       ('soboto.users.UsersService', 'getCustomerInfo'): face_utilities.unary_unary_inline(servicer.getCustomerInfo),
       ('soboto.users.UsersService', 'getUserPermissions'): face_utilities.unary_unary_inline(servicer.getUserPermissions),
+      ('soboto.users.UsersService', 'setEntityOwner'): face_utilities.unary_unary_inline(servicer.setEntityOwner),
       ('soboto.users.UsersService', 'validateAuthenticationToken'): face_utilities.unary_unary_inline(servicer.validateAuthenticationToken),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
@@ -1046,18 +1154,21 @@ try:
       ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoRequest.SerializeToString,
       ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoRequest.SerializeToString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsRequest.SerializeToString,
+      ('soboto.users.UsersService', 'setEntityOwner'): SetEntityOwnerRequest.SerializeToString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenRequest.SerializeToString,
     }
     response_deserializers = {
       ('soboto.users.UsersService', 'getBOUserInfo'): GetBOUserInfoResponse.FromString,
       ('soboto.users.UsersService', 'getCustomerInfo'): GetCustomerInfoResponse.FromString,
       ('soboto.users.UsersService', 'getUserPermissions'): GetUserPermissionsResponse.FromString,
+      ('soboto.users.UsersService', 'setEntityOwner'): SetEntityOwnerResponse.FromString,
       ('soboto.users.UsersService', 'validateAuthenticationToken'): ValidateAuthenticationTokenResponse.FromString,
     }
     cardinalities = {
       'getBOUserInfo': cardinality.Cardinality.UNARY_UNARY,
       'getCustomerInfo': cardinality.Cardinality.UNARY_UNARY,
       'getUserPermissions': cardinality.Cardinality.UNARY_UNARY,
+      'setEntityOwner': cardinality.Cardinality.UNARY_UNARY,
       'validateAuthenticationToken': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)

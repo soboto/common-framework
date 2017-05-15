@@ -34,6 +34,10 @@ class ServiceModelBackend(ModelBackend):
         for permission in response.permissions:
             all_permissions.append(permission.codename)
 
+        # ====== For DEBUG =======
+        # print user_obj.__dict__
+        # print all_permissions
+
         return all_permissions
 
     def get_group_permissions(self, user_obj, obj=None):
