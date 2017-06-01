@@ -39,6 +39,28 @@ def decode_uid(pk):
     return force_text(urlsafe_base64_decode(pk))
 
 
+def send_monitoring_task(action, celery_app, request, data=""):
+    user_id = -1
+    item_id = -1
+
+    if request.user.id is not None:
+        user_id = request.user.id
+
+    if hasattr(request, 'item_id'):
+        item_id = request.item_id
+
+    params = []
+    params.append(action)
+    params.append(user_id)
+    params.append(item_id)
+    params.append(data)
+
+    celery_app.send_task(
+        'monitoring_action',
+        args=params
+    )
+
+
 class ActionViewMixin(object):
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
