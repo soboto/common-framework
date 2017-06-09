@@ -76,6 +76,9 @@ class BOUser(AuthUser):
     def parse_entities(self):
         self.entity = [e['id'] for e in self.entity]
 
+    def get_entity(self):
+        return self.entity[0] if len(self.entity) > 0 else None
+
 
 class Customer(AuthUser):
     type = CUSTOMER_USER_TYPE

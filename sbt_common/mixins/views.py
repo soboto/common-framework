@@ -21,6 +21,7 @@ class PermissionsViewMixin(object):
     permission_classes = (UserIsAuthenticated, ServiceModelPermissions,)
     actions_mapping = {
         'get': 'retrieve',
+        'post': 'create',
         'put': 'update',
         'patch': 'partial_update',
         'delete': 'destroy'
