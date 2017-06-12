@@ -3,8 +3,6 @@ from django.db.models import Manager
 from django.utils import six
 from django.conf import settings
 from django.utils.timezone import utc
-from mongoengine.errors import DoesNotExist
-from rest_framework import status
 
 
 class GenericRESTAPITestCaseMixin(object):
@@ -63,24 +61,3 @@ class GenericRESTAPITestCaseMixin(object):
                     continue
 
             self.assertEqual(attribute, results.get(key, value))
-
-
-class MongoDestroyRESTAPITestCaseMixin(object):
-
-    def test_destroy(self, **kwargs):
-        """Send request to the destroy view endpoint, verify and return the response.
-
-                Also verifies the object does not exist anymore in the database.
-
-                :param kwargs: Extra arguments that are passed to the client's ``delete()`` call.
-                :returns: The view's response.
-                """
-
-        response = self.get_destroy_response(**kwargs)
-
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT, response.data)
-        # Another sanity check:
-        # see that the instance is removed from the database.
-        self.assertRaises(DoesNotExist, self.object.__class__.objects.get, **{self.lookup_field: self.object_id})
-
-        return response

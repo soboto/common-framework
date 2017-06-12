@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+package soboto.users;
+
+
+// =======================================
+// Protobuf Models
+// =======================================
+
+message Phone {
+    string value = 1;
+}
+
+message Email {
+    string value = 1;
+}
+
+message Permission {
+    string id = 1;
+    string name = 2;
+    string codename = 3;
+}
+
+message UserEntity {
+    string id = 1;
+    string function = 2;
+}
+
+message UserAuth {
+    string id = 1;
+    string username = 2;
+    string name = 3;
+    string email = 4;
+    string first_name = 5;
+    string last_name = 6;
+    string type = 7;
+    bool is_superuser = 8;
+    bool is_active = 9;
+    bool is_staff = 10;
+    repeated UserEntity entity = 11;
+}
+
+message BOUser {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string phone = 6;
+    string birth_date = 7;
+    repeated Phone alternative_phones = 8;
+    repeated Email alternative_emails = 9;
+    repeated UserEntity entities = 10;
+}
+
+message Customer {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string phone = 6;
+    string birth_date = 7;
+    string name = 8;
+    string gender = 9;
+    string address = 10;
+    string city = 11;
+    string postal_zip = 12;
+    int32 age = 13;
+}
+
+
+// =======================================
+// RPC request & response messages
+// =======================================
+
+
+// =======================================
+// User Authentication
+message ValidateAuthenticationTokenRequest {
+    string token = 1;
+}
+message ValidateAuthenticationTokenResponse {
+    bool valid = 1;
+    UserAuth user = 2;
+}
+
+
+// =======================================
+// User Permissions
+message GetUserPermissionsRequest {
+    string user_id = 1;
+}
+message GetUserPermissionsResponse {
+    repeated Permission permissions = 1;
+}
+
+
+// =======================================
+// USER INFO
+// -> BO User
+message GetBOUserInfoRequest {
+    string id = 1;
+}
+message GetBOUserInfoResponse {
+    BOUser user = 1;
+}
+// -> Customer User
+message GetCustomerInfoRequest {
+    string id = 1;
+}
+message GetCustomerInfoResponse {
+    Customer user = 1;
+}
+// -> Set Entity Owner
+message SetEntityOwnerRequest {
+    string user_id = 1;
+    string entity_id = 2;
+}
+message SetEntityOwnerResponse {
+    bool success = 1;
+}
+
+
+// =======================================
+// The service definition.
+// =======================================
+service UsersService {
+    rpc validateAuthenticationToken (ValidateAuthenticationTokenRequest)
+        returns (ValidateAuthenticationTokenResponse) {}
+
+    rpc getUserPermissions (GetUserPermissionsRequest)
+        returns (GetUserPermissionsResponse) {}
+
+    rpc getBOUserInfo (GetBOUserInfoRequest)
+        returns (GetBOUserInfoResponse) {}
+
+    rpc getCustomerInfo (GetCustomerInfoRequest)
+        returns (GetCustomerInfoResponse) {}
+
+    rpc setEntityOwner (SetEntityOwnerRequest)
+        returns (SetEntityOwnerResponse) {}
+}
+

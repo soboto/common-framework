@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package soboto.bookings;
+
+
+// =======================================
+// Protobuf Models
+// =======================================
+
+message ParticipantInfo{
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    bool is_contact = 4;
+    string email = 5;
+    string phone = 6;
+    string participant_type_id = 7;
+}
+
+message ParticipantsPerType{
+    string id = 1;
+    int32 quantity = 2;
+    string participant_type_id = 3;
+}
+
+message ItemBooking {
+    string id = 1;
+    int32 start = 2;
+    int32 end = 3;
+    float total_amount = 4;
+    float extras = 5;
+    string item_id = 6;
+    string employee_id = 7;
+    string slot_id = 8;
+    string supplier_id = 9;
+    string reseller_id = 10;
+    string discount_code_id = 11;
+    repeated ParticipantsPerType participants_per_type = 12;
+    repeated ParticipantInfo participants = 13;
+}
+
+message Booking {
+    string id = 1;
+    int32 created_at = 2;
+    int32 updated_at = 3;
+    string code = 4;
+    float total_amount = 5;
+    float total_currency = 6;
+    float total_paid = 7;
+    float total_due = 8;
+    int32 date_confirmed = 9;
+    int32 date_paid = 10;
+    string summary = 11;
+    string payment_method = 12;
+    bool agree_terms = 13;
+    string customer_id = 14;
+    string status = 15;
+    repeated ItemBooking items = 16;
+}
+
+
+// =======================================
+// RPC request & response messages
+// =======================================
+
+message GetBookingInfoRequest {
+    string id = 1;
+}
+message GetBookingInfoResponse {
+    Booking booking = 1;
+}
+
+
+// =======================================
+// The service definition.
+// =======================================
+
+service BookingsService {
+    rpc getBookingInfo (GetBookingInfoRequest)
+        returns (GetBookingInfoResponse) {}
+}

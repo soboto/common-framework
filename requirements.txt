@@ -1,0 +1,4 @@
+Django==1.9.4
+grpcio==1.0.2
+
+https://github.com/soboto/protobuf-to-dict.git

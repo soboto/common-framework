@@ -25,3 +25,6 @@ temp
 
 # SqlLite
 *.sqlite3
+
+# Sublime
+ftpsync.settings
