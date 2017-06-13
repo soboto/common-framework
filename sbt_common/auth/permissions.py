@@ -32,7 +32,7 @@ class ServiceModelPermissions(DjangoModelPermissions):
         else:
             queryset = getattr(view, 'queryset', None)
 
-        model_cls = queryset.model if queryset else None
+        model_cls = queryset.model if queryset is not None else None
         perms = self.get_required_permissions(request.method, model_cls)
 
         return (
