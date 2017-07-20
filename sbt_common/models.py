@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from protobuf_to_dict import protobuf_to_dict
 from django.contrib.auth.models import _user_has_perm, _user_get_all_permissions
+from django.contrib.auth import get_user_model
 
 from .constants import BO_USER_TYPE, CUSTOMER_USER_TYPE, ANONYMOUS_USER_TYPE
+from .settings import api_settings
 
 
 class AuthUser(object):
@@ -21,6 +23,9 @@ class AuthUser(object):
     def __init__(self, *args, **kwargs):
         for param in kwargs:
             setattr(self, param, kwargs.get(param))
+
+    def __str__(self):
+        return self.username
 
     def __unicode__(self):
         return self.username
@@ -108,6 +113,11 @@ class UserModelFactory(object):
     def get_user(self):
         if self.user_type not in self._types:
             raise Exception('Unrecognised user type')
+
+        if api_settings.SERVICE_NAME == 'users' and 'id' in self.user_info:
+            user_model = get_user_model()
+            user = user_model.objects.get(pk=self.user_info['id'])
+            return user
 
         user_model = self._types[self.user_type]
         return user_model(**self.user_info)
