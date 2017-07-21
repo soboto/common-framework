@@ -77,6 +77,12 @@ message DuplicateItemEventRequest {
 message DuplicateItemEventResponse {
     ItemEvent item_event = 1;
 }
+message GetEntitiesItemsRequest {
+    repeated string entities = 1;
+}
+message GetEntitiesItemsResponse {
+    repeated string items = 1;
+}
 
 
 // =======================================
@@ -89,4 +95,7 @@ service ItemsService {
 
     rpc duplicateItemEvent (DuplicateItemEventRequest)
         returns (DuplicateItemEventResponse) {}
+
+    rpc getEntitiesItems (GetEntitiesItemsRequest)
+        returns (GetEntitiesItemsResponse) {}
 }

@@ -6,6 +6,8 @@ import items_pb2 as items__pb2
 import items_pb2 as items__pb2
 import items_pb2 as items__pb2
 import items_pb2 as items__pb2
+import items_pb2 as items__pb2
+import items_pb2 as items__pb2
 
 
 class ItemsServiceStub(object):
@@ -31,6 +33,11 @@ class ItemsServiceStub(object):
         request_serializer=items__pb2.DuplicateItemEventRequest.SerializeToString,
         response_deserializer=items__pb2.DuplicateItemEventResponse.FromString,
         )
+    self.getEntitiesItems = channel.unary_unary(
+        '/soboto.items.ItemsService/getEntitiesItems',
+        request_serializer=items__pb2.GetEntitiesItemsRequest.SerializeToString,
+        response_deserializer=items__pb2.GetEntitiesItemsResponse.FromString,
+        )
 
 
 class ItemsServiceServicer(object):
@@ -50,6 +57,11 @@ class ItemsServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def getEntitiesItems(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_ItemsServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -62,6 +74,11 @@ def add_ItemsServiceServicer_to_server(servicer, server):
           servicer.duplicateItemEvent,
           request_deserializer=items__pb2.DuplicateItemEventRequest.FromString,
           response_serializer=items__pb2.DuplicateItemEventResponse.SerializeToString,
+      ),
+      'getEntitiesItems': grpc.unary_unary_rpc_method_handler(
+          servicer.getEntitiesItems,
+          request_deserializer=items__pb2.GetEntitiesItemsRequest.FromString,
+          response_serializer=items__pb2.GetEntitiesItemsResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
