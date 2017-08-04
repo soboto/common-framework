@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='items.proto',
   package='soboto.items',
   syntax='proto3',
-  serialized_pb=_b('\n\x0bitems.proto\x12\x0csoboto.items\":\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x12\n\nupdated_at\x18\x03 \x01(\x05\"\xf1\x01\n\tItemEvent\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\nstart_time\x18\x04 \x01(\x05\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x05\x12\x14\n\x0cmin_quantity\x18\x06 \x01(\x05\x12\x14\n\x0cmax_quantity\x18\x07 \x01(\x05\x12\x0f\n\x07\x61ll_day\x18\x08 \x01(\x08\x12 \n\x04item\x18\t \x01(\x0b\x32\x12.soboto.items.Item\x12\x30\n\rprice_options\x18\n \x03(\x0b\x32\x19.soboto.items.PriceOption\"\x81\x01\n\x0bPriceOption\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05price\x18\x02 \x01(\x02\x12\x10\n\x08required\x18\x03 \x01(\x08\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x37\n\x10participant_type\x18\x05 \x01(\x0b\x32\x1d.soboto.items.ParticipantType\",\n\x0fParticipantType\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05label\x18\x02 \x01(\t\"4\n\x14SlotEventParticipant\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\"\x93\x01\n\tSlotEvent\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x02 \x01(\t\x12\x10\n\x08\x64\x61tetime\x18\x03 \x01(\x05\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x38\n\x0cparticipants\x18\x05 \x03(\x0b\x32\".soboto.items.SlotEventParticipant\"J\n\x15SlotEventAvailability\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\x12\x10\n\x08\x64\x61tetime\x18\x02 \x01(\x05\x12\x0e\n\x06status\x18\x03 \x01(\t\"L\n\x1d\x43heckEventAvailabilityRequest\x12+\n\ntime_slots\x18\x01 \x03(\x0b\x32\x17.soboto.items.SlotEvent\"Y\n\x1e\x43heckEventAvailabilityResponse\x12\x37\n\ntime_slots\x18\x01 \x03(\x0b\x32#.soboto.items.SlotEventAvailability\"I\n\x19\x44uplicateItemEventRequest\x12\x10\n\x08\x65vent_id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\"I\n\x1a\x44uplicateItemEventResponse\x12+\n\nitem_event\x18\x01 \x01(\x0b\x32\x17.soboto.items.ItemEvent\"+\n\x17GetEntitiesItemsRequest\x12\x10\n\x08\x65ntities\x18\x01 \x03(\t\")\n\x18GetEntitiesItemsResponse\x12\r\n\x05items\x18\x01 \x03(\t2\xd5\x02\n\x0cItemsService\x12u\n\x16\x63heckEventAvailability\x12+.soboto.items.CheckEventAvailabilityRequest\x1a,.soboto.items.CheckEventAvailabilityResponse\"\x00\x12i\n\x12\x64uplicateItemEvent\x12\'.soboto.items.DuplicateItemEventRequest\x1a(.soboto.items.DuplicateItemEventResponse\"\x00\x12\x63\n\x10getEntitiesItems\x12%.soboto.items.GetEntitiesItemsRequest\x1a&.soboto.items.GetEntitiesItemsResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bitems.proto\x12\x0csoboto.items\":\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x12\n\nupdated_at\x18\x03 \x01(\x05\"\xf1\x01\n\tItemEvent\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\nstart_time\x18\x04 \x01(\x05\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x05\x12\x14\n\x0cmin_quantity\x18\x06 \x01(\x05\x12\x14\n\x0cmax_quantity\x18\x07 \x01(\x05\x12\x0f\n\x07\x61ll_day\x18\x08 \x01(\x08\x12 \n\x04item\x18\t \x01(\x0b\x32\x12.soboto.items.Item\x12\x30\n\rprice_options\x18\n \x03(\x0b\x32\x19.soboto.items.PriceOption\"\x81\x01\n\x0bPriceOption\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05price\x18\x02 \x01(\x02\x12\x10\n\x08required\x18\x03 \x01(\x08\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x37\n\x10participant_type\x18\x05 \x01(\x0b\x32\x1d.soboto.items.ParticipantType\",\n\x0fParticipantType\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05label\x18\x02 \x01(\t\"4\n\x14SlotEventParticipant\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\"\x93\x01\n\tSlotEvent\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x02 \x01(\t\x12\x10\n\x08\x64\x61tetime\x18\x03 \x01(\x05\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x38\n\x0cparticipants\x18\x05 \x03(\x0b\x32\".soboto.items.SlotEventParticipant\"J\n\x15SlotEventAvailability\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\x12\x10\n\x08\x64\x61tetime\x18\x02 \x01(\x05\x12\x0e\n\x06status\x18\x03 \x01(\t\"L\n\x1d\x43heckEventAvailabilityRequest\x12+\n\ntime_slots\x18\x01 \x03(\x0b\x32\x17.soboto.items.SlotEvent\"Y\n\x1e\x43heckEventAvailabilityResponse\x12\x37\n\ntime_slots\x18\x01 \x03(\x0b\x32#.soboto.items.SlotEventAvailability\"I\n\x19\x44uplicateItemEventRequest\x12\x10\n\x08\x65vent_id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\"I\n\x1a\x44uplicateItemEventResponse\x12+\n\nitem_event\x18\x01 \x01(\x0b\x32\x17.soboto.items.ItemEvent\"+\n\x17GetEntitiesItemsRequest\x12\x10\n\x08\x65ntities\x18\x01 \x03(\t\")\n\x18GetEntitiesItemsResponse\x12\r\n\x05items\x18\x01 \x03(\t\"I\n\x19UpdateItemsBillingRequest\x12\x11\n\tentity_id\x18\x01 \x01(\t\x12\x19\n\x11\x62illing_available\x18\x02 \x01(\x08\".\n\x1aUpdateItemsBillingResponse\x12\x10\n\x08response\x18\x01 \x01(\x08\x32\xc0\x03\n\x0cItemsService\x12u\n\x16\x63heckEventAvailability\x12+.soboto.items.CheckEventAvailabilityRequest\x1a,.soboto.items.CheckEventAvailabilityResponse\"\x00\x12i\n\x12\x64uplicateItemEvent\x12\'.soboto.items.DuplicateItemEventRequest\x1a(.soboto.items.DuplicateItemEventResponse\"\x00\x12\x63\n\x10getEntitiesItems\x12%.soboto.items.GetEntitiesItemsRequest\x1a&.soboto.items.GetEntitiesItemsResponse\"\x00\x12i\n\x12updateItemsBilling\x12\'.soboto.items.UpdateItemsBillingRequest\x1a(.soboto.items.UpdateItemsBillingResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -603,6 +603,75 @@ _GETENTITIESITEMSRESPONSE = _descriptor.Descriptor(
   serialized_end=1196,
 )
 
+
+_UPDATEITEMSBILLINGREQUEST = _descriptor.Descriptor(
+  name='UpdateItemsBillingRequest',
+  full_name='soboto.items.UpdateItemsBillingRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='entity_id', full_name='soboto.items.UpdateItemsBillingRequest.entity_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='billing_available', full_name='soboto.items.UpdateItemsBillingRequest.billing_available', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1198,
+  serialized_end=1271,
+)
+
+
+_UPDATEITEMSBILLINGRESPONSE = _descriptor.Descriptor(
+  name='UpdateItemsBillingResponse',
+  full_name='soboto.items.UpdateItemsBillingResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='response', full_name='soboto.items.UpdateItemsBillingResponse.response', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1273,
+  serialized_end=1319,
+)
+
 _ITEMEVENT.fields_by_name['item'].message_type = _ITEM
 _ITEMEVENT.fields_by_name['price_options'].message_type = _PRICEOPTION
 _PRICEOPTION.fields_by_name['participant_type'].message_type = _PARTICIPANTTYPE
@@ -623,6 +692,8 @@ DESCRIPTOR.message_types_by_name['DuplicateItemEventRequest'] = _DUPLICATEITEMEV
 DESCRIPTOR.message_types_by_name['DuplicateItemEventResponse'] = _DUPLICATEITEMEVENTRESPONSE
 DESCRIPTOR.message_types_by_name['GetEntitiesItemsRequest'] = _GETENTITIESITEMSREQUEST
 DESCRIPTOR.message_types_by_name['GetEntitiesItemsResponse'] = _GETENTITIESITEMSRESPONSE
+DESCRIPTOR.message_types_by_name['UpdateItemsBillingRequest'] = _UPDATEITEMSBILLINGREQUEST
+DESCRIPTOR.message_types_by_name['UpdateItemsBillingResponse'] = _UPDATEITEMSBILLINGRESPONSE
 
 Item = _reflection.GeneratedProtocolMessageType('Item', (_message.Message,), dict(
   DESCRIPTOR = _ITEM,
@@ -715,6 +786,20 @@ GetEntitiesItemsResponse = _reflection.GeneratedProtocolMessageType('GetEntities
   ))
 _sym_db.RegisterMessage(GetEntitiesItemsResponse)
 
+UpdateItemsBillingRequest = _reflection.GeneratedProtocolMessageType('UpdateItemsBillingRequest', (_message.Message,), dict(
+  DESCRIPTOR = _UPDATEITEMSBILLINGREQUEST,
+  __module__ = 'items_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.items.UpdateItemsBillingRequest)
+  ))
+_sym_db.RegisterMessage(UpdateItemsBillingRequest)
+
+UpdateItemsBillingResponse = _reflection.GeneratedProtocolMessageType('UpdateItemsBillingResponse', (_message.Message,), dict(
+  DESCRIPTOR = _UPDATEITEMSBILLINGRESPONSE,
+  __module__ = 'items_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.items.UpdateItemsBillingResponse)
+  ))
+_sym_db.RegisterMessage(UpdateItemsBillingResponse)
+
 
 try:
   # THESE ELEMENTS WILL BE DEPRECATED.
@@ -754,6 +839,11 @@ try:
           request_serializer=GetEntitiesItemsRequest.SerializeToString,
           response_deserializer=GetEntitiesItemsResponse.FromString,
           )
+      self.updateItemsBilling = channel.unary_unary(
+          '/soboto.items.ItemsService/updateItemsBilling',
+          request_serializer=UpdateItemsBillingRequest.SerializeToString,
+          response_deserializer=UpdateItemsBillingResponse.FromString,
+          )
 
 
   class ItemsServiceServicer(object):
@@ -778,6 +868,11 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def updateItemsBilling(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_ItemsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -795,6 +890,11 @@ try:
             servicer.getEntitiesItems,
             request_deserializer=GetEntitiesItemsRequest.FromString,
             response_serializer=GetEntitiesItemsResponse.SerializeToString,
+        ),
+        'updateItemsBilling': grpc.unary_unary_rpc_method_handler(
+            servicer.updateItemsBilling,
+            request_deserializer=UpdateItemsBillingRequest.FromString,
+            response_serializer=UpdateItemsBillingResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -819,6 +919,8 @@ try:
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def getEntitiesItems(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def updateItemsBilling(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaItemsServiceStub(object):
@@ -841,6 +943,9 @@ try:
     def getEntitiesItems(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
     getEntitiesItems.future = None
+    def updateItemsBilling(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    updateItemsBilling.future = None
 
 
   def beta_create_ItemsService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -853,16 +958,19 @@ try:
       ('soboto.items.ItemsService', 'checkEventAvailability'): CheckEventAvailabilityRequest.FromString,
       ('soboto.items.ItemsService', 'duplicateItemEvent'): DuplicateItemEventRequest.FromString,
       ('soboto.items.ItemsService', 'getEntitiesItems'): GetEntitiesItemsRequest.FromString,
+      ('soboto.items.ItemsService', 'updateItemsBilling'): UpdateItemsBillingRequest.FromString,
     }
     response_serializers = {
       ('soboto.items.ItemsService', 'checkEventAvailability'): CheckEventAvailabilityResponse.SerializeToString,
       ('soboto.items.ItemsService', 'duplicateItemEvent'): DuplicateItemEventResponse.SerializeToString,
       ('soboto.items.ItemsService', 'getEntitiesItems'): GetEntitiesItemsResponse.SerializeToString,
+      ('soboto.items.ItemsService', 'updateItemsBilling'): UpdateItemsBillingResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.items.ItemsService', 'checkEventAvailability'): face_utilities.unary_unary_inline(servicer.checkEventAvailability),
       ('soboto.items.ItemsService', 'duplicateItemEvent'): face_utilities.unary_unary_inline(servicer.duplicateItemEvent),
       ('soboto.items.ItemsService', 'getEntitiesItems'): face_utilities.unary_unary_inline(servicer.getEntitiesItems),
+      ('soboto.items.ItemsService', 'updateItemsBilling'): face_utilities.unary_unary_inline(servicer.updateItemsBilling),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -878,16 +986,19 @@ try:
       ('soboto.items.ItemsService', 'checkEventAvailability'): CheckEventAvailabilityRequest.SerializeToString,
       ('soboto.items.ItemsService', 'duplicateItemEvent'): DuplicateItemEventRequest.SerializeToString,
       ('soboto.items.ItemsService', 'getEntitiesItems'): GetEntitiesItemsRequest.SerializeToString,
+      ('soboto.items.ItemsService', 'updateItemsBilling'): UpdateItemsBillingRequest.SerializeToString,
     }
     response_deserializers = {
       ('soboto.items.ItemsService', 'checkEventAvailability'): CheckEventAvailabilityResponse.FromString,
       ('soboto.items.ItemsService', 'duplicateItemEvent'): DuplicateItemEventResponse.FromString,
       ('soboto.items.ItemsService', 'getEntitiesItems'): GetEntitiesItemsResponse.FromString,
+      ('soboto.items.ItemsService', 'updateItemsBilling'): UpdateItemsBillingResponse.FromString,
     }
     cardinalities = {
       'checkEventAvailability': cardinality.Cardinality.UNARY_UNARY,
       'duplicateItemEvent': cardinality.Cardinality.UNARY_UNARY,
       'getEntitiesItems': cardinality.Cardinality.UNARY_UNARY,
+      'updateItemsBilling': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'soboto.items.ItemsService', cardinalities, options=stub_options)
