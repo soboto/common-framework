@@ -1,4 +1,5 @@
 from django.contrib.auth.backends import ModelBackend
+from django.contrib.auth import get_user_model
 
 from ..messaging.service import Service
 from ..models import Anonymous
@@ -60,4 +61,8 @@ class ServiceModelBackend(ModelBackend):
         return super(ServiceModelBackend, self).has_perm(user_obj, perm, obj)
 
     def get_user(self, user_id):
-        return None
+        UserModel = get_user_model()
+        try:
+            return UserModel._default_manager.get(pk=user_id)
+        except UserModel.DoesNotExist:
+            return None
