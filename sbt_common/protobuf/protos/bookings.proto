@@ -45,7 +45,7 @@ message Booking {
     int32 updated_at = 3;
     string code = 4;
     float total_amount = 5;
-    float total_currency = 6;
+    string total_currency = 6;
     float total_paid = 7;
     float total_due = 8;
     int32 date_confirmed = 9;
@@ -76,6 +76,5 @@ message GetBookingInfoResponse {
 // =======================================
 
 service BookingsService {
-    rpc getBookingInfo (GetBookingInfoRequest)
-        returns (GetBookingInfoResponse) {}
+    rpc getBookingInfo (GetBookingInfoRequest) returns (GetBookingInfoResponse) {}
 }

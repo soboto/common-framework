@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='entities.proto',
   package='soboto.entities',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x65ntities.proto\x12\x0fsoboto.entities\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"\xb7\x02\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x11\n\tpost_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ountry_code\x18\x08 \x01(\t\x12\x10\n\x08timezone\x18\t \x01(\t\x12\r\n\x05phone\x18\n \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x0f\n\x07website\x18\x0c \x01(\t\x12\x32\n\x12\x61lternative_phones\x18\r \x03(\x0b\x32\x16.soboto.entities.Phone\x12\x32\n\x12\x61lternative_emails\x18\x0e \x03(\x0b\x32\x16.soboto.entities.Email\"\"\n\x14GetEntityInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x15GetEntityInfoResponse\x12\'\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\x17.soboto.entities.Entity\"1\n\x1aGetResellerPartnersRequest\x12\x13\n\x0breseller_id\x18\x01 \x01(\t\"0\n\x1bGetResellerPartnersResponse\x12\x11\n\tsuppliers\x18\x01 \x03(\t2\xe7\x01\n\x0f\x45ntitiesService\x12`\n\rgetEntityInfo\x12%.soboto.entities.GetEntityInfoRequest\x1a&.soboto.entities.GetEntityInfoResponse\"\x00\x12r\n\x13getResellerPartners\x12+.soboto.entities.GetResellerPartnersRequest\x1a,.soboto.entities.GetResellerPartnersResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x65ntities.proto\x12\x0fsoboto.entities\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"\\\n\x15\x45ntityBillingProvider\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08provider\x18\x02 \x01(\t\x12\x12\n\naccount_id\x18\x03 \x01(\t\x12\x11\n\tis_active\x18\x04 \x01(\x08\"\xfa\x02\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x61lias\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x05 \x01(\t\x12\x0c\n\x04\x63ity\x18\x06 \x01(\t\x12\x11\n\tpost_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ountry_code\x18\x08 \x01(\t\x12\x10\n\x08timezone\x18\t \x01(\t\x12\r\n\x05phone\x18\n \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x0f\n\x07website\x18\x0c \x01(\t\x12\x32\n\x12\x61lternative_phones\x18\r \x03(\x0b\x32\x16.soboto.entities.Phone\x12\x32\n\x12\x61lternative_emails\x18\x0e \x03(\x0b\x32\x16.soboto.entities.Email\x12\x41\n\x11\x62illing_providers\x18\x0f \x03(\x0b\x32&.soboto.entities.EntityBillingProvider\"\"\n\x14GetEntityInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x15GetEntityInfoResponse\x12\'\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\x17.soboto.entities.Entity\"1\n\x1aGetResellerPartnersRequest\x12\x13\n\x0breseller_id\x18\x01 \x01(\t\"0\n\x1bGetResellerPartnersResponse\x12\x11\n\tsuppliers\x18\x01 \x03(\t2\xe7\x01\n\x0f\x45ntitiesService\x12`\n\rgetEntityInfo\x12%.soboto.entities.GetEntityInfoRequest\x1a&.soboto.entities.GetEntityInfoResponse\"\x00\x12r\n\x13getResellerPartners\x12+.soboto.entities.GetResellerPartnersRequest\x1a,.soboto.entities.GetResellerPartnersResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -85,6 +85,58 @@ _EMAIL = _descriptor.Descriptor(
   ],
   serialized_start=59,
   serialized_end=81,
+)
+
+
+_ENTITYBILLINGPROVIDER = _descriptor.Descriptor(
+  name='EntityBillingProvider',
+  full_name='soboto.entities.EntityBillingProvider',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='soboto.entities.EntityBillingProvider.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='provider', full_name='soboto.entities.EntityBillingProvider.provider', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='account_id', full_name='soboto.entities.EntityBillingProvider.account_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='is_active', full_name='soboto.entities.EntityBillingProvider.is_active', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=83,
+  serialized_end=175,
 )
 
 
@@ -193,6 +245,13 @@ _ENTITY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='billing_providers', full_name='soboto.entities.Entity.billing_providers', index=14,
+      number=15, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -205,8 +264,8 @@ _ENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=84,
-  serialized_end=395,
+  serialized_start=178,
+  serialized_end=556,
 )
 
 
@@ -236,8 +295,8 @@ _GETENTITYINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=397,
-  serialized_end=431,
+  serialized_start=558,
+  serialized_end=592,
 )
 
 
@@ -267,8 +326,8 @@ _GETENTITYINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=433,
-  serialized_end=497,
+  serialized_start=594,
+  serialized_end=658,
 )
 
 
@@ -298,8 +357,8 @@ _GETRESELLERPARTNERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=499,
-  serialized_end=548,
+  serialized_start=660,
+  serialized_end=709,
 )
 
 
@@ -329,15 +388,17 @@ _GETRESELLERPARTNERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=550,
-  serialized_end=598,
+  serialized_start=711,
+  serialized_end=759,
 )
 
 _ENTITY.fields_by_name['alternative_phones'].message_type = _PHONE
 _ENTITY.fields_by_name['alternative_emails'].message_type = _EMAIL
+_ENTITY.fields_by_name['billing_providers'].message_type = _ENTITYBILLINGPROVIDER
 _GETENTITYINFORESPONSE.fields_by_name['entity'].message_type = _ENTITY
 DESCRIPTOR.message_types_by_name['Phone'] = _PHONE
 DESCRIPTOR.message_types_by_name['Email'] = _EMAIL
+DESCRIPTOR.message_types_by_name['EntityBillingProvider'] = _ENTITYBILLINGPROVIDER
 DESCRIPTOR.message_types_by_name['Entity'] = _ENTITY
 DESCRIPTOR.message_types_by_name['GetEntityInfoRequest'] = _GETENTITYINFOREQUEST
 DESCRIPTOR.message_types_by_name['GetEntityInfoResponse'] = _GETENTITYINFORESPONSE
@@ -357,6 +418,13 @@ Email = _reflection.GeneratedProtocolMessageType('Email', (_message.Message,), d
   # @@protoc_insertion_point(class_scope:soboto.entities.Email)
   ))
 _sym_db.RegisterMessage(Email)
+
+EntityBillingProvider = _reflection.GeneratedProtocolMessageType('EntityBillingProvider', (_message.Message,), dict(
+  DESCRIPTOR = _ENTITYBILLINGPROVIDER,
+  __module__ = 'entities_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.entities.EntityBillingProvider)
+  ))
+_sym_db.RegisterMessage(EntityBillingProvider)
 
 Entity = _reflection.GeneratedProtocolMessageType('Entity', (_message.Message,), dict(
   DESCRIPTOR = _ENTITY,

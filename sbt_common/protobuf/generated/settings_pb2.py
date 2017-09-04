@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='settings.proto',
   package='soboto.settings',
   syntax='proto3',
-  serialized_pb=_b('\n\x0esettings.proto\x12\x0fsoboto.settings\"@\n\x07Setting\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"\"\n\x12GetSettingsRequest\x12\x0c\n\x04name\x18\x01 \x03(\t\"A\n\x13GetSettingsResponse\x12*\n\x08settings\x18\x01 \x03(\x0b\x32\x18.soboto.settings.Setting2m\n\x0fSettingsService\x12Z\n\x0bgetSettings\x12#.soboto.settings.GetSettingsRequest\x1a$.soboto.settings.GetSettingsResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0esettings.proto\x12\x0fsoboto.settings\"@\n\x07Setting\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"&\n\x12GetSettingsRequest\x12\x10\n\x08settings\x18\x01 \x03(\t\"A\n\x13GetSettingsResponse\x12*\n\x08settings\x18\x01 \x03(\x0b\x32\x18.soboto.settings.Setting2m\n\x0fSettingsService\x12Z\n\x0bgetSettings\x12#.soboto.settings.GetSettingsRequest\x1a$.soboto.settings.GetSettingsResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -86,7 +86,7 @@ _GETSETTINGSREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='soboto.settings.GetSettingsRequest.name', index=0,
+      name='settings', full_name='soboto.settings.GetSettingsRequest.settings', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -105,7 +105,7 @@ _GETSETTINGSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=101,
-  serialized_end=135,
+  serialized_end=139,
 )
 
 
@@ -135,8 +135,8 @@ _GETSETTINGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=137,
-  serialized_end=202,
+  serialized_start=141,
+  serialized_end=206,
 )
 
 _GETSETTINGSRESPONSE.fields_by_name['settings'].message_type = _SETTING

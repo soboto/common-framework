@@ -20,7 +20,7 @@ message Setting {
 // =======================================
 
 message GetSettingsRequest {
-    repeated string name = 1;
+    repeated string settings = 1;
 }
 message GetSettingsResponse {
     repeated Setting settings = 1;

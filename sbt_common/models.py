@@ -121,3 +121,4 @@ class UserModelFactory(object):
 
         user_model = self._types[self.user_type]
         return user_model(**self.user_info)
+
