@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='schedules.proto',
   package='soboto.schedules',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fschedules.proto\x12\x10soboto.schedules\"\x84\x01\n\x04Slot\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\t\x12\x0b\n\x03\x65nd\x18\x03 \x01(\t\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x18\n\x10initial_quantity\x18\x05 \x01(\x05\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x07 \x01(\t\"/\n\x1c\x43heckSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"2\n\x1d\x43heckSlotAvailabilityResponse\x12\x11\n\tavailable\x18\x01 \x01(\x08\"3\n IncrementSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"#\n!IncrementSlotAvailabilityResponse2\x97\x02\n\x10SchedulesService\x12z\n\x15\x63heckSlotAvailability\x12..soboto.schedules.CheckSlotAvailabilityRequest\x1a/.soboto.schedules.CheckSlotAvailabilityResponse\"\x00\x12\x86\x01\n\x19incrementSlotAvailability\x12\x32.soboto.schedules.IncrementSlotAvailabilityRequest\x1a\x33.soboto.schedules.IncrementSlotAvailabilityResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0fschedules.proto\x12\x10soboto.schedules\"\xb6\x01\n\x04Slot\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x18\n\x10initial_quantity\x18\x05 \x01(\x05\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x07 \x01(\t\x12\x14\n\x0cis_available\x18\x08 \x01(\x08\x12\x1a\n\x12\x61vailable_quantity\x18\t \x01(\x05\"/\n\x1c\x43heckSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"2\n\x1d\x43heckSlotAvailabilityResponse\x12\x11\n\tavailable\x18\x01 \x01(\x08\"3\n IncrementSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"#\n!IncrementSlotAvailabilityResponse\"%\n\x12GetSlotInfoRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\";\n\x13GetSlotInfoResponse\x12$\n\x04slot\x18\x01 \x01(\x0b\x32\x16.soboto.schedules.Slot2\xf5\x02\n\x10SchedulesService\x12z\n\x15\x63heckSlotAvailability\x12..soboto.schedules.CheckSlotAvailabilityRequest\x1a/.soboto.schedules.CheckSlotAvailabilityResponse\"\x00\x12\x86\x01\n\x19incrementSlotAvailability\x12\x32.soboto.schedules.IncrementSlotAvailabilityRequest\x1a\x33.soboto.schedules.IncrementSlotAvailabilityResponse\"\x00\x12\\\n\x0bgetSlotInfo\x12$.soboto.schedules.GetSlotInfoRequest\x1a%.soboto.schedules.GetSlotInfoResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -42,15 +42,15 @@ _SLOT = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='start', full_name='soboto.schedules.Slot.start', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='end', full_name='soboto.schedules.Slot.end', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -82,6 +82,20 @@ _SLOT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='is_available', full_name='soboto.schedules.Slot.is_available', index=7,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='available_quantity', full_name='soboto.schedules.Slot.available_quantity', index=8,
+      number=9, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -95,7 +109,7 @@ _SLOT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=38,
-  serialized_end=170,
+  serialized_end=220,
 )
 
 
@@ -125,8 +139,8 @@ _CHECKSLOTAVAILABILITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=219,
+  serialized_start=222,
+  serialized_end=269,
 )
 
 
@@ -156,8 +170,8 @@ _CHECKSLOTAVAILABILITYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=221,
-  serialized_end=271,
+  serialized_start=271,
+  serialized_end=321,
 )
 
 
@@ -187,8 +201,8 @@ _INCREMENTSLOTAVAILABILITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=273,
-  serialized_end=324,
+  serialized_start=323,
+  serialized_end=374,
 )
 
 
@@ -211,15 +225,80 @@ _INCREMENTSLOTAVAILABILITYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=326,
-  serialized_end=361,
+  serialized_start=376,
+  serialized_end=411,
 )
 
+
+_GETSLOTINFOREQUEST = _descriptor.Descriptor(
+  name='GetSlotInfoRequest',
+  full_name='soboto.schedules.GetSlotInfoRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='slot_id', full_name='soboto.schedules.GetSlotInfoRequest.slot_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=413,
+  serialized_end=450,
+)
+
+
+_GETSLOTINFORESPONSE = _descriptor.Descriptor(
+  name='GetSlotInfoResponse',
+  full_name='soboto.schedules.GetSlotInfoResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='slot', full_name='soboto.schedules.GetSlotInfoResponse.slot', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=452,
+  serialized_end=511,
+)
+
+_GETSLOTINFORESPONSE.fields_by_name['slot'].message_type = _SLOT
 DESCRIPTOR.message_types_by_name['Slot'] = _SLOT
 DESCRIPTOR.message_types_by_name['CheckSlotAvailabilityRequest'] = _CHECKSLOTAVAILABILITYREQUEST
 DESCRIPTOR.message_types_by_name['CheckSlotAvailabilityResponse'] = _CHECKSLOTAVAILABILITYRESPONSE
 DESCRIPTOR.message_types_by_name['IncrementSlotAvailabilityRequest'] = _INCREMENTSLOTAVAILABILITYREQUEST
 DESCRIPTOR.message_types_by_name['IncrementSlotAvailabilityResponse'] = _INCREMENTSLOTAVAILABILITYRESPONSE
+DESCRIPTOR.message_types_by_name['GetSlotInfoRequest'] = _GETSLOTINFOREQUEST
+DESCRIPTOR.message_types_by_name['GetSlotInfoResponse'] = _GETSLOTINFORESPONSE
 
 Slot = _reflection.GeneratedProtocolMessageType('Slot', (_message.Message,), dict(
   DESCRIPTOR = _SLOT,
@@ -256,6 +335,20 @@ IncrementSlotAvailabilityResponse = _reflection.GeneratedProtocolMessageType('In
   ))
 _sym_db.RegisterMessage(IncrementSlotAvailabilityResponse)
 
+GetSlotInfoRequest = _reflection.GeneratedProtocolMessageType('GetSlotInfoRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETSLOTINFOREQUEST,
+  __module__ = 'schedules_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.schedules.GetSlotInfoRequest)
+  ))
+_sym_db.RegisterMessage(GetSlotInfoRequest)
+
+GetSlotInfoResponse = _reflection.GeneratedProtocolMessageType('GetSlotInfoResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETSLOTINFORESPONSE,
+  __module__ = 'schedules_pb2'
+  # @@protoc_insertion_point(class_scope:soboto.schedules.GetSlotInfoResponse)
+  ))
+_sym_db.RegisterMessage(GetSlotInfoResponse)
+
 
 try:
   # THESE ELEMENTS WILL BE DEPRECATED.
@@ -290,6 +383,11 @@ try:
           request_serializer=IncrementSlotAvailabilityRequest.SerializeToString,
           response_deserializer=IncrementSlotAvailabilityResponse.FromString,
           )
+      self.getSlotInfo = channel.unary_unary(
+          '/soboto.schedules.SchedulesService/getSlotInfo',
+          request_serializer=GetSlotInfoRequest.SerializeToString,
+          response_deserializer=GetSlotInfoResponse.FromString,
+          )
 
 
   class SchedulesServiceServicer(object):
@@ -309,6 +407,11 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def getSlotInfo(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_SchedulesServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -321,6 +424,11 @@ try:
             servicer.incrementSlotAvailability,
             request_deserializer=IncrementSlotAvailabilityRequest.FromString,
             response_serializer=IncrementSlotAvailabilityResponse.SerializeToString,
+        ),
+        'getSlotInfo': grpc.unary_unary_rpc_method_handler(
+            servicer.getSlotInfo,
+            request_deserializer=GetSlotInfoRequest.FromString,
+            response_serializer=GetSlotInfoResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -343,6 +451,8 @@ try:
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def incrementSlotAvailability(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def getSlotInfo(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaSchedulesServiceStub(object):
@@ -362,6 +472,9 @@ try:
     def incrementSlotAvailability(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
     incrementSlotAvailability.future = None
+    def getSlotInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    getSlotInfo.future = None
 
 
   def beta_create_SchedulesService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -372,14 +485,17 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityRequest.FromString,
+      ('soboto.schedules.SchedulesService', 'getSlotInfo'): GetSlotInfoRequest.FromString,
       ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityRequest.FromString,
     }
     response_serializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityResponse.SerializeToString,
+      ('soboto.schedules.SchedulesService', 'getSlotInfo'): GetSlotInfoResponse.SerializeToString,
       ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityResponse.SerializeToString,
     }
     method_implementations = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): face_utilities.unary_unary_inline(servicer.checkSlotAvailability),
+      ('soboto.schedules.SchedulesService', 'getSlotInfo'): face_utilities.unary_unary_inline(servicer.getSlotInfo),
       ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): face_utilities.unary_unary_inline(servicer.incrementSlotAvailability),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
@@ -394,14 +510,17 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityRequest.SerializeToString,
+      ('soboto.schedules.SchedulesService', 'getSlotInfo'): GetSlotInfoRequest.SerializeToString,
       ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityRequest.SerializeToString,
     }
     response_deserializers = {
       ('soboto.schedules.SchedulesService', 'checkSlotAvailability'): CheckSlotAvailabilityResponse.FromString,
+      ('soboto.schedules.SchedulesService', 'getSlotInfo'): GetSlotInfoResponse.FromString,
       ('soboto.schedules.SchedulesService', 'incrementSlotAvailability'): IncrementSlotAvailabilityResponse.FromString,
     }
     cardinalities = {
       'checkSlotAvailability': cardinality.Cardinality.UNARY_UNARY,
+      'getSlotInfo': cardinality.Cardinality.UNARY_UNARY,
       'incrementSlotAvailability': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)

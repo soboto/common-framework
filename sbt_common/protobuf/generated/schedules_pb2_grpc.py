@@ -6,6 +6,8 @@ import schedules_pb2 as schedules__pb2
 import schedules_pb2 as schedules__pb2
 import schedules_pb2 as schedules__pb2
 import schedules_pb2 as schedules__pb2
+import schedules_pb2 as schedules__pb2
+import schedules_pb2 as schedules__pb2
 
 
 class SchedulesServiceStub(object):
@@ -31,6 +33,11 @@ class SchedulesServiceStub(object):
         request_serializer=schedules__pb2.IncrementSlotAvailabilityRequest.SerializeToString,
         response_deserializer=schedules__pb2.IncrementSlotAvailabilityResponse.FromString,
         )
+    self.getSlotInfo = channel.unary_unary(
+        '/soboto.schedules.SchedulesService/getSlotInfo',
+        request_serializer=schedules__pb2.GetSlotInfoRequest.SerializeToString,
+        response_deserializer=schedules__pb2.GetSlotInfoResponse.FromString,
+        )
 
 
 class SchedulesServiceServicer(object):
@@ -50,6 +57,11 @@ class SchedulesServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def getSlotInfo(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_SchedulesServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -62,6 +74,11 @@ def add_SchedulesServiceServicer_to_server(servicer, server):
           servicer.incrementSlotAvailability,
           request_deserializer=schedules__pb2.IncrementSlotAvailabilityRequest.FromString,
           response_serializer=schedules__pb2.IncrementSlotAvailabilityResponse.SerializeToString,
+      ),
+      'getSlotInfo': grpc.unary_unary_rpc_method_handler(
+          servicer.getSlotInfo,
+          request_deserializer=schedules__pb2.GetSlotInfoRequest.FromString,
+          response_serializer=schedules__pb2.GetSlotInfoResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

@@ -9,12 +9,14 @@ package soboto.schedules;
 
 message Slot {
     string id = 1;
-    string start = 2;
-    string end = 3;
+    int32 start = 2;
+    int32 end = 3;
     int32 booked_quantity = 4;
     int32 initial_quantity = 5;
     string item_id = 6;
     string event_id = 7;
+    bool is_available = 8;
+    int32 available_quantity = 9;
 }
 
 
@@ -34,13 +36,25 @@ message IncrementSlotAvailabilityRequest {
 }
 message IncrementSlotAvailabilityResponse {}
 
+message GetSlotInfoRequest {
+    string slot_id = 1;
+}
+message GetSlotInfoResponse {
+    Slot slot = 1;
+}
+
 
 // =======================================
 // The service definition.
 // =======================================
 
 service SchedulesService {
-    rpc checkSlotAvailability (CheckSlotAvailabilityRequest) returns (CheckSlotAvailabilityResponse) {}
+    rpc checkSlotAvailability (CheckSlotAvailabilityRequest) 
+        returns (CheckSlotAvailabilityResponse) {}
 
-    rpc incrementSlotAvailability (IncrementSlotAvailabilityRequest) returns (IncrementSlotAvailabilityResponse) {}
+    rpc incrementSlotAvailability (IncrementSlotAvailabilityRequest) 
+        returns (IncrementSlotAvailabilityResponse) {}
+
+    rpc getSlotInfo (GetSlotInfoRequest) 
+        returns (GetSlotInfoResponse) {}
 }
