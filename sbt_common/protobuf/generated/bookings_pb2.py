@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='bookings.proto',
   package='soboto.bookings',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x62ookings.proto\x12\x0fsoboto.bookings\"\x93\x01\n\x0fParticipantInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\x12\n\nis_contact\x18\x04 \x01(\x08\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x1b\n\x13participant_type_id\x18\x07 \x01(\t\"P\n\x13ParticipantsPerType\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\x12\x1b\n\x13participant_type_id\x18\x03 \x01(\t\"\xd3\x02\n\x0bItemBooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_amount\x18\x04 \x01(\x02\x12\x0e\n\x06\x65xtras\x18\x05 \x01(\x02\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x13\n\x0b\x65mployee_id\x18\x07 \x01(\t\x12\x0f\n\x07slot_id\x18\x08 \x01(\t\x12\x13\n\x0bsupplier_id\x18\t \x01(\t\x12\x13\n\x0breseller_id\x18\n \x01(\t\x12\x18\n\x10\x64iscount_code_id\x18\x0b \x01(\t\x12\x43\n\x15participants_per_type\x18\x0c \x03(\x0b\x32$.soboto.bookings.ParticipantsPerType\x12\x36\n\x0cparticipants\x18\r \x03(\x0b\x32 .soboto.bookings.ParticipantInfo\"\xdb\x02\n\x07\x42ooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x12\n\nupdated_at\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\x12\x14\n\x0ctotal_amount\x18\x05 \x01(\x02\x12\x16\n\x0etotal_currency\x18\x06 \x01(\t\x12\x12\n\ntotal_paid\x18\x07 \x01(\x02\x12\x11\n\ttotal_due\x18\x08 \x01(\x02\x12\x16\n\x0e\x64\x61te_confirmed\x18\t \x01(\x05\x12\x11\n\tdate_paid\x18\n \x01(\x05\x12\x0f\n\x07summary\x18\x0b \x01(\t\x12\x16\n\x0epayment_method\x18\x0c \x01(\t\x12\x13\n\x0b\x61gree_terms\x18\r \x01(\x08\x12\x13\n\x0b\x63ustomer_id\x18\x0e \x01(\t\x12\x0e\n\x06status\x18\x0f \x01(\t\x12+\n\x05items\x18\x10 \x03(\x0b\x32\x1c.soboto.bookings.ItemBooking\"#\n\x15GetBookingInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"C\n\x16GetBookingInfoResponse\x12)\n\x07\x62ooking\x18\x01 \x01(\x0b\x32\x18.soboto.bookings.Booking2v\n\x0f\x42ookingsService\x12\x63\n\x0egetBookingInfo\x12&.soboto.bookings.GetBookingInfoRequest\x1a\'.soboto.bookings.GetBookingInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x62ookings.proto\x12\x0fsoboto.bookings\"\x7f\n\x0fParticipantInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x1b\n\x13participant_type_id\x18\x07 \x01(\t\"P\n\x13ParticipantsPerType\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\x12\x1b\n\x13participant_type_id\x18\x03 \x01(\t\"\xd3\x02\n\x0bItemBooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x14\n\x0ctotal_amount\x18\x04 \x01(\x02\x12\x0e\n\x06\x65xtras\x18\x05 \x01(\x02\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x13\n\x0b\x65mployee_id\x18\x07 \x01(\t\x12\x0f\n\x07slot_id\x18\x08 \x01(\t\x12\x13\n\x0bsupplier_id\x18\t \x01(\t\x12\x13\n\x0breseller_id\x18\n \x01(\t\x12\x18\n\x10\x64iscount_code_id\x18\x0b \x01(\t\x12\x43\n\x15participants_per_type\x18\x0c \x03(\x0b\x32$.soboto.bookings.ParticipantsPerType\x12\x36\n\x0cparticipants\x18\r \x03(\x0b\x32 .soboto.bookings.ParticipantInfo\"\xdb\x02\n\x07\x42ooking\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\ncreated_at\x18\x02 \x01(\x05\x12\x12\n\nupdated_at\x18\x03 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\x12\x14\n\x0ctotal_amount\x18\x05 \x01(\x02\x12\x16\n\x0etotal_currency\x18\x06 \x01(\t\x12\x12\n\ntotal_paid\x18\x07 \x01(\x02\x12\x11\n\ttotal_due\x18\x08 \x01(\x02\x12\x16\n\x0e\x64\x61te_confirmed\x18\t \x01(\x05\x12\x11\n\tdate_paid\x18\n \x01(\x05\x12\x0f\n\x07summary\x18\x0b \x01(\t\x12\x16\n\x0epayment_method\x18\x0c \x01(\t\x12\x13\n\x0b\x61gree_terms\x18\r \x01(\x08\x12\x13\n\x0b\x63ustomer_id\x18\x0e \x01(\t\x12\x0e\n\x06status\x18\x0f \x01(\t\x12+\n\x05items\x18\x10 \x03(\x0b\x32\x1c.soboto.bookings.ItemBooking\"#\n\x15GetBookingInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"C\n\x16GetBookingInfoResponse\x12)\n\x07\x62ooking\x18\x01 \x01(\x0b\x32\x18.soboto.bookings.Booking2v\n\x0f\x42ookingsService\x12\x63\n\x0egetBookingInfo\x12&.soboto.bookings.GetBookingInfoRequest\x1a\'.soboto.bookings.GetBookingInfoResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -55,28 +55,21 @@ _PARTICIPANTINFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='is_contact', full_name='soboto.bookings.ParticipantInfo.is_contact', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='email', full_name='soboto.bookings.ParticipantInfo.email', index=4,
+      name='email', full_name='soboto.bookings.ParticipantInfo.email', index=3,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='phone', full_name='soboto.bookings.ParticipantInfo.phone', index=5,
+      name='phone', full_name='soboto.bookings.ParticipantInfo.phone', index=4,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='participant_type_id', full_name='soboto.bookings.ParticipantInfo.participant_type_id', index=6,
+      name='participant_type_id', full_name='soboto.bookings.ParticipantInfo.participant_type_id', index=5,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -94,8 +87,8 @@ _PARTICIPANTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=36,
-  serialized_end=183,
+  serialized_start=35,
+  serialized_end=162,
 )
 
 
@@ -139,8 +132,8 @@ _PARTICIPANTSPERTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=185,
-  serialized_end=265,
+  serialized_start=164,
+  serialized_end=244,
 )
 
 
@@ -254,8 +247,8 @@ _ITEMBOOKING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=268,
-  serialized_end=607,
+  serialized_start=247,
+  serialized_end=586,
 )
 
 
@@ -390,8 +383,8 @@ _BOOKING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=610,
-  serialized_end=957,
+  serialized_start=589,
+  serialized_end=936,
 )
 
 
@@ -421,8 +414,8 @@ _GETBOOKINGINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=959,
-  serialized_end=994,
+  serialized_start=938,
+  serialized_end=973,
 )
 
 
@@ -452,8 +445,8 @@ _GETBOOKINGINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=996,
-  serialized_end=1063,
+  serialized_start=975,
+  serialized_end=1042,
 )
 
 _ITEMBOOKING.fields_by_name['participants_per_type'].message_type = _PARTICIPANTSPERTYPE
