@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='users.proto',
   package='soboto.users',
   syntax='proto3',
-  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"*\n\nUserEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x03(\x0b\x32\x18.soboto.users.UserEntity\"\x8d\x02\n\x06\x42OUser\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12/\n\x12\x61lternative_phones\x18\x08 \x03(\x0b\x32\x13.soboto.users.Phone\x12/\n\x12\x61lternative_emails\x18\t \x03(\x0b\x32\x13.soboto.users.Email\x12*\n\x08\x65ntities\x18\n \x03(\x0b\x32\x18.soboto.users.UserEntity\"\xdf\x01\n\x08\x43ustomer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x0e\n\x06gender\x18\t \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\n \x01(\t\x12\x0c\n\x04\x63ity\x18\x0b \x01(\t\x12\x12\n\npostal_zip\x18\x0c \x01(\t\x12\x0b\n\x03\x61ge\x18\r \x01(\x05\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission\"\"\n\x14GetBOUserInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x15GetBOUserInfoResponse\x12\"\n\x04user\x18\x01 \x01(\x0b\x32\x14.soboto.users.BOUser\"$\n\x16GetCustomerInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"?\n\x17GetCustomerInfoResponse\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x16.soboto.users.Customer\";\n\x15SetEntityOwnerRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x11\n\tentity_id\x18\x02 \x01(\t\")\n\x16SetEntityOwnerResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\x9d\x04\n\x0cUsersService\x12\x84\x01\n\x1bvalidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12getUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x12Z\n\rgetBOUserInfo\x12\".soboto.users.GetBOUserInfoRequest\x1a#.soboto.users.GetBOUserInfoResponse\"\x00\x12`\n\x0fgetCustomerInfo\x12$.soboto.users.GetCustomerInfoRequest\x1a%.soboto.users.GetCustomerInfoResponse\"\x00\x12]\n\x0esetEntityOwner\x12#.soboto.users.SetEntityOwnerRequest\x1a$.soboto.users.SetEntityOwnerResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0busers.proto\x12\x0csoboto.users\"\x16\n\x05Phone\x12\r\n\x05value\x18\x01 \x01(\t\"\x16\n\x05\x45mail\x12\r\n\x05value\x18\x01 \x01(\t\"8\n\nPermission\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x63odename\x18\x03 \x01(\t\"F\n\nUserEntity\x12\x11\n\tentity_id\x18\x01 \x01(\t\x12\x10\n\x08\x66unction\x18\x02 \x01(\t\x12\x13\n\x0b\x65ntity_type\x18\x03 \x01(\t\"\xdf\x01\n\x08UserAuth\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x12\n\nfirst_name\x18\x05 \x01(\t\x12\x11\n\tlast_name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x07 \x01(\t\x12\x14\n\x0cis_superuser\x18\x08 \x01(\x08\x12\x11\n\tis_active\x18\t \x01(\x08\x12\x10\n\x08is_staff\x18\n \x01(\x08\x12(\n\x06\x65ntity\x18\x0b \x01(\x0b\x32\x18.soboto.users.UserEntity\"\x8b\x02\n\x06\x42OUser\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12/\n\x12\x61lternative_phones\x18\x08 \x03(\x0b\x32\x13.soboto.users.Phone\x12/\n\x12\x61lternative_emails\x18\t \x03(\x0b\x32\x13.soboto.users.Email\x12(\n\x06\x65ntity\x18\n \x01(\x0b\x32\x18.soboto.users.UserEntity\"\xdf\x01\n\x08\x43ustomer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05phone\x18\x06 \x01(\t\x12\x12\n\nbirth_date\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x0e\n\x06gender\x18\t \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\n \x01(\t\x12\x0c\n\x04\x63ity\x18\x0b \x01(\t\x12\x12\n\npostal_zip\x18\x0c \x01(\t\x12\x0b\n\x03\x61ge\x18\r \x01(\x05\"3\n\"ValidateAuthenticationTokenRequest\x12\r\n\x05token\x18\x01 \x01(\t\"Z\n#ValidateAuthenticationTokenResponse\x12\r\n\x05valid\x18\x01 \x01(\x08\x12$\n\x04user\x18\x02 \x01(\x0b\x32\x16.soboto.users.UserAuth\",\n\x19GetUserPermissionsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"K\n\x1aGetUserPermissionsResponse\x12-\n\x0bpermissions\x18\x01 \x03(\x0b\x32\x18.soboto.users.Permission\"\"\n\x14GetBOUserInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x15GetBOUserInfoResponse\x12\"\n\x04user\x18\x01 \x01(\x0b\x32\x14.soboto.users.BOUser\"$\n\x16GetCustomerInfoRequest\x12\n\n\x02id\x18\x01 \x01(\t\"?\n\x17GetCustomerInfoResponse\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x16.soboto.users.Customer\";\n\x15SetEntityOwnerRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x11\n\tentity_id\x18\x02 \x01(\t\")\n\x16SetEntityOwnerResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\x9d\x04\n\x0cUsersService\x12\x84\x01\n\x1bvalidateAuthenticationToken\x12\x30.soboto.users.ValidateAuthenticationTokenRequest\x1a\x31.soboto.users.ValidateAuthenticationTokenResponse\"\x00\x12i\n\x12getUserPermissions\x12\'.soboto.users.GetUserPermissionsRequest\x1a(.soboto.users.GetUserPermissionsResponse\"\x00\x12Z\n\rgetBOUserInfo\x12\".soboto.users.GetBOUserInfoRequest\x1a#.soboto.users.GetBOUserInfoResponse\"\x00\x12`\n\x0fgetCustomerInfo\x12$.soboto.users.GetCustomerInfoRequest\x1a%.soboto.users.GetCustomerInfoResponse\"\x00\x12]\n\x0esetEntityOwner\x12#.soboto.users.SetEntityOwnerRequest\x1a$.soboto.users.SetEntityOwnerResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -141,7 +141,7 @@ _USERENTITY = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='soboto.users.UserEntity.id', index=0,
+      name='entity_id', full_name='soboto.users.UserEntity.entity_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -150,6 +150,13 @@ _USERENTITY = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='function', full_name='soboto.users.UserEntity.function', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='entity_type', full_name='soboto.users.UserEntity.entity_type', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -167,7 +174,7 @@ _USERENTITY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=135,
-  serialized_end=177,
+  serialized_end=205,
 )
 
 
@@ -250,8 +257,8 @@ _USERAUTH = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='entity', full_name='soboto.users.UserAuth.entity', index=10,
-      number=11, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -267,8 +274,8 @@ _USERAUTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=180,
-  serialized_end=403,
+  serialized_start=208,
+  serialized_end=431,
 )
 
 
@@ -343,9 +350,9 @@ _BOUSER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='entities', full_name='soboto.users.BOUser.entities', index=9,
-      number=10, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='entity', full_name='soboto.users.BOUser.entity', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -361,8 +368,8 @@ _BOUSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=406,
-  serialized_end=675,
+  serialized_start=434,
+  serialized_end=701,
 )
 
 
@@ -476,8 +483,8 @@ _CUSTOMER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=678,
-  serialized_end=901,
+  serialized_start=704,
+  serialized_end=927,
 )
 
 
@@ -507,8 +514,8 @@ _VALIDATEAUTHENTICATIONTOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=903,
-  serialized_end=954,
+  serialized_start=929,
+  serialized_end=980,
 )
 
 
@@ -545,8 +552,8 @@ _VALIDATEAUTHENTICATIONTOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=956,
-  serialized_end=1046,
+  serialized_start=982,
+  serialized_end=1072,
 )
 
 
@@ -576,8 +583,8 @@ _GETUSERPERMISSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1048,
-  serialized_end=1092,
+  serialized_start=1074,
+  serialized_end=1118,
 )
 
 
@@ -607,8 +614,8 @@ _GETUSERPERMISSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1094,
-  serialized_end=1169,
+  serialized_start=1120,
+  serialized_end=1195,
 )
 
 
@@ -638,8 +645,8 @@ _GETBOUSERINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1171,
-  serialized_end=1205,
+  serialized_start=1197,
+  serialized_end=1231,
 )
 
 
@@ -669,8 +676,8 @@ _GETBOUSERINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1207,
-  serialized_end=1266,
+  serialized_start=1233,
+  serialized_end=1292,
 )
 
 
@@ -700,8 +707,8 @@ _GETCUSTOMERINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1268,
-  serialized_end=1304,
+  serialized_start=1294,
+  serialized_end=1330,
 )
 
 
@@ -731,8 +738,8 @@ _GETCUSTOMERINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1306,
-  serialized_end=1369,
+  serialized_start=1332,
+  serialized_end=1395,
 )
 
 
@@ -769,8 +776,8 @@ _SETENTITYOWNERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1371,
-  serialized_end=1430,
+  serialized_start=1397,
+  serialized_end=1456,
 )
 
 
@@ -800,14 +807,14 @@ _SETENTITYOWNERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1432,
-  serialized_end=1473,
+  serialized_start=1458,
+  serialized_end=1499,
 )
 
 _USERAUTH.fields_by_name['entity'].message_type = _USERENTITY
 _BOUSER.fields_by_name['alternative_phones'].message_type = _PHONE
 _BOUSER.fields_by_name['alternative_emails'].message_type = _EMAIL
-_BOUSER.fields_by_name['entities'].message_type = _USERENTITY
+_BOUSER.fields_by_name['entity'].message_type = _USERENTITY
 _VALIDATEAUTHENTICATIONTOKENRESPONSE.fields_by_name['user'].message_type = _USERAUTH
 _GETUSERPERMISSIONSRESPONSE.fields_by_name['permissions'].message_type = _PERMISSION
 _GETBOUSERINFORESPONSE.fields_by_name['user'].message_type = _BOUSER

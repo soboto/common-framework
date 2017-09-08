@@ -70,19 +70,23 @@ class AuthUser(object):
 
 
 class BOUser(AuthUser):
-    entity = []
+    entity = None
+    entity_type = None
     type = BO_USER_TYPE
 
     def __init__(self, *args, **kwargs):
         super(BOUser, self).__init__(*args, **kwargs)
 
-        self.parse_entities()
+        self.parse_entity()
 
-    def parse_entities(self):
-        self.entity = [e['id'] for e in self.entity]
-
+    def parse_entity(self):
+        entity_info = self.entity
+        if isinstance(entity_info, dict):
+            self.entity = entity_info['entity_id']
+            self.entity_type = entity_info['entity_type']
+        
     def get_entity(self):
-        return self.entity[0] if len(self.entity) > 0 else None
+        return self.entity
 
 
 class Customer(AuthUser):

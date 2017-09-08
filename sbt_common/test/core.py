@@ -180,6 +180,9 @@ class DestroyAPITestCaseMixin(object):
             obj = self.create_object()
             object_id = obj.id
 
+        print 'AAAAA'
+        print object_id
+        
         response = self.get_destroy_response(object_id)
 
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT, response.data)

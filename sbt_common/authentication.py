@@ -4,6 +4,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import get_authorization_header
+from sbt_common.messaging.service import Service
 
 from .protobuf import ProtoService
 from .settings import api_settings
@@ -24,15 +25,8 @@ class ServiceTokenAuthentication(TokenAuthentication):
         if not key:
             return Anonymous(), None
 
-        users_service = ProtoService(
-            api_settings.SERVICE_USERS_URL,
-            'users_pb2.beta_create_UsersService_stub'
-        )
-        response = users_service.execute(
-            'validateAuthenticationToken',
-            'users_pb2.ValidateAuthenticationTokenRequest',
-            {'token': key}
-        )
+        users_service = Service('users')
+        response = users_service.validateAuthenticationToken({'token': key})
 
         if response.valid:
             user_info = response.user

@@ -38,6 +38,7 @@ message Entity {
     repeated Phone alternative_phones = 13;
     repeated Email alternative_emails = 14;
     repeated EntityBillingProvider billing_providers = 15;
+    string entity_type = 16;
 }
 
 

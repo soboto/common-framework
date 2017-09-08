@@ -22,8 +22,9 @@ message Permission {
 }
 
 message UserEntity {
-    string id = 1;
+    string entity_id = 1;
     string function = 2;
+    string entity_type = 3;
 }
 
 message UserAuth {
@@ -37,7 +38,7 @@ message UserAuth {
     bool is_superuser = 8;
     bool is_active = 9;
     bool is_staff = 10;
-    repeated UserEntity entity = 11;
+    UserEntity entity = 11;
 }
 
 message BOUser {
@@ -50,7 +51,7 @@ message BOUser {
     string birth_date = 7;
     repeated Phone alternative_phones = 8;
     repeated Email alternative_emails = 9;
-    repeated UserEntity entities = 10;
+    UserEntity entity = 10;
 }
 
 message Customer {

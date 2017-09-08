@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework.authentication import TokenAuthentication
+from sbt_common.constants import SUPPLIER
 
 from . import _factories
 
@@ -24,7 +25,8 @@ class FakeUserAuthentication(object):
         return self._authenticated_user
 
     def set_user_entity(self, entity_id):
-        self._authenticated_user.entity = [entity_id]
+        self._authenticated_user.entity = entity_id
+        self._authenticated_user.entity_type = SUPPLIER
 
 
 class FakeServiceTokenAuthentication(TokenAuthentication):
