@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='schedules.proto',
   package='soboto.schedules',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fschedules.proto\x12\x10soboto.schedules\"\xb6\x01\n\x04Slot\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x18\n\x10initial_quantity\x18\x05 \x01(\x05\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x07 \x01(\t\x12\x14\n\x0cis_available\x18\x08 \x01(\x08\x12\x1a\n\x12\x61vailable_quantity\x18\t \x01(\x05\"/\n\x1c\x43heckSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"2\n\x1d\x43heckSlotAvailabilityResponse\x12\x11\n\tavailable\x18\x01 \x01(\x08\"3\n IncrementSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"#\n!IncrementSlotAvailabilityResponse\"%\n\x12GetSlotInfoRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\";\n\x13GetSlotInfoResponse\x12$\n\x04slot\x18\x01 \x01(\x0b\x32\x16.soboto.schedules.Slot2\xf5\x02\n\x10SchedulesService\x12z\n\x15\x63heckSlotAvailability\x12..soboto.schedules.CheckSlotAvailabilityRequest\x1a/.soboto.schedules.CheckSlotAvailabilityResponse\"\x00\x12\x86\x01\n\x19incrementSlotAvailability\x12\x32.soboto.schedules.IncrementSlotAvailabilityRequest\x1a\x33.soboto.schedules.IncrementSlotAvailabilityResponse\"\x00\x12\\\n\x0bgetSlotInfo\x12$.soboto.schedules.GetSlotInfoRequest\x1a%.soboto.schedules.GetSlotInfoResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0fschedules.proto\x12\x10soboto.schedules\"\xb6\x01\n\x04Slot\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05start\x18\x02 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x05\x12\x17\n\x0f\x62ooked_quantity\x18\x04 \x01(\x05\x12\x18\n\x10initial_quantity\x18\x05 \x01(\x05\x12\x0f\n\x07item_id\x18\x06 \x01(\t\x12\x10\n\x08\x65vent_id\x18\x07 \x01(\t\x12\x14\n\x0cis_available\x18\x08 \x01(\x08\x12\x1a\n\x12\x61vailable_quantity\x18\t \x01(\x05\"/\n\x1c\x43heckSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\"2\n\x1d\x43heckSlotAvailabilityResponse\x12\x11\n\tavailable\x18\x01 \x01(\x08\"C\n IncrementSlotAvailabilityRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\x05\"#\n!IncrementSlotAvailabilityResponse\"%\n\x12GetSlotInfoRequest\x12\x0f\n\x07slot_id\x18\x01 \x01(\t\";\n\x13GetSlotInfoResponse\x12$\n\x04slot\x18\x01 \x01(\x0b\x32\x16.soboto.schedules.Slot2\xf5\x02\n\x10SchedulesService\x12z\n\x15\x63heckSlotAvailability\x12..soboto.schedules.CheckSlotAvailabilityRequest\x1a/.soboto.schedules.CheckSlotAvailabilityResponse\"\x00\x12\x86\x01\n\x19incrementSlotAvailability\x12\x32.soboto.schedules.IncrementSlotAvailabilityRequest\x1a\x33.soboto.schedules.IncrementSlotAvailabilityResponse\"\x00\x12\\\n\x0bgetSlotInfo\x12$.soboto.schedules.GetSlotInfoRequest\x1a%.soboto.schedules.GetSlotInfoResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -189,6 +189,13 @@ _INCREMENTSLOTAVAILABILITYREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='number', full_name='soboto.schedules.IncrementSlotAvailabilityRequest.number', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -202,7 +209,7 @@ _INCREMENTSLOTAVAILABILITYREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=323,
-  serialized_end=374,
+  serialized_end=390,
 )
 
 
@@ -225,8 +232,8 @@ _INCREMENTSLOTAVAILABILITYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=376,
-  serialized_end=411,
+  serialized_start=392,
+  serialized_end=427,
 )
 
 
@@ -256,8 +263,8 @@ _GETSLOTINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=450,
+  serialized_start=429,
+  serialized_end=466,
 )
 
 
@@ -287,8 +294,8 @@ _GETSLOTINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=452,
-  serialized_end=511,
+  serialized_start=468,
+  serialized_end=527,
 )
 
 _GETSLOTINFORESPONSE.fields_by_name['slot'].message_type = _SLOT

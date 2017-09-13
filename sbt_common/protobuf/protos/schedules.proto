@@ -33,6 +33,7 @@ message CheckSlotAvailabilityResponse {
 
 message IncrementSlotAvailabilityRequest {
     string slot_id = 1;
+    int32 number = 2;
 }
 message IncrementSlotAvailabilityResponse {}
 
