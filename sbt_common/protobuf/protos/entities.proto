@@ -22,6 +22,13 @@ message EntityBillingProvider{
     bool is_active = 4;
 }
 
+message MessagingProvider{
+    string id = 1;
+    string name = 2;
+    string type = 3;
+    map<string, string> data = 4;
+}
+
 message Entity {
     string id = 1;
     string alias = 2;
@@ -38,7 +45,8 @@ message Entity {
     repeated Phone alternative_phones = 13;
     repeated Email alternative_emails = 14;
     repeated EntityBillingProvider billing_providers = 15;
-    string entity_type = 16;
+    repeated MessagingProvider messaging_providers = 16;
+    string entity_type = 17;
 }
 
 
